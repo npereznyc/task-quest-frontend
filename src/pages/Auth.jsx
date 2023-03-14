@@ -3,7 +3,7 @@ import { getUserToken, setUserToken, clearUserToken } from "../utils/authToken";
 import { useContext } from "react";
 import { UserContext } from "../data";
 import RegisterForm from "../components/RegisterForm";
-import LoginForm from "../components/LoginForm";
+import LoginForm from "../components/CaregiverLogin";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
