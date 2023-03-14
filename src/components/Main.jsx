@@ -6,6 +6,7 @@ import WhoLogsIn from "../pages/WhoLogsIn";
 import ChildLogin from "./ChildLogin";
 import CaregiverLogin from "./CaregiverLogin";
 import RegisterForm from "./RegisterForm";
+import CaregiverDashboard from "../pages/CaregiverDashboard";
 import "../style/login.css"
 import "../App.css"
 
@@ -18,6 +19,7 @@ const Main = () => {
         <Route path="/childlogin" element={<ChildLogin />} />
         <Route path="/caregiverlogin" element={<CaregiverLogin />} />
         <Route path="register" element={<RegisterForm />} />
+        <Route path='/caregiverdashboard' element={<CaregiverDashboard/>} />
       </Routes>
     </div>
   );
