@@ -11,9 +11,8 @@ export default function CaregiverDashboard() {
     return (
         <div>
             <CaregiverNav />
-
             <ChildList />
-            <TasksRewards />
+            {/* <TasksRewards /> */}
         </div>
     )
 }

@@ -18,10 +18,9 @@ export default function ChildList(props) {
     const navigate = useNavigate()
 
     async function getCaregiver(caregiver) {
-        // console.log(`> getProfile() ending -` + userProfile.substring(16, userProfile.length) + `...`)
         let result
         try {
-            const response = await fetch(`http://localhost:4000/caregiverdashboard/${caregiver}`)
+            const response = await fetch(`http://localhost:4000/caregiver/${caregiver}`)
             result = await response.json()
         } catch (err) {
             console.error(err.message)
