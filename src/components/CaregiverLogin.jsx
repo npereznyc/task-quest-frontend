@@ -15,7 +15,7 @@ const CaregiverLogin = ({ signIn }) => {
     } else {
       navigate("/");
     }
-    
+
     // FORM EMPTIES OUT
     setInput(initialState);
   };
@@ -25,28 +25,45 @@ const CaregiverLogin = ({ signIn }) => {
   };
 
   return (
-    <>
-    <h1>Caregiver Login Page</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email: </label>
-        <input
-          id="email"
-          name="email"
-          value={input.email}
-          onChange={handleChange}
-        />
+    <div className="login-page">
+      <div className="random-box"></div>
+      <div className="login-side">
+        <h1 className="login-title">LOGIN</h1>
 
-        <label htmlFor="password">Password: </label>
-        <input
-          id="password"
-          name="password"
-          value={input.password}
-          onChange={handleChange}
-        />
+        <form className="login-form" onSubmit={handleSubmit}>
+          <label className="care-email" htmlFor="email">
+            Email:{" "}
+          </label>
+          <br></br>
 
-        <input className="auth-log" type="submit" value="Login User" />
-      </form>
-    </>
+          <input
+            className="email-input"
+            id="email"
+            name="email"
+            value={input.email}
+            onChange={handleChange}
+          />
+          <br></br>
+
+          <label className="" htmlFor="password">
+            Password:{" "}
+          </label>
+          <br></br>
+          <input
+            className="password-input"
+            id="password"
+            name="password"
+            value={input.password}
+            onChange={handleChange}
+          />
+          <br></br>
+          <div className="login-btn">
+                      <input className="auth-log" type="submit" value="Sign In" />
+
+          </div>
+        </form>
+      </div>
+    </div>
   );
 };
 

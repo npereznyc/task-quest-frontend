@@ -7,6 +7,8 @@ import ChildLogin from "./ChildLogin";
 import CaregiverLogin from "./CaregiverLogin";
 import RegisterForm from "./RegisterForm";
 import CaregiverDashboard from "../pages/CaregiverDashboard";
+import "../style/login.css"
+import "../App.css"
 
 const Main = () => {
   return (
