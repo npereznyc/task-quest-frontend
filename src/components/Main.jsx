@@ -5,6 +5,8 @@ import Home from "../pages/Home";
 import WhoLogsIn from "../pages/WhoLogsIn";
 import ChildLogin from "./ChildLogin";
 import CaregiverLogin from "./CaregiverLogin";
+import RegisterForm from "./RegisterForm";
+import CaregiverDashboard from "../pages/CaregiverDashboard";
 
 const Main = () => {
   return (
@@ -15,6 +17,7 @@ const Main = () => {
         <Route path="/childlogin" element={<ChildLogin />} />
         <Route path="/caregiverlogin" element={<CaregiverLogin />} />
         <Route path="register" element={<RegisterForm />} />
+        <Route path='/caregiverdashboard' element={<CaregiverDashboard/>} />
       </Routes>
     </div>
   );
