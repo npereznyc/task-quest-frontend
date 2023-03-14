@@ -6,6 +6,7 @@ import WhoLogsIn from "../pages/WhoLogsIn";
 import ChildLogin from "./ChildLogin";
 import CaregiverLogin from "./CaregiverLogin";
 import RegisterForm from "./RegisterForm";
+import "../style/login.css"
 import "../App.css"
 
 const Main = () => {
