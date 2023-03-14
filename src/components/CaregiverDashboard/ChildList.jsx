@@ -118,6 +118,7 @@ export default function ChildList(props) {
             <h1>
                 Loading...&nbsp;
                 <img
+                    width="200px"
                     className="spinner"
                     src="https://freesvg.org/img/1544764567.png"
                     alt="Loading animation"

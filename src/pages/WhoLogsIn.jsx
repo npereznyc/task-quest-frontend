@@ -1,19 +1,20 @@
-import React from 'react'
+import React from "react";
 import { Link } from "react-router-dom";
 
 const WhoLogsIn = () => {
   return (
-    <div>
-        <h1>Are you a child or caregiver?</h1>
-        <Link to={"/childlogin"}>
-          Child
+    <div className="whose-box">
+      <div className="random-box"></div>
+      <div className="whose-input-side">
+        <Link className="link task-master" to={"/caregiverlogin"}>
+          I am the Task Master
         </Link>
-        <Link to={"/caregiverlogin"}>
-          Caregiver
+        <Link className="link task-runner" to={"/childlogin"}>
+          I am the Task Runner
         </Link>
-
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default WhoLogsIn
+export default WhoLogsIn;
