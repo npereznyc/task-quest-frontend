@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const LoginForm = ({ signIn }) => {
-  const initialState = { username: "", password: "" };
+const CaregiverLogin = ({ signIn }) => {
+  const initialState = { email: "", password: "" };
   const [input, setInput] = useState(initialState);
   const navigate = useNavigate();
 
@@ -26,31 +26,28 @@ const LoginForm = ({ signIn }) => {
 
   return (
     <>
+    <h1>Caregiver Login Page</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email: </label>
         <input
-          className="auth-input"
           id="email"
           name="email"
           value={input.email}
           onChange={handleChange}
         />
-        <br />
-        <br />
+
         <label htmlFor="password">Password: </label>
         <input
-          className="auth-input"
           id="password"
           name="password"
           value={input.password}
           onChange={handleChange}
         />
-        <br />
-        <br />
+
         <input className="auth-log" type="submit" value="Login User" />
       </form>
     </>
   );
 };
 
-export default LoginForm;
+export default CaregiverLogin;
