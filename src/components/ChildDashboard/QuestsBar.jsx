@@ -3,14 +3,6 @@ import { useState, useEffect } from 'react'
 
 export default function QuestsBar(props) {
     const [tasks, setTasks] = useState([])
-    const [task, setTask] = useState({
-        caregiverID: [],
-        taskName: '',
-        completed: '',
-        image: '',
-        taskPoints: '',
-        dueDate: ''
-    })
 
     const listTasks = async () => {
         try {
@@ -26,41 +18,27 @@ export default function QuestsBar(props) {
             console.error(error)
         }
     }
-    const createTask = async () => {
-        try {
-            const response = await fetch(`/task`, {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ ...task })
-            })
-            const data = await response.json()
-            setTask(data)
-            setTask({
-                caregiverID: [],
-                taskName: '',
-                completed: '',
-                image: '',
-                taskPoints: '',
-                dueDate: ''
-            })
-        } catch (error) {
-            console.error(error)
-        }
-    }
 
-    const handleChange = (evt) => {
-        setTask({ ...task, [evt.target.name]: evt.target.value})
-    }
     useEffect(() => {
         listTasks()
-    }, [task])
+    }, [tasks])
+
     return (
         <div>
-            <div className='quests-view'>
-                <div className='todays-quests'>Today's Quests</div>
-                <div className='completed-quests'>Completed</div>
+            <div className='todays-quests'>
+                return(
+                <ul>
+                    {tasks.map((chat) => {
+                        return (
+                            <li key={task._id}>
+                                <div className='task-name'>{task.taskName}</div>
+                                <div className='task-points'>{task.taskPoints} Points</div>
+                            </li>
+                        )
+                    })}
+                </ul>
+                )
+                <div className='quest'></div>
             </div>
         </div>
     )
