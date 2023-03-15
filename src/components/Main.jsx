@@ -25,7 +25,7 @@ const Main = () => {
         <Route path="/caregiverlogin" element={<CaregiverLogin />} />
         <Route path="register" element={<RegisterForm />} />
         <Route path="/caregiverdashboard" element={<CaregiverDashboard />} />
-        <Route path="/editrewardsandtasks" element={<EditRewardsAndTasks />} />
+        <Route path="/caregiverdashboard/editrewardsandtasks" element={<EditRewardsAndTasks />} />
         <Route path="/addChild" element={<AddChild />} />
       </Routes>
     </div>
