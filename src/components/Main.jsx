@@ -1,5 +1,5 @@
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from "react";
 import Auth from "../pages/Auth";
 import Home from "../pages/Home";
 import WhoLogsIn from "../pages/WhoLogsIn";
@@ -7,10 +7,11 @@ import ChildLogin from "./ChildLogin";
 import CaregiverLogin from "./CaregiverLogin";
 import RegisterForm from "./RegisterForm";
 import CaregiverDashboard from "../pages/CaregiverDashboard";
-import "../style/login.css"
-import "../App.css"
+import "../style/login.css";
+import "../App.css";
 import TasksRewards from "./CaregiverDashboard/TasksRewards";
 import ChildDashboard from "../pages/ChildDashboard";
+import AddChild from "./CaregiverDashboard/AddChild";
 
 const Main = () => {
   return (
@@ -21,8 +22,9 @@ const Main = () => {
         <Route path="/childlogin" element={<ChildLogin />} />
         <Route path="/caregiverlogin" element={<CaregiverLogin />} />
         <Route path="register" element={<RegisterForm />} />
-        <Route path='/caregiverdashboard' element={<CaregiverDashboard/>} />
-        <Route path='/tasksrewards' element={<TasksRewards/>} />
+        <Route path="/caregiverdashboard" element={<CaregiverDashboard />} />
+        <Route path="/tasksrewards" element={<TasksRewards />} />
+        <Route path="/addChild" element={<AddChild />} />
       </Routes>
     </div>
   );
