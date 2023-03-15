@@ -65,7 +65,7 @@
 }
 
 .login-title {
-  margin: 10px 10px 10px 10px;
+  margin: 60px 10px 10px 4vw;
 }
 .register-title {
   margin: 60px 10px 10px 4vw;
@@ -83,8 +83,9 @@
   background-color: rgb(123, 122, 122);
   color: white;
   border: none;
-  width: 12vw;
-  height: 30px;
+  font-size: 16px;
+  width: 200px;
+  height: 40px;
   border-radius: 30px;
 }
 .login-btn,
@@ -109,7 +110,7 @@
 .apple-sign,
 .google-sign {
   height: 30px;
-  width: 8vw;
+  width: 100px;
   margin: 0 10px;
   border-radius: 30px;
   background-color: rgb(126, 126, 126);
@@ -141,4 +142,13 @@
 .task-runner{
     width: 200px;
     margin: 0 auto;
+}
+
+@media only screen and (max-width: 800px){
+  .random-box{
+    width: 0%;
+  }
+  .register-side, .whose-input-side, .login-side {
+    width: 80%;
+  }
 }
