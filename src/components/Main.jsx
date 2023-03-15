@@ -6,12 +6,13 @@ import WhoLogsIn from "../pages/WhoLogsIn";
 import ChildLogin from "./ChildLogin";
 import CaregiverLogin from "./CaregiverLogin";
 import RegisterForm from "./RegisterForm";
+// import ChildDashboard from "./ChildDashboard"
 import CaregiverDashboard from "../pages/CaregiverDashboard";
 import "../style/login.css";
 import "../style/editTask.css";
 import "../App.css";
 import EditRewardsAndTasks from "./CaregiverDashboard/EditRewardsAndTasks";
-// import ChildDashboard from "../pages/ChildDashboard";
+import ChildDashboard from "../pages/ChildDashboard";
 import AddChild from "./CaregiverDashboard/AddChild";
 
 
