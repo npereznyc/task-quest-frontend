@@ -2,6 +2,7 @@ import Main from "./components/Main";
 import UserProvider from "./data/userContext";
 import { UserContext } from "./data/userContext";
 import { useState } from "react";
+import Header from "./components/Header";
 
 function App() {
   const { Provider: UserInfo } = UserContext;
@@ -19,6 +20,7 @@ function App() {
             setUser: setCurrentUser,
           }}
         >
+          <Header />
           <Main />
         </UserInfo>
       </UserProvider>
