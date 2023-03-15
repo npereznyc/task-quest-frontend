@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react"
 import { useParams } from 'react-router'
 import { useNavigate, Link } from "react-router-dom"
 import { UserContext } from "../../data"
+import Task from "./Task"
 
 export default function ChildList(props) {
     // useContext data
@@ -9,7 +10,6 @@ export default function ChildList(props) {
     const { setAuth, setUser, setUserID } = useContext(UserContext)
 
     // useState variables
-    const [caregiver, setCaregiver] = useState(undefined)
     const [children, setChildren] = useState([])
     const [tasks, setTasks] = useState([])
     const [rewards, setRewards] = useState([])
@@ -20,56 +20,42 @@ export default function ChildList(props) {
     const navigate = useNavigate()
 
     async function getChildren() {
-        let child
+        let children
         try {
             const response = await fetch(`http://localhost:4000/caregiver/6410a52aab95a2c2f235bb16/children`)
-            child = await response.json()
+            children = await response.json()
         } catch (err) {
             console.error(err.message)
         } finally {
-            // console.log(`> getProfile() found`, result.username + `!`)
-            setChildren(child)
+            setChildren(children)
         }
     }
 
-    async function getTasks() {
-        let task
-        try {
-            const response = await fetch(`http://localhost:4000/task/${id}`)
-            task= await response.json()
-        } catch(err) {
-            console.error(err.message)
-        } finally {
-            setTasks(tasks)
-        }
-    }
-    
     console.log('children: ', children)
-    console.log('tasks: ', tasks)
-  
+
     useEffect(() => {
         getChildren()
-        getTasks()
+        // getTasks()
         // getChildren(id)
     }, [id])
 
 
     function loaded() {
-        // console.log(`Loaded`, profile.username, `and`, posts.length, `posts!`)
 
         function findChildrenByCaregiver(caregiver) {
             let allChildren = []
             for (let i = 0; i < children.length; i++) {
-                    allChildren.push(children[i])
-                
+                allChildren.push(children[i])
+
                 // if (caregiver === children[i].caregiverId) {
                 //     allChildren.push(children[i])
                 // }
-                
+
             }
             console.log(allChildren)
             return allChildren
         }
+       
 
         const allChildren = findChildrenByCaregiver()
 
@@ -96,16 +82,13 @@ export default function ChildList(props) {
             <div className="children-list-container">
                 {allChildren.length ? <>
                     <div className="children-list">{allChildren.map((child) => (
-                    
-                            <div className="child" key={child._id}>
-                                {child.caregiverId ? <p>{child.childName}</p> : null}
-                                {}
+                        <div className="child" key={child._id}>
+                            {child.caregiverId ? <p>{child.childName}</p> : null}
+                            {child.taskArray ? <p className="child-tasks">{child.taskArray[0]}</p> : null} 
+                            <Task 
+                                taskId={child.taskArray[0]}/>
+                        </div>
 
-
-                                {child.taskArray ? <p className="child-tasks">{child.taskArray}</p> : null}
-                                {child.rewardsArray ? <p className="child-tasks">{child.rewardsArray}</p> : null}
-                            </div>
-                      
                     ))}</div>
                 </> : <p className="details">There are no children associated with this caregiver</p>}
             </div>
