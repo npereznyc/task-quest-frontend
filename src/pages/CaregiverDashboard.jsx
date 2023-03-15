@@ -6,6 +6,7 @@ import RewardsEarned from '../components/CaregiverDashboard/RewardsEarned'
 import CreateRewards from '../components/CaregiverDashboard/CreateRewards'
 import EditRewardsAndTasks from '../components/CaregiverDashboard/EditRewardsAndTasks'
 import TaskList from '../components/CaregiverDashboard/Task'
+import '../style/dashboard.css'
 
 export default function CaregiverDashboard() {
     return (

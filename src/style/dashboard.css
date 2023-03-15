@@ -1,0 +1,13 @@
+nav {
+    display: flex;
+    text-decoration: none;
+    background-color: #0811DA;
+    justify-content: end;
+    padding-right: 5rem;
+}
+
+a {
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+}
