@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import axios from "axios";
 
 const ShowAndEditReward = ({ caregiverId }) => {
+    console.log('caregiver/reward: ', caregiverId)
     const navigate = useNavigate();
     const [rewards, setRewards] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false); // track whether API call is complete
