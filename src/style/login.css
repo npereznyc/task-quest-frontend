@@ -83,8 +83,9 @@
   background-color: rgb(123, 122, 122);
   color: white;
   border: none;
+  font-size: 16px;
   width: 200px;
-  height: 30px;
+  height: 40px;
   border-radius: 30px;
 }
 .login-btn,
@@ -147,7 +148,7 @@
   .random-box{
     width: 0%;
   }
-  .register-side, .whose-input-side{
+  .register-side, .whose-input-side, .login-side {
     width: 80%;
   }
 }
