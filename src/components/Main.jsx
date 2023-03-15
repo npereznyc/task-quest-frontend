@@ -11,7 +11,7 @@ import "../style/login.css";
 import "../style/editTask.css";
 import "../App.css";
 import EditRewardsAndTasks from "./CaregiverDashboard/EditRewardsAndTasks";
-import ChildDashboard from "../pages/ChildDashboard";
+// import ChildDashboard from "../pages/ChildDashboard";
 import AddChild from "./CaregiverDashboard/AddChild";
 
 
@@ -23,10 +23,11 @@ const Main = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<WhoLogsIn />} />
         <Route path="/childlogin" element={<ChildLogin />} />
+        <Route path="/childdashboard" element={<ChildDashboard />} />
         <Route path="/caregiverlogin" element={<CaregiverLogin />} />
         <Route path="register" element={<RegisterForm />} />
         <Route path="/caregiverdashboard" element={<CaregiverDashboard />} />
-        <Route path="/editrewardsandtasks" element={<EditRewardsAndTasks />} />
+        <Route path="/caregiverdashboard/editrewardsandtasks" element={<EditRewardsAndTasks />} />
         <Route path="/addChild" element={<AddChild />} />
         <Route path="/tasksrewards" />
       </Routes>
