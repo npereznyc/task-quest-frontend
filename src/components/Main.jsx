@@ -10,7 +10,7 @@ import CaregiverDashboard from "../pages/CaregiverDashboard";
 import "../style/login.css";
 import "../App.css";
 import EditRewardsAndTasks from "./CaregiverDashboard/EditRewardsAndTasks";
-// import ChildDashboard from "../pages/ChildDashboard";
+import ChildDashboard from "../pages/ChildDashboard";
 import AddChild from "./CaregiverDashboard/AddChild";
 
 
