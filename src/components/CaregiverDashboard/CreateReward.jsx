@@ -1,8 +1,10 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useState } from "react";
 
 const validationSchema = Yup.object().shape({
+
     rewardName: Yup.string().required('Required'),
     rewardPoints: Yup.number().positive('Reward points must be a positive number').required('Required'),
     activeReward: Yup.boolean(),
@@ -13,10 +15,14 @@ const validationSchema = Yup.object().shape({
     const initialValues = {
     caregiverId,
     rewardName: '',
-    image: '',
     rewardPoints: 0,
     activeReward: true,
     cashedIn: 0,
+    };
+  const [isOpen, setIsOpen] = useState(false);
+
+    const toggleAccordion = () => {
+      setIsOpen(!isOpen);
     };
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
@@ -43,7 +49,11 @@ const validationSchema = Yup.object().shape({
 
   return (
     <div>
-      <h1>Add a New Reward</h1>
+      <div className="accordion-header" onClick={toggleAccordion}>
+        {" "}
+        <h2>Create New Reward</h2>
+      </div>
+      {isOpen && (
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -55,12 +65,6 @@ const validationSchema = Yup.object().shape({
               <label htmlFor="rewardName">Reward Name</label>
               <Field type="text" name="rewardName" />
               <ErrorMessage name="rewardName" component="div" />
-            </div>
-
-            <div>
-                <label htmlFor="image">Image URL</label>
-                <Field type="text" name="rewardImage" />
-                <ErrorMessage name="rewardImage" component="div" />
             </div>
 
             <div>
@@ -85,7 +89,7 @@ const validationSchema = Yup.object().shape({
             </button>
           </Form>
         )}
-      </Formik>
+      </Formik>)}
     </div>
   );
 };
