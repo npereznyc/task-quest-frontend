@@ -5,13 +5,13 @@ import CaregiverNav from './CaregiverNav'
 // import Tasks from '../components/CaregiverDashboard/Tasks'
 import CreateRewards from './CreateRewards'
 import CreateTask from './CreateTask'
-import EditTask from './EditTask'
+import ShowAndEditTask from './ShowAndEditTask'
 
-export default function TasksRewards() {
+export default function EditRewardsAndTasks() {
     return (
         <div>
             <CaregiverNav />
-            <EditTask taskId={"6410fc936aa948aa2b147d3f"}/>
+            <ShowAndEditTask taskIds={["641143b24883184ba2316566", "641145f7e129e66d8c50ff9a"]}/>
             <CreateTask caregiverId={"6410a52aab95a2c2f235bb16"} />
             <CreateRewards />
             {/* <RewardsEarned /> */}

@@ -4,7 +4,7 @@ import ChildList from '../components/CaregiverDashboard/ChildList'
 import Rewards from '../components/CaregiverDashboard/CreateRewards'
 import RewardsEarned from '../components/CaregiverDashboard/RewardsEarned'
 import CreateRewards from '../components/CaregiverDashboard/CreateRewards'
-import TasksRewards from '../components/CaregiverDashboard/TasksRewards'
+import EditRewardsAndTasks from '../components/CaregiverDashboard/EditRewardsAndTasks'
 import TaskList from '../components/CaregiverDashboard/Task'
 
 export default function CaregiverDashboard() {
