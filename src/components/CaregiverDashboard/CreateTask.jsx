@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
@@ -19,6 +20,11 @@ const CreateTask = ({ caregiverId }) => {
     completed: false,
     taskPoints: 0,
     dueDate: ''
+  };
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleAccordion = () => {
+    setIsOpen(!isOpen);
   };
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
@@ -44,8 +50,10 @@ const CreateTask = ({ caregiverId }) => {
 
   return (
     <div>
-      <h1>Add a New Task</h1>
-      <Formik
+            <div className="accordion-header" onClick={toggleAccordion}>
+        <h2>Add a Task</h2>
+      </div>
+      {isOpen && ( <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
@@ -81,7 +89,7 @@ const CreateTask = ({ caregiverId }) => {
             </button>
           </Form>
         )}
-      </Formik>
+      </Formik>)}
     </div>
   );
 };

@@ -28,10 +28,12 @@ export default function ChildList(props) {
   async function getChildren() {
     let children;
     try {
+
       const response = await axios(URL + `/caregiver/${caregiverId}/children`);
 
       setChildren(response.data);
       // children = await response.json();
+
     } catch (err) {
       console.error(err.message);
       // } finally {

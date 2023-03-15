@@ -1,0 +1,28 @@
+nav {
+    display: flex;
+    text-decoration: none;
+    background-color: #0811DA;
+    justify-content: end;
+    padding-right: 5rem;
+}
+
+a {
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+.tasks{
+    display: flex;
+    flex-direction: column;
+}
+
+.task{
+    background-color: #2F3240;
+    padding: 1rem;
+}
+
+.task-header{
+    display: flex;
+    background-color: #2F3240;
+}
