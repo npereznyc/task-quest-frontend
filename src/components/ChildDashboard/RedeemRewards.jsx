@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 
-export default function RedeemRewards() {
+export default function RedeemRewards({ caregiverId }) {
     const [rewards, setRewards] = useState([])
     const listRewards = async () => {
         try {

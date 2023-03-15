@@ -7,15 +7,20 @@ import CreateReward from './CreateReward'
 import CreateTask from './CreateTask'
 import ShowAndEditReward from './ShowAndEditReward'
 import ShowAndEditTask from './ShowAndEditTask'
+import { useState, useEffect } from "react";
 
 export default function EditRewardsAndTasks() {
+    const currentUser = JSON.parse(localStorage.getItem("caregiver"));
+    const caregiverId = currentUser._id;
+    const token = currentUser.token;
+
     return (
         <div>
             <CaregiverNav />
-            <ShowAndEditTask taskIds={["641143b24883184ba2316566", "641145f7e129e66d8c50ff9a"]}/>
-            <CreateTask caregiverId={"6410a52aab95a2c2f235bb16"} />
-            <CreateReward rewardIds={['6411f891df7c9c00df0fd50d', '6411efd78f2e3f2e7057565d']} />
-            <ShowAndEditReward caregiverId={"6410a52aab95a2c2f235bb16"}/>
+            <ShowAndEditTask caregiverId={caregiverId}/>
+            <CreateTask caregiverId={caregiverId} />
+            <ShowAndEditReward caregiverId={caregiverId}/>
+            <CreateReward caregiverId={caregiverId} />
             {/* <RewardsEarned /> */}
             {/* <Tasks /> */}
         </div>
