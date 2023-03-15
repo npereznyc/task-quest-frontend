@@ -1,35 +1,62 @@
-import { useState, useEffect } from "react"
-import { useParams } from 'react-router'
+import { useState, useEffect } from "react";
+import { useParams } from "react-router";
+import axios from "axios";
+
+const URL = process.env.REACT_APP_SERVER_URL || "http://localhost:4000";
 
 
-export default function TaskList (taskId) {
-    const [tasks, setTasks] = useState()
-    console.log('taskId: ', taskId)
+export default function ({ taskIds }) {
+  const [tasks, setTasks] = useState([]);
 
-    async function getTasks() {
-        let tasks
-        try {
-            const response = await fetch(`http://localhost:4000/tasks/${taskId}`)
-            tasks = await response.json()
-        } catch (err) {
-            console.error(err.message)
-        } finally {
-            setTasks(tasks)
-        }
+
+  async function getTasks() {
+    try {
+      const taskData = await Promise.all(
+        taskIds?.map((id) => axios.get(`http://localhost:4000/tasks/${id}`))
+      );
+
+      setTasks(taskData);
+    } catch (err) {
+      console.error(err.message);
     }
-    console.log('tasks: ', tasks)
+  }
 
-    useEffect(() => {
-        getTasks()
-    }, [])
+  useEffect(() => {
+    getTasks();
+  }, [taskIds]);
 
-    return (
-        <div className="task-list">
-           
-                {tasks ? <div className="tasks">{tasks.taskName}</div> : null}
-                {/* Tasks: {tasks.taskName} <br />
-                Description: {tasks.taskDescription} */}
-        
-        </div>
-    )
+  return (
+    <>
+      <div className="task-list">
+        <h1>todo</h1>
+        {tasks?.map((task, index) => (
+          <>
+            <div>
+              <span>
+                {task?.data?.incompletedTask?.map((task) => (
+                  <div>
+                    {task?.taskName} {task?.taskPoints}{" "}
+                  </div>
+                ))}
+              </span>
+            </div>
+          </>
+        ))}
+        <h1>completed</h1>
+        {tasks?.map((task, index) => (
+          <>
+            <div>
+              <span>
+                {task?.data?.completedTask?.map((task) => (
+                  <div>
+                    {task?.taskName} {task?.taskPoints}{" "}
+                  </div>
+                ))}
+              </span>
+            </div>
+          </>
+        ))}
+      </div>
+    </>
+  );
 }

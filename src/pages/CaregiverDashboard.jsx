@@ -1,3 +1,4 @@
+
 import React from 'react'
 import CaregiverNav from '../components/CaregiverDashboard/CaregiverNav'
 import ChildList from '../components/CaregiverDashboard/ChildList'
@@ -6,12 +7,13 @@ import EditRewardsAndTasks from '../components/CaregiverDashboard/EditRewardsAnd
 import TaskList from '../components/CaregiverDashboard/Task'
 import '../style/dashboard.css'
 
+
 export default function CaregiverDashboard() {
-    return (
-        <div>
-            <CaregiverNav />
-            <ChildList />
-            <TaskList />
-        </div>
-    )
+  return (
+    <div>
+      <CaregiverNav />
+      <ChildList />
+      {/* <TaskList /> */}
+    </div>
+  );
 }
