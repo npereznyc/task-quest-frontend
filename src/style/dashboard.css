@@ -11,3 +11,13 @@ a {
     color: white;
     text-decoration: none;
 }
+
+.tasks{
+    display: flex;
+    flex-direction: column;
+}
+
+.task{
+    background-color: #2F3240;
+    padding: 1rem;
+}
