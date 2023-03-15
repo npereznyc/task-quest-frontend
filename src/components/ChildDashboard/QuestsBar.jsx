@@ -29,12 +29,12 @@ export default function QuestsBar(props) {
                 return(
                 <ul>
                     {tasks.map((chat) => {
-                        return (
-                            <li key={task._id}>
-                                <div className='task-name'>{task.taskName}</div>
-                                <div className='task-points'>{task.taskPoints} Points</div>
-                            </li>
-                        )
+                        // return (
+                        //     <li key={task._id}>
+                        //         <div className='task-name'>{task.taskName}</div>
+                        //         <div className='task-points'>{task.taskPoints} Points</div>
+                        //     </li>
+                        // )
                     })}
                 </ul>
                 )

@@ -9,6 +9,8 @@ import RegisterForm from "./RegisterForm";
 import CaregiverDashboard from "../pages/CaregiverDashboard";
 import "../style/login.css"
 import "../App.css"
+import TasksRewards from "./CaregiverDashboard/TasksRewards";
+import ChildDashboard from "../pages/ChildDashboard";
 
 const Main = () => {
   return (
@@ -20,6 +22,7 @@ const Main = () => {
         <Route path="/caregiverlogin" element={<CaregiverLogin />} />
         <Route path="register" element={<RegisterForm />} />
         <Route path='/caregiverdashboard' element={<CaregiverDashboard/>} />
+        <Route path='/tasksrewards' element={<TasksRewards/>} />
       </Routes>
     </div>
   );
