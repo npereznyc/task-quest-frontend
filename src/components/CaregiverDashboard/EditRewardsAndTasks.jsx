@@ -13,9 +13,9 @@ export default function EditRewardsAndTasks() {
         <div>
             <CaregiverNav />
             <ShowAndEditTask taskIds={["641143b24883184ba2316566", "641145f7e129e66d8c50ff9a"]}/>
-            <CreateTask caregiverId={"6410a52aab95a2c2f235bb16"} />
-            <CreateReward rewardIds={['6411f891df7c9c00df0fd50d', '6411efd78f2e3f2e7057565d']} />
-            <ShowAndEditReward caregiverId={"6410a52aab95a2c2f235bb16"}/>
+            <CreateTask caregiverId={"6411ec4e8f2e3f2e70575649"} />
+            <ShowAndEditReward caregiverId={"6411ec4e8f2e3f2e70575649"}/>
+            <CreateReward caregiverId={['6411ec4e8f2e3f2e70575649']} />
             {/* <RewardsEarned /> */}
             {/* <Tasks /> */}
         </div>
