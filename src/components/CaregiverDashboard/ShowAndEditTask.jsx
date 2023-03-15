@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import "../../style/editTask.css"
 const ShowAndEditTask = ({ taskIds }) => {
+  console.log(taskIds)
   const navigate = useNavigate();
 
   //accordian
