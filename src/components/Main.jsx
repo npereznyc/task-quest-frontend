@@ -10,6 +10,7 @@ import CaregiverDashboard from "../pages/CaregiverDashboard";
 import "../style/login.css"
 import "../App.css"
 import TasksRewards from "./CaregiverDashboard/TasksRewards";
+import ChildDashboard from "../pages/ChildDashboard";
 
 const Main = () => {
   return (
