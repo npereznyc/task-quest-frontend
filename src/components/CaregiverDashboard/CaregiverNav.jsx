@@ -5,7 +5,7 @@ export default function CaregiverNav() {
     return (
         <nav>
             <Link to="/caregiverdashboard">Dashboard</Link> <br/>
-            <Link to="/tasksrewards">Quests & Rewards</Link>
+            <Link to="/editrewardsandtasks">Quests & Rewards</Link>
         </nav>
     )
 }

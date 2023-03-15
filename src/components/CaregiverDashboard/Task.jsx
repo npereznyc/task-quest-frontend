@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { useParams } from 'react-router'
 
 
-export default function (taskId) {
+export default function TaskList (taskId) {
     const [tasks, setTasks] = useState()
     console.log('taskId: ', taskId)
 
