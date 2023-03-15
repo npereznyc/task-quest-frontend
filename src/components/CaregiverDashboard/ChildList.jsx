@@ -5,10 +5,14 @@ import { UserContext } from "../../data";
 import AddChild from "./AddChild";
 import Task from "./Task";
 
+const URL = process.env.REACT_APP_SERVER_URL || "http://localhost:4000";
 export default function ChildList(props) {
   // useContext data
-  const { currentUserID } = useContext(UserContext);
-  const { setAuth, setUser, setUserID } = useContext(UserContext);
+  const currentUser = JSON.parse(localStorage.getItem("caregiver"));
+  const caregiverId = currentUser._id;
+  const token = currentUser.token;
+  // const { currentUserID } = useContext(UserContext);
+  // const { setAuth, setUser, setUserID } = useContext(UserContext);
 
   // useState variables
   const [children, setChildren] = useState([]);
@@ -23,9 +27,8 @@ export default function ChildList(props) {
   async function getChildren() {
     let children;
     try {
-      const response = await fetch(
-        `http://localhost:4000/caregiver/6410a52aab95a2c2f235bb16/children`
-      );
+      const response = await fetch(URL + `/caregiver/${caregiverId}/children`);
+
       children = await response.json();
     } catch (err) {
       console.error(err.message);
@@ -52,7 +55,7 @@ export default function ChildList(props) {
         //     allChildren.push(children[i])
         // }
       }
-      console.log(allChildren);
+      // console.log(allChildren);
       return allChildren;
     }
 
@@ -85,10 +88,14 @@ export default function ChildList(props) {
               {allChildren.map((child) => (
                 <div className="child" key={child._id}>
                   {child.caregiverId ? <p>{child.childName}</p> : null}
-                  {child.taskArray ? (
-                    <p className="child-tasks">{child.taskArray[0]}</p>
-                  ) : null}
-                  <Task taskId={child.taskArray[0]} />
+                  {child.taskArray.length}
+                  {console.log(child.taskArray)}
+                  {child.taskArray.map((taskId) => {
+                    <div>
+                      {/* {console.log(taskId)} */}
+                      <Task taskId={taskId} />;
+                    </div>;
+                  })}
                 </div>
               ))}
             </div>
@@ -100,9 +107,7 @@ export default function ChildList(props) {
         )}
         <div>
           <Link to="/addChild">
-            <button>
-              <AddChild />
-            </button>
+            <button>AddChild</button>
           </Link>{" "}
           <br />
         </div>
