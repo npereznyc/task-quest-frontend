@@ -5,7 +5,7 @@ import RedeemRewards from '../components/ChildDashboard/RedeemRewards'
 import LeaderBoard from '../components/ChildDashboard/LeaderBoard'
 export default function ChildDashboard() {
 
-    const currentUser = JSON.parse(localStorage.getItem("caregiver"));
+    const currentUser = JSON.parse(localStorage.getItem("child"));
     const caregiverId = currentUser.caregiverId;
     const token = currentUser.token;
 
