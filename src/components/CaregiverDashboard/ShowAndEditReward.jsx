@@ -13,18 +13,14 @@ const ShowAndEditReward = ({ caregiverId }) => {
 
     useEffect(() => {
         const fetchRewards = async () => {
-            const rewardData = await Promise.all(
-                caregiverId.map((caregiverId) => axios.get(`http://localhost:4000/rewards/${caregiverId}/rewards`))
-            );
-            const rewardList = rewardData.map((reward, index) => ({
-                id: caregiverId[index],
-                rewardName: reward.data.rewardName || "",
-                image: reward.data.image || "",
-                rewardPoints: reward.data.rewardPoints || "",
-                activeReward: reward.data.activeReward || false,
-                cashedIn: reward.data.cashedIn || 0,
-            }));
-            setRewards(rewardList);
+            axios.get(`http://localhost:4000/rewards/show/${caregiverId}`)
+            .then(response=>{
+                setRewards(response.data);
+            })
+            .catch(error => {
+                console.log(error)
+            })
+            console.log('rewards: ', rewards)
             setIsLoaded(true); // update state to indicate API call is complete
         };
         fetchRewards();
@@ -40,31 +36,23 @@ const ShowAndEditReward = ({ caregiverId }) => {
         cashedIn: Yup.number(),
     });
 
-    const handleSubmit = (values, rewardId) => {
-        axios
-            .put(`http://localhost:4000/rewards/${rewardId}`, values)
-            .then(() => {
-                console.log("Reward updated successfully");
-                navigate("/tasksrewards");
-            })
-            .catch((err) => console.log(err));
-    };
-
     if (!isLoaded) {
         return <div>Loading...</div>; // show loading message while API call is in progress
     }
 
     return (
         <div>
-            <h1>Rewards {caregiverId.length}</h1>
-            <h4>Total Rewards</h4>
+            <h1>Rewards</h1>
+
+            <h4>Total Rewards: {rewards.length}</h4>
             {rewards.map((reward, index) => (
                 <div key={index}>
-                    <h2>{reward.rewardName} {reward.rewardPoints} points Edit</h2>
-                    <Formik
+                    <h2>{reward.rewardName} </h2>
+                    <h3>{reward.rewardPoints} coins</h3>
+                    
+                    {/* <Formik
                         initialValues={reward}
                         validationSchema={validationSchema}
-                        onSubmit={(values) => handleSubmit(values, caregiverId[index])}
                     >
                         {({ values, errors, touched }) => (
                             <Form>
@@ -96,11 +84,9 @@ const ShowAndEditReward = ({ caregiverId }) => {
                                     <Field type="number" name="cashedIn" />
                                     <ErrorMessage name="cashedIn" />
                                 </div>
-
-                                <button type="submit">Update Reward</button>
                             </Form>
                         )}
-                    </Formik>
+                    </Formik> */}
                 </div>
             ))}
         </div>
