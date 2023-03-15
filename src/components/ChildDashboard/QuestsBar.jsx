@@ -26,7 +26,6 @@ export default function QuestsBar(props) {
     return (
         <div>
             <div className='todays-quests'>
-                return(
                 <ul>
                     {tasks.map((chat) => {
                         // return (
@@ -35,10 +34,10 @@ export default function QuestsBar(props) {
                         //         <div className='task-points'>{task.taskPoints} Points</div>
                         //     </li>
                         // )
+
                     })}
                 </ul>
-                )
-                <div className='quest'></div>
+                <div className='points'>POINTS</div>
             </div>
         </div>
     )

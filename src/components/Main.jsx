@@ -13,10 +13,12 @@ import TasksRewards from "./CaregiverDashboard/TasksRewards";
 import ChildDashboard from "../pages/ChildDashboard";
 import AddChild from "./CaregiverDashboard/AddChild";
 
+
 const Main = () => {
   return (
     <div>
       <Routes>
+
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<WhoLogsIn />} />
         <Route path="/childlogin" element={<ChildLogin />} />
