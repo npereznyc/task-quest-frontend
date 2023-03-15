@@ -1,0 +1,23 @@
+.tasks-title{
+  color: red;
+}
+.task-header{
+  display: flex;
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 1rem;
+justify-content: space-between;
+}
+.number-of-tasks{
+
+}
+.task-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));    
+  grid-auto-rows: minmax(75px, auto);
+  grid-gap: 1rem;
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 1rem;
+  border: 1px solid red;
+}

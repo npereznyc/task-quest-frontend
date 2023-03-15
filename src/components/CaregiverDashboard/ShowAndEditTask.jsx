@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-
+import "../../style/editTask.css"
 const ShowAndEditTask = ({ taskIds }) => {
   const navigate = useNavigate();
 
@@ -57,7 +57,7 @@ const ShowAndEditTask = ({ taskIds }) => {
       .put(`http://localhost:4000/tasks/${taskId}`, values)
       .then(() => {
         console.log("Task updated successfully");
-        navigate("/tasksrewards");
+        navigate("/editrewardsandtasks");
       })
       .catch((err) => console.log(err));
   };
@@ -68,15 +68,21 @@ const ShowAndEditTask = ({ taskIds }) => {
 
   return (
     <div>
-      <h1>Tasks {taskIds.length}</h1>
-      <h4>Total Tasks</h4>
+      <div className="task-header">
+        <h1 className="tasks-title">Tasks</h1>
+        <div className="number-of-tasks">
+                  <h4>{taskIds.length}</h4>
+        <h4>Total Tasks</h4>
+        </div>
+
+      </div>
+      <div className="task-container">
       {tasks.map((task, index) => (
         <div key={index}>
           <h2>
             {task.taskName} {task.taskPoints} coins
           </h2>
-          <h4>Edit</h4>
-            <button onClick={() => handleOpen(index)}>Open Form</button>
+          <button onClick={() => handleOpen(index)}>Edit</button>
           {openTaskId === index && (
             <Formik
               initialValues={task}
@@ -128,6 +134,7 @@ const ShowAndEditTask = ({ taskIds }) => {
           )}
         </div>
       ))}
+            </div>
     </div>
   );
 };

@@ -8,6 +8,7 @@ import CaregiverLogin from "./CaregiverLogin";
 import RegisterForm from "./RegisterForm";
 import CaregiverDashboard from "../pages/CaregiverDashboard";
 import "../style/login.css";
+import "../style/editTask.css";
 import "../App.css";
 import EditRewardsAndTasks from "./CaregiverDashboard/EditRewardsAndTasks";
 import ChildDashboard from "../pages/ChildDashboard";
@@ -27,6 +28,7 @@ const Main = () => {
         <Route path="/caregiverdashboard" element={<CaregiverDashboard />} />
         <Route path="/editrewardsandtasks" element={<EditRewardsAndTasks />} />
         <Route path="/addChild" element={<AddChild />} />
+        <Route path="/tasksrewards" />
       </Routes>
     </div>
   );
