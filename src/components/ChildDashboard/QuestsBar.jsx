@@ -26,9 +26,8 @@ export default function QuestsBar(props) {
     return (
         <div>
             <div className='todays-quests'>
-                return(
                 <ul>
-                    {tasks.map((chat) => {
+                    {tasks.map((task) => {
                         return (
                             <li key={task._id}>
                                 <div className='task-name'>{task.taskName}</div>
@@ -37,8 +36,7 @@ export default function QuestsBar(props) {
                         )
                     })}
                 </ul>
-                )
-                <div className='quest'></div>
+                <div className='points'>POINTS</div>
             </div>
         </div>
     )
