@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function QuestsBar() {
+export default function QuestsBar({ childObject }) {
   const [tasks, setTasks] = useState([]);
   const currentUser = JSON.parse(localStorage.getItem("child"));
   const childId = currentUser._id;
@@ -10,6 +10,7 @@ export default function QuestsBar() {
   const caregiverId = currentUser.caregiverId;
   const taskArray = currentUser.taskArray;
 
+  console.log(childObject.childName)
   const listTasks = async () => {
     try {
       const taskData = await Promise.all(
