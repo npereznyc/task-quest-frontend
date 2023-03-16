@@ -187,3 +187,12 @@
   margin: 20px 0px 15px 0px;
   font-size: xx-large;
 }
+
+.childAvatar {
+  /* background-color: white */
+  background-image: url(../assets/OrangeAvatar.svg);
+  background-size: 50px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 50px;
+}
