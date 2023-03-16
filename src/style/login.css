@@ -1,59 +1,113 @@
-.header{
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
-    margin-bottom: 70px;
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  background-color: rgb(48, 50, 63);
 }
-.home-box {
-  background-color: rgb(195, 195, 195);
-  width: 75%;
-  height: 80vh;
-  margin: auto;
+a{
+  color: rgb(217, 164, 65);
+}
+
+.header {
+  background-image: url(../assets/QRlogo.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 10vmax;
   display: flex;
   justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+
 }
+
+.home-box {
+  background-color: rgb(195, 195, 195);
+  background-image: url(../assets/LandingPage.jpg);
+  background-position: top;
+  background-size: 130% 150%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border-radius: 20px;
+  filter: opacity(2) brightness(1.2) saturate(.55);
+  width: 75%;
+  height: 80vh;
+  margin: 25px auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+
+}
+
 .link {
   text-decoration: none;
 }
+
 .home-nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   height: 50px;
-  margin-top: 55vh;
+  margin-top: 100px;
+  font-family: 'MedievalSharp', cursive;
+  
 }
+
+.home-title {
+  display: flex;
+  font-family: 'MedievalSharp', cursive;
+  font-size: 100px;
+  white-space: nowrap;
+  margin: 0 auto;
+  height: 100px;
+}
+
 .home-register {
   margin-right: 10px;
-  background-color: rgb(90, 86, 86);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+  font-family: 'MedievalSharp', cursive;
+  border-radius: 20px;
+  background-color: white;
+  color: black;
+  font-size: large;
+}
+
+.home-login {
+  margin-left: 10px;
+  background-color: blue;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 20vw;
+  font-family: 'MedievalSharp', cursive;
+  border-radius: 20px;
+  font-size: large;
 }
 
-.home-login {
-  margin-left: 10px;
-  background-color: white;
-  color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 20vw;
-}
 /* CAREGIVER LOGIN */
 .login-page,
 .register-page,
 .whose-box {
   display: flex;
   justify-content: center;
+
 }
+
 .random-box {
   width: 40%;
   height: 600px;
   background-color: rgb(67, 65, 65);
+  background-image: url(../assets/Hallway.jpg);
+  background-position: center;
+  background-size: 100% 120%;
+  background-repeat: no-repeat;
 }
+
 .login-side,
 .register-side,
 .whose-input-side {
@@ -61,17 +115,30 @@
   height: 600px;
   display: flex;
   flex-direction: column;
-  background-color: rgb(210, 207, 207);
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: black;
+  color: white;
 }
 
 .login-title {
   margin: 60px 10px 10px 4vw;
+}
+.login-heading{
+  font-family: 'MedievalSharp', cursive;
+  color: white;
+  font-size: 35px
+}
+.login-tagline{
+  font-family: 'MedievalSharp', cursive;
+  color: white;
 }
 .register-title {
   margin: 60px 10px 10px 4vw;
   display: flex;
   justify-content: space-between;
 }
+
 .login-form,
 .register-form {
   display: flex;
@@ -79,6 +146,7 @@
   flex-direction: column;
   margin: 0 4vw;
 }
+
 .auth-log {
   background-color: rgb(123, 122, 122);
   color: white;
@@ -88,25 +156,30 @@
   height: 40px;
   border-radius: 30px;
 }
+
 .login-btn,
 .register-btn {
   display: flex;
   justify-content: center;
   border-radius: 30%;
 }
+
 .two-other-register {
   display: flex;
   justify-content: center;
 }
+
 .or {
   text-align: center;
 }
+
 .other-register {
   display: flex;
   flex-direction: column;
   align-self: center;
   justify-content: flex-end;
 }
+
 .apple-sign,
 .google-sign {
   height: 30px;
@@ -115,40 +188,58 @@
   border-radius: 30px;
   background-color: rgb(126, 126, 126);
 }
+
 .already-account {
   text-align: center;
   color: black;
   margin-top: auto;
   margin-bottom: 40px;
 }
+
 /* TASKMASTER */
 
-.task-master, .task-runner{
-    text-align: center;
-    background-color: rgb(94, 93, 93);
-    color: white;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 30px;
-}
-.task-master {
-    width: 200px;
-    margin: 0 auto;
-    margin-top: 40%;
-    margin-bottom: 40px;
-}
-.task-runner{
-    width: 200px;
-    margin: 0 auto;
+.task-master,
+.task-runner {
+  text-align: center;
+  color: white;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
 }
 
-@media only screen and (max-width: 800px){
-  .random-box{
+.task-master {
+  background-color: rgb(217, 164, 65);
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 5%;
+  margin-bottom: 5px;
+  height: 85px;
+  width: 300px;
+  font-family: 'MedievalSharp', cursive;
+  font-size: 20px;
+}
+
+.task-runner {
+  background-color: rgb(217, 59, 24);
+  width: 200px;
+  margin: 0 auto;
+  height: 85px;
+  width: 300px;
+  font-family: 'MedievalSharp', cursive;
+  font-size: 20px;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .random-box {
     width: 0%;
   }
-  .register-side, .whose-input-side, .login-side {
+
+  .register-side,
+  .whose-input-side,
+  .login-side {
     width: 80%;
   }
 }
