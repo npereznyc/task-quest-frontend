@@ -58,17 +58,20 @@ const ShowAndEditReward = ({ caregiverId }) => {
     return (
         <div className='quest-rewards-container'>
             <div className='rewards-box'>
-            <h1>Redeem Riches</h1>
+            <h3>Redeem Riches</h3>
 
-            <h4>Total Rewards: {rewards.length}</h4>
-            {rewards.map((reward, index) => (
+            <h4>Number of Rewards Available: {rewards.length}</h4>
+            <ul className='individual-rewards'>
+                {rewards.map((reward, index) => (
                 <div key={index}>
-                    <h2>{reward.rewardName} </h2>
-                    <h3>{reward.rewardPoints} coins</h3>
+                    <h2 className='reward-name'>{reward.rewardName} </h2>
+                    <h3 className='reward-points'>{reward.rewardPoints} coins</h3>
                     <button onClick={() => redeemReward(reward._id)}>Redeem</button>
                     
                 </div>
             ))}
+            </ul>
+            
         </div>
         </div>
         
