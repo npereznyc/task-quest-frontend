@@ -66,3 +66,25 @@
 .new-quest-form{
 width: 500px
 }
+
+
+/* REWARDS */
+.rewards-title{
+  text-align: center;
+}
+.adult-total-rewards{
+  text-align: center;
+}
+.parent-rewards{
+  display: flex;
+  justify-content: center;
+}
+.rewards-bar{
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #DAA442;
+}

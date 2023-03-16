@@ -257,7 +257,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
           ))}
         </div>
       ) : (
-        <p className="all-assigned">All tasks are assigned.</p>
+        <p className="all-assigned"></p>
       )}
     </div>
   );
