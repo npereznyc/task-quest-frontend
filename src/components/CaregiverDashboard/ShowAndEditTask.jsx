@@ -4,10 +4,20 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 
-const ShowAndEditTask = ({ taskIds }) => {
+const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
   const navigate = useNavigate();
   const [tasks, setTasks] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false); // track whether API call is complete
+
+  const currentUser = JSON.parse(localStorage.getItem("caregiver"));
+  const caregiverId = currentUser._id;
+  const token = currentUser.token;
+
+  const [listOfChildren, setListOfChildren] = useState([]);
+  const [listOfChildrenWithoutTask, setListOfChildrenWithoutTask] = useState(
+    []
+  );
+  const [numTasks, setNumTasks] = useState(0); // track number of task
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -26,11 +36,23 @@ const ShowAndEditTask = ({ taskIds }) => {
         dueDate: "",
       }));
       setTasks(taskList);
-      console.log(tasks);
+
+      setNumTasks(taskList.length);
       setIsLoaded(true); // update state to indicate API call is complete
     };
+
+    const fetchChilds = async () => {
+      const childData = await axios.get(
+        `http://localhost:4000/caregiver/${caregiverId}/children`
+      );
+      setListOfChildren(childData.data);
+      filterChildren();
+      console.log(listOfChildren);
+    };
+
+    fetchChilds();
     fetchTasks();
-  }, [taskIds]);
+  }, [taskIds, numTasks]);
 
   const validationSchema = Yup.object().shape({
     taskName: Yup.string().required("Required"),
@@ -56,8 +78,30 @@ const ShowAndEditTask = ({ taskIds }) => {
     return <div>Loading...</div>; // show loading message while API call is in progress
   }
 
-  const assignTaskToChild = () => {
-    console.log(`assigned`);
+  const assignTaskToChild = (taskId, childId) => {
+    axios
+      .post(`http://localhost:4000/tasks/${taskId}/${childId}`)
+      .then(() => {
+        console.log(`Task ${taskId} assigned to child ${childId} successfully`);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const filterChildren = (assignedIds) => {
+    const newList = listOfChildren.filter(
+      (child) => !assignedIds?.includes(child._id)
+    );
+    setListOfChildrenWithoutTask(newList);
+  };
+  const handleDeleteSubmit = (taskId) => {
+    const res = axios
+      .delete(`http://localhost:4000/tasks/${taskId}/`)
+      .then(() => {
+        console.log(`Task ${taskId} has been delete successfully`);
+        setNumTasks(numTasks - 1);
+        setRenderEffect(res);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -115,7 +159,28 @@ const ShowAndEditTask = ({ taskIds }) => {
                 <button
                   type="submit"
                   onClick={() => {
-                    assignTaskToChild();
+                    handleDeleteSubmit(task.id);
+                  }}
+                >
+                  Delete Task
+                </button>
+
+                <div>
+                  <label htmlFor="child">Assign to Child:</label>
+                  <Field as="select" name="child">
+                    <option value="">-- Select a Child --</option>
+                    {listOfChildren?.map((child) => (
+                      <option key={child._id} value={child._id}>
+                        {child.childName}
+                      </option>
+                    ))}
+                  </Field>
+                </div>
+                <button
+                  type="submit"
+                  onClick={() => {
+                    const childId = values.child; // obtain the selected child ID from the form values
+                    assignTaskToChild(task.id, childId);
                   }}
                 >
                   Assign to Child
@@ -125,6 +190,32 @@ const ShowAndEditTask = ({ taskIds }) => {
           </Formik>
         </div>
       ))}
+      <h4>Unassigned Tasks</h4>
+      {listOfChildrenWithoutTask?.length > 0 ? (
+        <div>
+          {listOfChildrenWithoutTask?.map((child) => (
+            <div key={child._id}>
+              <h4>{child.childName}</h4>
+              <ul>
+                {tasks
+                  ?.filter((task) => !task?.completed)
+                  .map((task) => (
+                    <li key={task?.id}>
+                      {task?.taskName} {task?.taskPoints} points{" "}
+                      <button
+                        onClick={() => assignTaskToChild(task?.id, child._id)}
+                      >
+                        Assign Task
+                      </button>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p>All tasks are assigned.</p>
+      )}
     </div>
   );
 };
