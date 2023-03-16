@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
+import AddChild from "./AddChild";
 
 const URL = process.env.REACT_APP_SERVER_URL || "http://localhost:4000";
 
@@ -25,15 +26,25 @@ export default function ({ taskIds }) {
     getTasks();
   }, [taskIds]);
 
+  const [openTaskId, setOpenTaskId] = useState(null);
+  const handleOpen = (index) => {
+    setOpenTaskId(index);
+  };
+
+  const handleClose = () => {
+    setOpenTaskId(null);
+  };
+
+
   return (
     <>
       <div className="task-list">
-        <h1>todo</h1>
+        <h4>To Do: </h4>
         {tasks?.map((task, index) => (
           <>
             <div>
               <span>
-                {task?.data?.incompletedTask?.map((task) => (
+                {task?.data?.incompletedTask?.map((task, index) => (
                   <div>
                     {task?.taskName} {task?.taskPoints}{" "}
                   </div>
@@ -42,7 +53,7 @@ export default function ({ taskIds }) {
             </div>
           </>
         ))}
-        <h1>completed</h1>
+        <h4>Completed:</h4>
         {tasks?.map((task, index) => (
           <>
             <div>
@@ -57,6 +68,7 @@ export default function ({ taskIds }) {
           </>
         ))}
       </div>
+      
     </>
   );
 }

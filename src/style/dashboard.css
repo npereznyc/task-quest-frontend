@@ -1,28 +1,20 @@
-nav {
-    display: flex;
-    text-decoration: none;
-    background-color: #0811DA;
-    justify-content: end;
-    padding-right: 5rem;
+.dash {
+  display: flex;
+  justify-content: center;
 }
 
-a {
-    padding: 1rem;
-    color: white;
-    text-decoration: none;
+.dash-link,
+.qr-link {
+  text-decoration: none;
+  color: black;
 }
 
-.tasks{
-    display: flex;
-    flex-direction: column;
+.tasks {
+  display: flex;
+  flex-direction: column;
 }
 
-.task{
-    background-color: #2F3240;
-    padding: 1rem;
-}
-
-.task-header{
-    display: flex;
-    background-color: #2F3240;
+.task {
+  background-color: #2f3240;
+  padding: 1rem;
 }

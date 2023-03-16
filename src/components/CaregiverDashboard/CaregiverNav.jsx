@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 
 export default function CaregiverNav() {
     return (
-        <nav>
-            <Link to="/caregiverdashboard">Dashboard</Link> <br/>
-            <Link to="/caregiverdashboard/editrewardsandtasks">Quests & Rewards</Link>
+        <nav className="dash">
+            <Link className="dash-link" to="/caregiverdashboard">Your Knights</Link> <br/>
+            <Link className="qr-link" to="/caregiverdashboard/editrewardsandtasks">Quests & Rewards</Link>
         </nav>
     )
 }
