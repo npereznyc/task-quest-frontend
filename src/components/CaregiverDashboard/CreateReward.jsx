@@ -49,10 +49,11 @@ const validationSchema = Yup.object().shape({
 
   return (
     <div>
-      <div className="accordion-header" onClick={toggleAccordion}>
+      <div className="accordion-header create-new" onClick={toggleAccordion}>
         {" "}
-        <h2>Create New Reward</h2>
+        <h1 className="create-title">Add Reward</h1>
       </div>
+      <div className='reward-form-div'>
       {isOpen && (
       <Formik
         initialValues={initialValues}
@@ -60,36 +61,36 @@ const validationSchema = Yup.object().shape({
         onSubmit={handleSubmit}
       >
         {({ isSubmitting }) => (
-          <Form>
-            <div>
-              <label htmlFor="rewardName">Reward Name</label>
+          <Form className="reward-form">
+            <div className="add-reward-input-div first-reward-add">
+              <label  className="" htmlFor="rewardName">Reward Name</label>
               <Field type="text" name="rewardName" />
               <ErrorMessage name="rewardName" component="div" />
             </div>
 
-            <div>
-              <label htmlFor="RewardPoints">Reward Points</label>
+            <div className="add-reward-input-div">
+              <label  className="" htmlFor="RewardPoints">Reward Points</label>
               <Field type="number" name="rewardPoints" />
               <ErrorMessage name="rewardPoints" component="div" />
             </div>
 
-            <div>
-                <label htmlFor="activeReward">Active Reward</label>
+            <div className="add-reward-input-div">
+                <label  className="" htmlFor="activeReward">Active Reward</label>
                 <Field type="checkbox" name="activeReward" />
             </div>
 
-            <div>
-                <label htmlFor="cashedIn">Cashed In</label>
+            <div className="add-reward-input-div">
+                <label  className="" htmlFor="cashedIn">Cashed In</label>
                 <Field type="number" name="cashedIn" />
                 <ErrorMessage name="cashedIn" component="div" />
             </div>
 
-            <button type="submit" disabled={isSubmitting}>
+            <button  className="reward-submit" type="submit" disabled={isSubmitting}>
               Submit
             </button>
           </Form>
         )}
-      </Formik>)}
+      </Formik>)}</div>
     </div>
   );
 };
