@@ -35,7 +35,7 @@ const ChildLogin = () => {
     <div className="login-page">
       <div className="random-box"></div>
       <div className="login-side">
-        <h1 className="login-title">LOGIN</h1>
+        <h1 className="login-title">Sign in</h1>
 
         <form
           className="login-form"

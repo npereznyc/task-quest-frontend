@@ -10,7 +10,8 @@ a{
 }
 
 .header {
-  background-image: url("../assets/QRlogo.png");
+  background-image: url(../assets/Logo.svg);
+  background-size: 75% 75%;
   background-position: center center;
   background-repeat: no-repeat;
   height: 10vmax;
@@ -115,15 +116,13 @@ a{
   height: 600px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   background-color: black;
   color: white;
 }
 
-.login-title {
-  margin: 60px 10px 10px 4vw;
-}
+.login-title,
 .login-heading{
   font-family: 'MedievalSharp', cursive;
   color: white;
@@ -145,8 +144,24 @@ a{
   justify-content: center;
   flex-direction: column;
   margin: 0 4vw;
+  font-family: 'MedievalSharp', cursive;
+  width: 75%;
 }
-
+.email-input,
+.password-input, 
+.password-input:focus,
+.username-input {
+  background-color: black;
+  border: none;
+  border-bottom: 1px solid white;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+}
+.care-email, 
+.password {
+  font-family: 'MedievalSharp', cursive;
+}
 .auth-log {
   background-color: rgb(123, 122, 122);
   color: white;
@@ -155,6 +170,7 @@ a{
   width: 200px;
   height: 40px;
   border-radius: 30px;
+  background-color: blue;
 }
 
 .login-btn,
@@ -162,6 +178,12 @@ a{
   display: flex;
   justify-content: center;
   border-radius: 30%;
+}
+.auth-log {
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  margin: 20px 0px 20px 0px;
 }
 
 .two-other-register {
@@ -213,8 +235,8 @@ a{
   background-color: rgb(217, 164, 65);
   width: 200px;
   margin: 0 auto;
-  margin-top: 5%;
-  margin-bottom: 5px;
+  /* margin-top: 5%;
+  margin-bottom: 5px; */
   height: 85px;
   width: 300px;
   font-family: 'MedievalSharp', cursive;
@@ -241,5 +263,8 @@ a{
   .whose-input-side,
   .login-side {
     width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
