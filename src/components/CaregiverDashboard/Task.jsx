@@ -4,15 +4,15 @@ import axios from "axios";
 
 const URL = process.env.REACT_APP_SERVER_URL || "http://localhost:4000";
 
-
 export default function ({ taskIds }) {
   const [tasks, setTasks] = useState([]);
-
 
   async function getTasks() {
     try {
       const taskData = await Promise.all(
-        taskIds?.map((id) => axios.get(`http://localhost:4000/tasks/${id}`))
+        taskIds?.map((id) =>
+          axios.get(`http://localhost:4000/tasks/incompleteandcomplete/${id}`)
+        )
       );
 
       setTasks(taskData);
@@ -28,34 +28,40 @@ export default function ({ taskIds }) {
   return (
     <>
       <div className="task-list">
-        <h1>todo</h1>
+        <div className="quests-todo">
+        <h4 className="incomplete-quests">Quests To Do</h4>
         {tasks?.map((task, index) => (
           <>
             <div>
               <span>
-                {task?.data?.incompletedTask?.map((task) => (
-                  <div>
-                    {task?.taskName} {task?.taskPoints}{" "}
+                {task?.data?.incompletedTask?.map((task, index) => (
+                  <div className="quests">
+                    <p> {task?.taskName}</p>
+                    <p className="quest-coins">{task?.taskPoints} coins</p>
                   </div>
                 ))}
               </span>
             </div>
           </>
         ))}
-        <h1>completed</h1>
+        </div>
+        <div className="quests-complete">
+        <h4 className="complete-quests">Complete</h4>
         {tasks?.map((task, index) => (
           <>
             <div>
               <span>
                 {task?.data?.completedTask?.map((task) => (
-                  <div>
-                    {task?.taskName} {task?.taskPoints}{" "}
-                  </div>
+                  <div className="quests">
+                  <p> {task?.taskName}</p>
+                  <p className="quest-coins">{task?.taskPoints} coins</p>
+                </div>
                 ))}
               </span>
             </div>
           </>
         ))}
+                </div>
       </div>
     </>
   );

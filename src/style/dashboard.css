@@ -1,28 +1,135 @@
-nav {
-    display: flex;
-    text-decoration: none;
-    background-color: #0811DA;
-    justify-content: end;
-    padding-right: 5rem;
+.dash {
+  display: flex;
+  justify-content: center;
 }
 
-a {
-    padding: 1rem;
-    color: white;
-    text-decoration: none;
+.dash-link,
+.qr-link {
+  text-decoration: none;
+  color: black;
+  margin: 0 40px;
+  font-family: 'MedievalSharp', cursive;
+font-size: 24px;
+color:#A65BD9
 }
 
-.tasks{
-    display: flex;
-    flex-direction: column;
+.tasks {
+  display: flex;
+  flex-direction: column;
 }
 
-.task{
-    background-color: #2F3240;
-    padding: 1rem;
+.task {
+  background-color: #2f3240;
+  padding: 1rem;
+}
+.child-bars {
+  display: flex;
+  justify-content: center;
 }
 
-.task-header{
-    display: flex;
-    background-color: #2F3240;
+.child-name{
+  font-family: 'MedievalSharp', cursive;
+
+}
+.child-bar,
+.task-details {
+  width: 500px;
+}
+.child-bar {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  background-color: #000000;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.total-completed,
+.total-incompleted {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+  justify-content: center;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+}
+.number {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: -8px;
+}
+
+.quests {
+  display: flex;
+  justify-content: space-between;
+  background-color:#A65BD9  ;
+  color: white;
+  width: 460px;
+  padding: 0 30px 0 30px;
+}
+.quest-coins {
+  color: #d9a441;
+}
+.complete-quests, .incomplete-quests{
+  font-size: 24px;
+  margin: 10px 0 0 0;
+  font-family: 'MedievalSharp', cursive;
+
+}
+
+
+/* REGISTER CHILD */
+.assign-child-side {
+  display: flex;
+  flex-direction: column;
+}
+.add-knight {
+  width: 500px;
+  background-color: #0711d9;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  height: 75px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.child-register-section {
+  display: flex;
+  justify-content: center;
+}
+
+.add-knight-form {
+  background-color: #5b4c93;
+  margin-top: -40px;
+  color: white;
+}
+.register-name{
+  margin-top: 20px
+}
+.register-div{
+  display: flex;
+  justify-content: flex-end;
+}
+.auth-input{
+  margin-left: 40px;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+.auth-input::placeholder{
+  color: white;
+}
+.child-register-btn{
+  display: flex;
+justify-content: flex-end;  
+}
+.register-child-submit{
+  background-color: #0711d9;
+  color: white;
+  padding: 10px 25px;
 }
