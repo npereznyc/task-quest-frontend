@@ -1,0 +1,60 @@
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
+
+const ShowAndEditReward = ({ caregiverId }) => {
+  console.log("caregiver/reward: ", caregiverId);
+  const navigate = useNavigate();
+  const [rewards, setRewards] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false); // track whether API call is complete
+
+  useEffect(() => {
+    const fetchRewards = async () => {
+      axios
+        .get(`http://localhost:4000/rewards/show/${caregiverId}`)
+        .then((response) => {
+          setRewards(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      console.log("rewards: ", rewards);
+      setIsLoaded(true); // update state to indicate API call is complete
+    };
+    fetchRewards();
+  }, [caregiverId]);
+
+  const validationSchema = Yup.object().shape({
+    rewardName: Yup.string().required("Required"),
+    rewardPoints: Yup.number()
+      .typeError("Must be a number")
+      .positive("Must be positive")
+      .required("Required"),
+    activeReward: Yup.boolean(),
+    cashedIn: Yup.number(),
+  });
+
+  if (!isLoaded) {
+    return <div>Loading...</div>; // show loading message while API call is in progress
+  }
+
+  return (
+    <div>
+      <h1 className="rewards-title">Rewards</h1>
+
+      <h4 className="adult-total-rewards">Total Rewards: {rewards.length}</h4>
+      <div>
+        {rewards.map((reward, index) => (
+          <div className="rewards-bar" key={index}>
+            <h2 className="">{reward.rewardName} </h2>
+            <h3 className="">{reward.rewardPoints} coins</h3>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ShowAndEditReward;
