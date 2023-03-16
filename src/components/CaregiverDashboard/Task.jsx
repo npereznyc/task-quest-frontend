@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
-import AddChild from "./AddChild";
 
 const URL = process.env.REACT_APP_SERVER_URL || "http://localhost:4000";
 
@@ -26,46 +25,43 @@ export default function ({ taskIds }) {
     getTasks();
   }, [taskIds]);
 
-  const [openTaskId, setOpenTaskId] = useState(null);
-  const handleOpen = (index) => {
-    setOpenTaskId(index);
-  };
-
-  const handleClose = () => {
-    setOpenTaskId(null);
-  };
-
   return (
     <>
       <div className="task-list">
-        <h4>To Do: </h4>
+        <div className="quests-todo">
+        <h4 className="incomplete-quests">Quests To Do</h4>
         {tasks?.map((task, index) => (
           <>
             <div>
               <span>
                 {task?.data?.incompletedTask?.map((task, index) => (
-                  <div>
-                    {task?.taskName} {task?.taskPoints}{" "}
+                  <div className="quests">
+                    <p> {task?.taskName}</p>
+                    <p className="quest-coins">{task?.taskPoints} coins</p>
                   </div>
                 ))}
               </span>
             </div>
           </>
         ))}
-        <h4>Completed:</h4>
+        </div>
+        <div className="quests-complete">
+        <h4 className="complete-quests">Complete</h4>
         {tasks?.map((task, index) => (
           <>
             <div>
               <span>
                 {task?.data?.completedTask?.map((task) => (
-                  <div>
-                    {task?.taskName} {task?.taskPoints}{" "}
-                  </div>
+                  <div className="quests">
+                  <p> {task?.taskName}</p>
+                  <p className="quest-coins">{task?.taskPoints} coins</p>
+                </div>
                 ))}
               </span>
             </div>
           </>
         ))}
+                </div>
       </div>
     </>
   );

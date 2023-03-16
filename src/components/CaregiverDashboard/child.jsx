@@ -15,14 +15,10 @@ export default function Child({
   const [tasks, setTasks] = useState([]);
   const [totalNotCompleted, setTotalNotCompleted] = useState(0);
   const [totalCompleted, setTotalCompleted] = useState(0);
-  const [openTaskId, setOpenTaskId] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleOpen = (index) => {
-    setOpenTaskId(index);
-  };
-
-  const handleClose = () => {
-    setOpenTaskId(null);
+  const toggleAccordion = () => {
+    setIsOpen(!isOpen);
   };
 
   async function getTasks() {
@@ -67,15 +63,30 @@ export default function Child({
   };
 
   return (
-    <>
-      <div>
-        <h1> {childName}</h1>
-        <p>Not Completed: {totalNotCompleted}</p>
-        <p>Completed: {totalCompleted}</p>
+    <div className="child-bars">
+      <div className="child-section">
+        <div className="child-bar" onClick={toggleAccordion}>
+          <h1 className="child-name"> {childName}</h1>
+          <div className="content">
+
+          
+          <p className="total-incompleted">
+            <span className="number"> {totalNotCompleted}</span>
+            <span>Not Completed</span>{" "}
+          </p>
+          <p className="total-completed">
+            <span className="number"> {totalCompleted}</span>
+            <span>Completed</span>
+          </p>
+        </div></div>
+        <div className="task-details">
+          {isOpen && (
+            <div>
+              <Task taskIds={taskArray} childId={childId} />
+            </div>
+          )}
+        </div>
       </div>
-      <div>
-        <Task taskIds={taskArray} childId={childId} />
-      </div>
-    </>
+    </div>
   );
 }
