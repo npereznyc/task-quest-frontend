@@ -64,7 +64,7 @@ export default function Child({
 
   return (
     <div className="child-bars">
-      <div>
+      <div className="child-section">
         <div className="child-bar" onClick={toggleAccordion}>
           <h1 className="child-name"> {childName}</h1>
           <div className="content">

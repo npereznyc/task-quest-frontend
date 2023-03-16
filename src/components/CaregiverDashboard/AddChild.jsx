@@ -50,65 +50,76 @@ const AddChild = () => {
   };
 
   return (
-    <div className="assign-child-side">
-      <div className="add-child">
-        <h1 className="add-knight" onClick={toggleAccordion}>Add Knight</h1>
+    <div className="child-register-section">
+      <div className="assign-child-side">
+        <div className="add-child">
+          <h1 className="add-knight" onClick={toggleAccordion}>
+            Add Knight
+          </h1>
+        </div>
+        <div className="add-knight-form">
+          {isOpen && (
+            <form
+              className="register-form"
+              onSubmit={handleSubmit((data) => {
+                formChildSubmit(data);
+              })}
+            >
+              <div className="register-div register-name">
+                <label className="reg-first" htmlFor="username">
+                  Name:{" "}
+                </label>
+                <input
+                  className="auth-input register-input"
+                  id="childName"
+                  name="childName"
+                  type="text"
+                  {...register("childName", {
+                    required: "Child Name is requried.",
+                  })}
+                  placeholder={`Enter Child Name`}
+                />
+              </div>
+              <br />
+              <div className="register-div">
+                <label className="reg-email" htmlFor="username">
+                  Username:{" "}
+                </label>
+                <input
+                  className="auth-input register-input"
+                  id="username"
+                  name="username"
+                  type="username"
+                  {...register("username", {
+                    required: "Username is requried.",
+                  })}
+                  // placeholder={`Enter username address `}
+                />
+              </div>
+              <br />
+              <div className="register-div">
+                <label className="reg-password" htmlFor="password">
+                  Password:{" "}
+                </label>
+                <input
+                  className="register-input auth-input"
+                  id="password"
+                  name="password"
+                  type="password"
+                  {...register("password", {
+                    required: "Password is requried.",
+                  })}
+                  // placeholder={`Enter password `}
+                />
+              </div>
+              <br />
+              <div className="child-register-btn">
+                <input className="auth-input register-child-submit" type="submit" value="Create" />
+              </div>
+            </form>
+          )}
+        </div>
       </div>
-      {isOpen && (
-        <form
-          className="register-form"
-          onSubmit={handleSubmit((data) => {
-            formChildSubmit(data);
-          })}
-        >
-          <label className="reg-first" htmlFor="username">
-            Name:{" "}
-          </label>
-          <input
-            className="auth-input"
-            id="childName"
-            name="childName"
-            type="text"
-            {...register("childName", {
-              required: "Child Name is requried.",
-            })}
-            placeholder={`Enter Child Name`}
-          />
-          <br />
-
-          <label className="reg-email" htmlFor="username">
-            Username:{" "}
-          </label>
-          <input
-            className="auth-input"
-            id="username"
-            name="username"
-            type="username"
-            {...register("username", {
-              required: "Username is requried.",
-            })}
-            placeholder={`Enter username address `}
-          />
-          <br />
-          <label className="reg-password" htmlFor="password">
-            Password:{" "}
-          </label>
-          <input
-            className="auth-input"
-            id="password"
-            name="password"
-            type="password"
-            {...register("password", {
-              required: "Password is requried.",
-            })}
-            placeholder={`Enter password `}
-          />
-          <br />
-          <div className="register-btn">
-            <input className="auth-log" type="submit" value="Sign Up" />
-          </div>
-        </form>
-      )}
     </div>
   );
 };

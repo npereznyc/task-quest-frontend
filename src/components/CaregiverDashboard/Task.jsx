@@ -28,7 +28,8 @@ export default function ({ taskIds }) {
   return (
     <>
       <div className="task-list">
-        <h4>Quests To Do</h4>
+        <div className="quests-todo">
+        <h4 className="incomplete-quests">Quests To Do</h4>
         {tasks?.map((task, index) => (
           <>
             <div>
@@ -43,7 +44,9 @@ export default function ({ taskIds }) {
             </div>
           </>
         ))}
-        <h4>Complete</h4>
+        </div>
+        <div className="quests-complete">
+        <h4 className="complete-quests">Complete</h4>
         {tasks?.map((task, index) => (
           <>
             <div>
@@ -58,6 +61,7 @@ export default function ({ taskIds }) {
             </div>
           </>
         ))}
+                </div>
       </div>
     </>
   );
