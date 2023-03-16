@@ -5,7 +5,7 @@ import { UserContext } from "../../data";
 import AddChild from "./AddChild";
 import Task from "./Task";
 import axios from "axios";
-import Child from "./Child";
+import Child from "./child";
 
 const URL = process.env.REACT_APP_SERVER_URL || "http://localhost:4000";
 
@@ -30,12 +30,10 @@ export default function ChildList(props) {
   async function getChildren() {
     let children;
     try {
-
       const response = await axios(URL + `/caregiver/${caregiverId}/children`);
 
       setChildren(response.data);
       // children = await response.json();
-
     } catch (err) {
       console.error(err.message);
       // } finally {
@@ -100,7 +98,6 @@ export default function ChildList(props) {
             rewardsArray={rewardsArray}
             taskArray={taskArray}
           />
-          
         )
       )}
 
@@ -136,7 +133,7 @@ export default function ChildList(props) {
         </div>
       </div>
     ); */}
-    <AddChild />
+      <AddChild />
     </div>
   );
 }

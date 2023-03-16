@@ -5,15 +5,15 @@ import AddChild from "./AddChild";
 
 const URL = process.env.REACT_APP_SERVER_URL || "http://localhost:4000";
 
-
 export default function ({ taskIds }) {
   const [tasks, setTasks] = useState([]);
-
 
   async function getTasks() {
     try {
       const taskData = await Promise.all(
-        taskIds?.map((id) => axios.get(`http://localhost:4000/tasks/${id}`))
+        taskIds?.map((id) =>
+          axios.get(`http://localhost:4000/tasks/incompleteandcomplete/${id}`)
+        )
       );
 
       setTasks(taskData);
@@ -34,7 +34,6 @@ export default function ({ taskIds }) {
   const handleClose = () => {
     setOpenTaskId(null);
   };
-
 
   return (
     <>
@@ -68,7 +67,6 @@ export default function ({ taskIds }) {
           </>
         ))}
       </div>
-      
     </>
   );
 }
