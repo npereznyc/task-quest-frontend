@@ -1,6 +1,7 @@
 import Task from "./Task";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import AddChild from "./AddChild";
 
 const URL = process.env.REACT_APP_SERVER_URL || "http://localhost:4000";
 
@@ -14,6 +15,15 @@ export default function Child({
   const [tasks, setTasks] = useState([]);
   const [totalNotCompleted, setTotalNotCompleted] = useState(0);
   const [totalCompleted, setTotalCompleted] = useState(0);
+  const [openTaskId, setOpenTaskId] = useState(null);
+
+  const handleOpen = (index) => {
+    setOpenTaskId(index);
+  };
+
+  const handleClose = () => {
+    setOpenTaskId(null);
+  };
 
   async function getTasks() {
     try {

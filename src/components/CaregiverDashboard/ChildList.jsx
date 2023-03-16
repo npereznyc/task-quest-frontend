@@ -100,6 +100,7 @@ export default function ChildList(props) {
             rewardsArray={rewardsArray}
             taskArray={taskArray}
           />
+          
         )
       )}
 
@@ -135,6 +136,7 @@ export default function ChildList(props) {
         </div>
       </div>
     ); */}
+    <AddChild />
     </div>
   );
 }
