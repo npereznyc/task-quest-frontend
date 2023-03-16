@@ -52,47 +52,51 @@ const CreateTask = ({ caregiverId, setRenderEffect }) => {
   return (
     <div>
       <div className="accordion-header" onClick={toggleAccordion}>
-        <h2>Add a Task</h2>
+        <div className="create-quest">
+          <h1 className="new-quest">New Quest</h1>
+        </div>
       </div>
-      {isOpen && (
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}
-        >
-          {({ isSubmitting }) => (
-            <Form>
-              <div>
-                <label htmlFor="taskName">Task Name</label>
-                <Field type="text" name="taskName" />
-                <ErrorMessage name="taskName" component="div" />
-              </div>
+      <div className="open-form">
+        {isOpen && (
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+          >
+            {({ isSubmitting }) => (
+              <Form className="new-quest-form">
+                <div>
+                  <label htmlFor="taskName">Task Name</label>
+                  <Field type="text" name="taskName" />
+                  <ErrorMessage name="taskName" component="div" />
+                </div>
 
-              <div>
-                <label htmlFor="taskDescription">Task Description</label>
-                <Field as="textarea" name="taskDescription" />
-                <ErrorMessage name="taskDescription" component="div" />
-              </div>
+                <div>
+                  <label htmlFor="taskDescription">Task Description</label>
+                  <Field as="textarea" name="taskDescription" />
+                  <ErrorMessage name="taskDescription" component="div" />
+                </div>
 
-              <div>
-                <label htmlFor="taskPoints">Task Points</label>
-                <Field type="number" name="taskPoints" />
-                <ErrorMessage name="taskPoints" component="div" />
-              </div>
+                <div>
+                  <label htmlFor="taskPoints">Task Points</label>
+                  <Field type="number" name="taskPoints" />
+                  <ErrorMessage name="taskPoints" component="div" />
+                </div>
 
-              <div>
-                <label htmlFor="dueDate">Due Date</label>
-                <Field type="date" name="dueDate" />
-                <ErrorMessage name="dueDate" component="div" />
-              </div>
+                <div>
+                  <label htmlFor="dueDate">Due Date</label>
+                  <Field type="date" name="dueDate" />
+                  <ErrorMessage name="dueDate" component="div" />
+                </div>
 
-              <button type="submit" disabled={isSubmitting}>
-                Submit
-              </button>
-            </Form>
-          )}
-        </Formik>
-      )}
+                <button type="submit" disabled={isSubmitting}>
+                  Submit
+                </button>
+              </Form>
+            )}
+          </Formik>
+        )}
+      </div>
     </div>
   );
 };

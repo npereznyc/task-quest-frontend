@@ -10,6 +10,7 @@ import RegisterForm from "./RegisterForm";
 import CaregiverDashboard from "../pages/CaregiverDashboard";
 import "../style/login.css";
 import "../style/editTask.css";
+import "../style/quests&rewards.css";
 import "../App.css";
 import QuestsAndRewards from "./CaregiverDashboard/QuestsAndRewards";
 import ChildDashboard from "../pages/ChildDashboard";
