@@ -30,12 +30,10 @@ export default function ChildList(props) {
   async function getChildren() {
     let children;
     try {
-
       const response = await axios(URL + `/caregiver/${caregiverId}/children`);
 
       setChildren(response.data);
       // children = await response.json();
-
     } catch (err) {
       console.error(err.message);
       // } finally {
@@ -88,23 +86,22 @@ export default function ChildList(props) {
     //         ))}</div>
     //     </> : <p className="details">There are no children associated with this caregiver</p>}
     // </div>
+    <div>
+      <div className="children-list-container">
+        {children.map(
+          ({ _id, caregiverId, childName, rewardsArray, taskArray }) => (
+            <Child
+              key={_id}
+              childId={_id}
+              caregiverId={caregiverId}
+              childName={childName}
+              rewardsArray={rewardsArray}
+              taskArray={taskArray}
+            />
+          )
+        )}
 
-    <div className="children-list-container">
-      {children.map(
-        ({ _id, caregiverId, childName, rewardsArray, taskArray }) => (
-          <Child
-            key={_id}
-            childId={_id}
-            caregiverId={caregiverId}
-            childName={childName}
-            rewardsArray={rewardsArray}
-            taskArray={taskArray}
-          />
-          
-        )
-      )}
-
-      {/* {allChildren.length ? (
+        {/* {allChildren.length ? (
           <>
             <div className="children-list">
               {allChildren.map((child) => (
@@ -136,7 +133,8 @@ export default function ChildList(props) {
         </div>
       </div>
     ); */}
-    <AddChild />
+      </div>
+      <AddChild />
     </div>
   );
 }

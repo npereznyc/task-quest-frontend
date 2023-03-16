@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
-import AddChild from "./AddChild";
 
 const URL = process.env.REACT_APP_SERVER_URL || "http://localhost:4000";
 
@@ -26,14 +25,7 @@ export default function ({ taskIds }) {
     getTasks();
   }, [taskIds]);
 
-  const [openTaskId, setOpenTaskId] = useState(null);
-  const handleOpen = (index) => {
-    setOpenTaskId(index);
-  };
 
-  const handleClose = () => {
-    setOpenTaskId(null);
-  };
 
 
   return (
