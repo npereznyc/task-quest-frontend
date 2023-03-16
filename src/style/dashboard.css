@@ -19,13 +19,17 @@
   background-color: #2f3240;
   padding: 1rem;
 }
-/* .children-list-container{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-auto-rows: minmax(75px, auto);
-  grid-gap: 1rem;
-  margin: 0 auto;
-  max-width: 700px;
-  padding: 1rem;
-  border: 1px solid red;
-} */
+.child-bars{
+  display: flex;
+  justify-content: center;
+}
+.child-bar, .task-details{
+  width: 500px;
+}
+.child-bar{
+  display: flex;
+}
+.total-completed, .total-incompleted{
+display: flex;
+flex-direction: column;
+}

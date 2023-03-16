@@ -5,7 +5,7 @@ import { UserContext } from "../../data";
 import AddChild from "./AddChild";
 import Task from "./Task";
 import axios from "axios";
-import Child from "./Child";
+import Child from "./child";
 
 const URL = process.env.REACT_APP_SERVER_URL || "http://localhost:4000";
 
@@ -86,22 +86,22 @@ export default function ChildList(props) {
     //         ))}</div>
     //     </> : <p className="details">There are no children associated with this caregiver</p>}
     // </div>
-    <div>
-      <div className="children-list-container">
-        {children.map(
-          ({ _id, caregiverId, childName, rewardsArray, taskArray }) => (
-            <Child
-              key={_id}
-              childId={_id}
-              caregiverId={caregiverId}
-              childName={childName}
-              rewardsArray={rewardsArray}
-              taskArray={taskArray}
-            />
-          )
-        )}
 
-        {/* {allChildren.length ? (
+    <div className="children-list-container">
+      {children.map(
+        ({ _id, caregiverId, childName, rewardsArray, taskArray }) => (
+          <Child
+            key={_id}
+            childId={_id}
+            caregiverId={caregiverId}
+            childName={childName}
+            rewardsArray={rewardsArray}
+            taskArray={taskArray}
+          />
+        )
+      )}
+
+      {/* {allChildren.length ? (
           <>
             <div className="children-list">
               {allChildren.map((child) => (
@@ -133,7 +133,6 @@ export default function ChildList(props) {
         </div>
       </div>
     ); */}
-      </div>
       <AddChild />
     </div>
   );

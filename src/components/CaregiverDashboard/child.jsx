@@ -24,7 +24,9 @@ export default function Child({
   async function getTasks() {
     try {
       const taskData = await Promise.all(
-        taskArray?.map((id) => axios.get(`${URL}/tasks/${id}`))
+        taskArray?.map((id) =>
+          axios.get(`${URL}/tasks/incompleteandcomplete/${id}`)
+        )
       );
       console.log(taskData);
       setTasks(taskData.map((data) => data.data));
@@ -61,16 +63,27 @@ export default function Child({
   };
 
   return (
-    <>
-      <div onClick={toggleAccordion}>
-        <h1> {childName}</h1>
-        <p>Not Completed: {totalNotCompleted}</p>
-        <p>Completed: {totalCompleted}</p>
+    <div className="child-bars">
+      <div>
+        <div className="child-bar" onClick={toggleAccordion}>
+          <h1 className="child-name"> {childName}</h1>
+          <p className="total-incompleted">
+            <span> {totalNotCompleted}</span>
+            <span>Not Completed</span>{" "}
+          </p>
+          <p className="total-completed">
+            <span> {totalCompleted}</span>
+            <span>Completed</span>
+          </p>
+        </div>
+        <div className="task-details">
+          {isOpen && (
+            <div>
+              <Task taskIds={taskArray} childId={childId} />
+            </div>
+          )}
+        </div>
       </div>
-      {isOpen && (
-        <div>
-        <Task taskIds={taskArray} childId={childId} />
-      </div>)}
-    </>
+    </div>
   );
 }

@@ -43,7 +43,7 @@ const AddChild = () => {
   };
 
   return (
-    <div className="register-side">
+    <div className="assign-child-side">
       <form
         className="register-form"
         onSubmit={handleSubmit((data) => {
