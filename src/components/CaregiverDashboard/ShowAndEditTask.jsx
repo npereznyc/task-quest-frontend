@@ -74,7 +74,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
       .put(`http://localhost:4000/tasks/${taskId}`, values)
       .then(() => {
         console.log("Task updated successfully");
-        navigate("/tasksrewards");
+        navigate("/caregiverdashboard/QuestsAndRewards");
       })
       .catch((err) => console.log(err));
   };
