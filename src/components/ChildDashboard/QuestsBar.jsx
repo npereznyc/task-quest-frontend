@@ -10,7 +10,7 @@ export default function QuestsBar({ childObject }) {
   const caregiverId = currentUser.caregiverId;
   const taskArray = currentUser.taskArray;
 
-  console.log(childObject.childName)
+  console.log(childObject?.childName);
   const listTasks = async () => {
     try {
       const taskData = await Promise.all(
