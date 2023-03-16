@@ -12,6 +12,7 @@ import "../style/login.css";
 import "../style/editTask.css";
 import "../style/quests&rewards.css";
 import "../App.css";
+import '../style/childDashboard.css'
 import QuestsAndRewards from "./CaregiverDashboard/QuestsAndRewards";
 import ChildDashboard from "../pages/ChildDashboard";
 import AddChild from "./CaregiverDashboard/AddChild";

@@ -74,9 +74,9 @@ export default function QuestsBar({ childObject }) {
 
   return (
     <div>
-      <h1>{currentUser.childName}</h1>
-      <h2>{totalPoints} POINTS</h2>
-      <div className="incomplete-quests">Today's Quests
+        <h1>{currentUser.childName}</h1>
+        <h2>{totalPoints} Points</h2>
+        <div className="incomplete-quests">Today's Quests
         <ul>
           {tasks.filter(task => !task.completed).map((task) => (
             <li key={task._id}>
@@ -86,8 +86,8 @@ export default function QuestsBar({ childObject }) {
             </li>
           ))}
         </ul>
-      </div>
-      <div className="complete-quests">Completed Quests
+        </div>
+        <div className="complete-quests">Completed Quests
         <ul>
           {tasks.filter(task => task.completed).map((task) => (
             <li key={task._id}>

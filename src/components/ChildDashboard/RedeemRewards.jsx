@@ -56,8 +56,9 @@ const ShowAndEditReward = ({ caregiverId }) => {
     }
 
     return (
-        <div>
-            <h1>Available Rewards</h1>
+        <div className='quest-rewards-container'>
+            <div className='rewards-box'>
+            <h1>Redeem Riches</h1>
 
             <h4>Total Rewards: {rewards.length}</h4>
             {rewards.map((reward, index) => (
@@ -105,6 +106,8 @@ const ShowAndEditReward = ({ caregiverId }) => {
                 </div>
             ))}
         </div>
+        </div>
+        
     );
 };
 
