@@ -28,7 +28,9 @@ export default function Child({
   async function getTasks() {
     try {
       const taskData = await Promise.all(
-        taskArray?.map((id) => axios.get(`${URL}/tasks/${id}`))
+        taskArray?.map((id) =>
+          axios.get(`${URL}/tasks/incompleteandcomplete/${id}`)
+        )
       );
       console.log(taskData);
       setTasks(taskData.map((data) => data.data));
