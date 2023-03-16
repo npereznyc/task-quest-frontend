@@ -67,15 +67,18 @@ export default function Child({
       <div>
         <div className="child-bar" onClick={toggleAccordion}>
           <h1 className="child-name"> {childName}</h1>
+          <div className="content">
+
+          
           <p className="total-incompleted">
-            <span> {totalNotCompleted}</span>
+            <span className="number"> {totalNotCompleted}</span>
             <span>Not Completed</span>{" "}
           </p>
           <p className="total-completed">
-            <span> {totalCompleted}</span>
+            <span className="number"> {totalCompleted}</span>
             <span>Completed</span>
           </p>
-        </div>
+        </div></div>
         <div className="task-details">
           {isOpen && (
             <div>

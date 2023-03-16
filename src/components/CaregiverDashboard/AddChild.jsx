@@ -2,9 +2,16 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useState, useEffect } from "react";
 
 const URL = process.env.REACT_APP_SERVER_URL || "http://localhost:4000";
 const AddChild = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleAccordion = () => {
+    setIsOpen(!isOpen);
+  };
+
   const currentUser = JSON.parse(localStorage.getItem("caregiver"));
   const caregiverId = currentUser._id;
   const token = currentUser.token;
@@ -44,59 +51,64 @@ const AddChild = () => {
 
   return (
     <div className="assign-child-side">
-      <form
-        className="register-form"
-        onSubmit={handleSubmit((data) => {
-          formChildSubmit(data);
-        })}
-      >
-        <label className="reg-first" htmlFor="username">
-          Name:{" "}
-        </label>
-        <input
-          className="auth-input"
-          id="childName"
-          name="childName"
-          type="text"
-          {...register("childName", {
-            required: "Child Name is requried.",
+      <div className="add-child">
+        <h1 className="add-knight" onClick={toggleAccordion}>Add Knight</h1>
+      </div>
+      {isOpen && (
+        <form
+          className="register-form"
+          onSubmit={handleSubmit((data) => {
+            formChildSubmit(data);
           })}
-          placeholder={`Enter Child Name`}
-        />
-        <br />
+        >
+          <label className="reg-first" htmlFor="username">
+            Name:{" "}
+          </label>
+          <input
+            className="auth-input"
+            id="childName"
+            name="childName"
+            type="text"
+            {...register("childName", {
+              required: "Child Name is requried.",
+            })}
+            placeholder={`Enter Child Name`}
+          />
+          <br />
 
-        <label className="reg-email" htmlFor="username">
-          Username:{" "}
-        </label>
-        <input
-          className="auth-input"
-          id="username"
-          name="username"
-          type="username"
-          {...register("username", {
-            required: "Username is requried.",
-          })}
-          placeholder={`Enter username address `}
-        />
-        <br />
-        <label className="reg-password" htmlFor="password">
-          Password:{" "}
-        </label>
-        <input
-          className="auth-input"
-          id="password"
-          name="password"
-          type="password"
-          {...register("password", {
-            required: "Password is requried.",
-          })}
-          placeholder={`Enter password `}
-        />
-        <br />
-        <div className="register-btn">
-          <input className="auth-log" type="submit" value="Sign Up" />
-        </div>
-      </form>
+          <label className="reg-email" htmlFor="username">
+            Username:{" "}
+          </label>
+          <input
+            className="auth-input"
+            id="username"
+            name="username"
+            type="username"
+            {...register("username", {
+              required: "Username is requried.",
+            })}
+            placeholder={`Enter username address `}
+          />
+          <br />
+          <label className="reg-password" htmlFor="password">
+            Password:{" "}
+          </label>
+          <input
+            className="auth-input"
+            id="password"
+            name="password"
+            type="password"
+            {...register("password", {
+              required: "Password is requried.",
+            })}
+            placeholder={`Enter password `}
+          />
+          <br />
+          <div className="register-btn">
+            <input className="auth-log" type="submit" value="Sign Up" />
+          </div>
+        </form>
+      )}
     </div>
   );
 };

@@ -25,34 +25,34 @@ export default function ({ taskIds }) {
     getTasks();
   }, [taskIds]);
 
-
-
   return (
     <>
       <div className="task-list">
-        <h4>To Do: </h4>
+        <h4>Quests To Do</h4>
         {tasks?.map((task, index) => (
           <>
             <div>
               <span>
                 {task?.data?.incompletedTask?.map((task, index) => (
-                  <div>
-                    {task?.taskName} {task?.taskPoints}{" "}
+                  <div className="quests">
+                    <p> {task?.taskName}</p>
+                    <p className="quest-coins">{task?.taskPoints} coins</p>
                   </div>
                 ))}
               </span>
             </div>
           </>
         ))}
-        <h4>Completed:</h4>
+        <h4>Complete</h4>
         {tasks?.map((task, index) => (
           <>
             <div>
               <span>
                 {task?.data?.completedTask?.map((task) => (
-                  <div>
-                    {task?.taskName} {task?.taskPoints}{" "}
-                  </div>
+                  <div className="quests">
+                  <p> {task?.taskName}</p>
+                  <p className="quest-coins">{task?.taskPoints} coins</p>
+                </div>
                 ))}
               </span>
             </div>

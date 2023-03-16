@@ -28,8 +28,51 @@
 }
 .child-bar{
   display: flex;
+  justify-content: space-between;
+  color: white;
+  background-color: #A65BD9;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
 }
 .total-completed, .total-incompleted{
 display: flex;
 flex-direction: column;
+margin: 0 20px;
+justify-content: center;
+}
+.content{
+  display: flex;
+  flex-direction: row;
+}
+.number{
+  text-align: center;
+}
+.quests{
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  width: 460px;
+  padding: 0 30px 0 30px;
+}
+.quest-coins{
+  color: #D9A441
+}
+.assign-child-side{
+  display: flex;
+  justify-content: center;
+}
+
+.add-knight{
+  width: 500px;
+  background-color: #0711D9;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  height: 75px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
