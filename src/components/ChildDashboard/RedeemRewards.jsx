@@ -42,55 +42,20 @@ const ShowAndEditReward = ({ caregiverId }) => {
     }
 
     return (
-        <div>
-            <h1>Available Rewards</h1>
+        <div className='quest-rewards-container'>
+            <div className='rewards-box'>
+            <h1>Redeem Riches</h1>
 
             <h4>Total Rewards: {rewards.length}</h4>
             {rewards.map((reward, index) => (
                 <div key={index}>
                     <h2>{reward.rewardName} </h2>
                     <h3>{reward.rewardPoints} coins</h3>
-                    
-                    {/* <Formik
-                        initialValues={reward}
-                        validationSchema={validationSchema}
-                    >
-                        {({ values, errors, touched }) => (
-                            <Form>
-                                <div>
-                                    <label htmlFor="rewardName">Reward Name</label>
-                                    <Field type="text" name="rewardName" />
-                                    <ErrorMessage name="rewardName" />
-                                </div>
-
-                                <div>
-                                    <label htmlFor="image">Image URL</label>
-                                    <Field type="text" name="image" />
-                                    <ErrorMessage name="image" />
-                                </div>
-
-                                <div>
-                                    <label htmlFor="rewardPoints">Reward Points</label>
-                                    <Field type="number" name="rewardPoints" />
-                                    <ErrorMessage name="rewardPoints" />
-                                </div>
-
-                                <div>
-                                    <label htmlFor="activeReward">Active Reward?</label>
-                                    <Field type="checkbox" name="activeReward" />
-                                </div>
-
-                                <div>
-                                    <label htmlFor="cashedIn">Cashed In</label>
-                                    <Field type="number" name="cashedIn" />
-                                    <ErrorMessage name="cashedIn" />
-                                </div>
-                            </Form>
-                        )}
-                    </Formik> */}
                 </div>
             ))}
         </div>
+        </div>
+        
     );
 };
 
