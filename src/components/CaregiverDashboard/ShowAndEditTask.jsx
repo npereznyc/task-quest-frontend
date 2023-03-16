@@ -4,7 +4,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 
-const ShowAndEditTask = ({ taskIds }) => {
+const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
   const navigate = useNavigate();
   const [tasks, setTasks] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false); // track whether API call is complete
@@ -14,6 +14,10 @@ const ShowAndEditTask = ({ taskIds }) => {
   const token = currentUser.token;
 
   const [listOfChildren, setListOfChildren] = useState([]);
+  const [listOfChildrenWithoutTask, setListOfChildrenWithoutTask] = useState(
+    []
+  );
+  const [numTasks, setNumTasks] = useState(0); // track number of task
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -32,7 +36,8 @@ const ShowAndEditTask = ({ taskIds }) => {
         dueDate: "",
       }));
       setTasks(taskList);
-      console.log(tasks);
+
+      setNumTasks(taskList.length);
       setIsLoaded(true); // update state to indicate API call is complete
     };
 
@@ -41,12 +46,13 @@ const ShowAndEditTask = ({ taskIds }) => {
         `http://localhost:4000/caregiver/${caregiverId}/children`
       );
       setListOfChildren(childData.data);
+      filterChildren();
       console.log(listOfChildren);
     };
 
     fetchChilds();
     fetchTasks();
-  }, [taskIds, caregiverId]);
+  }, [taskIds, numTasks]);
 
   const validationSchema = Yup.object().shape({
     taskName: Yup.string().required("Required"),
@@ -77,6 +83,23 @@ const ShowAndEditTask = ({ taskIds }) => {
       .post(`http://localhost:4000/tasks/${taskId}/${childId}`)
       .then(() => {
         console.log(`Task ${taskId} assigned to child ${childId} successfully`);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const filterChildren = (assignedIds) => {
+    const newList = listOfChildren.filter(
+      (child) => !assignedIds?.includes(child._id)
+    );
+    setListOfChildrenWithoutTask(newList);
+  };
+  const handleDeleteSubmit = (taskId) => {
+    const res = axios
+      .delete(`http://localhost:4000/tasks/${taskId}/`)
+      .then(() => {
+        console.log(`Task ${taskId} has been delete successfully`);
+        setNumTasks(numTasks - 1);
+        setRenderEffect(res);
       })
       .catch((err) => console.log(err));
   };
@@ -133,6 +156,14 @@ const ShowAndEditTask = ({ taskIds }) => {
                 </div>
 
                 <button type="submit">Update Task</button>
+                <button
+                  type="submit"
+                  onClick={() => {
+                    handleDeleteSubmit(task.id);
+                  }}
+                >
+                  Delete Task
+                </button>
 
                 <div>
                   <label htmlFor="child">Assign to Child:</label>
@@ -159,6 +190,32 @@ const ShowAndEditTask = ({ taskIds }) => {
           </Formik>
         </div>
       ))}
+      <h4>Unassigned Tasks</h4>
+      {listOfChildrenWithoutTask?.length > 0 ? (
+        <div>
+          {listOfChildrenWithoutTask?.map((child) => (
+            <div key={child._id}>
+              <h4>{child.childName}</h4>
+              <ul>
+                {tasks
+                  ?.filter((task) => !task?.completed)
+                  .map((task) => (
+                    <li key={task?.id}>
+                      {task?.taskName} {task?.taskPoints} points{" "}
+                      <button
+                        onClick={() => assignTaskToChild(task?.id, child._id)}
+                      >
+                        Assign Task
+                      </button>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p>All tasks are assigned.</p>
+      )}
     </div>
   );
 };
