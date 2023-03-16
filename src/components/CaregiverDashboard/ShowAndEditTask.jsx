@@ -6,7 +6,7 @@ import axios from "axios";
 
 const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
   const navigate = useNavigate();
-  const [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false); // track whether API call is complete
 
   const currentUser = JSON.parse(localStorage.getItem("caregiver"));
@@ -18,7 +18,11 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
     []
   );
   const [numTasks, setNumTasks] = useState(0); // track number of task
+  const [activeTaskId, setActiveTaskId] = useState(null);
 
+  const toggleAccordion = (taskId) => {
+    setActiveTaskId(activeTaskId === taskId ? null : taskId);
+  };
   useEffect(() => {
     const fetchTasks = async () => {
       const taskData = await Promise.all(
@@ -111,8 +115,10 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
       {tasks?.map((task, index) => (
         <div key={index}>
           <h2>
-            {task?.taskName} {task?.taskPoints} points Edit
+            {task?.taskName} {task?.taskPoints} points 
+            <button onClick={() => toggleAccordion(taskIds[index])}>Edit</button>
           </h2>
+          {activeTaskId === taskIds[index] && (
           <Formik
             initialValues={task}
             validationSchema={validationSchema}
@@ -187,7 +193,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                 </button>
               </Form>
             )}
-          </Formik>
+          </Formik>)}
         </div>
       ))}
       <h4>Unassigned Tasks</h4>
