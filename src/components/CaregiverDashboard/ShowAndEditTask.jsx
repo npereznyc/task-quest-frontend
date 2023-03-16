@@ -8,6 +8,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
   const navigate = useNavigate();
     const [tasks, setTasks] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false); // track whether API call is complete
+  const [openChildId, setOpenChildId] = useState(null);
 
   const currentUser = JSON.parse(localStorage.getItem("caregiver"));
   const caregiverId = currentUser._id;
@@ -108,6 +109,14 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
       .catch((err) => console.log(err));
   };
 
+const handleChildClick = (childId) => {
+    setOpenChildId(childId === openChildId ? null : childId);
+  };
+
+  const childrenWithoutTask = listOfChildren.filter((child) => {
+    return !tasks.some((task) => task.childId === child._id && !task.completed);
+  });
+
   return (
     <div>
       <h1>Tasks {taskIds.length}</h1>
@@ -201,7 +210,8 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
         <div>
           {listOfChildrenWithoutTask?.map((child) => (
             <div key={child._id}>
-              <h4>{child.childName}</h4>
+              <h4 onClick={() => handleChildClick(child._id)}>{child.childName}</h4>
+              {openChildId === child._id && (
               <ul>
                 {tasks
                   ?.filter((task) => !task?.completed)
@@ -216,6 +226,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                     </li>
                   ))}
               </ul>
+              )}
             </div>
           ))}
         </div>
