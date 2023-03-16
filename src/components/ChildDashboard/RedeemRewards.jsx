@@ -64,8 +64,8 @@ const ShowAndEditReward = ({ caregiverId }) => {
                 <ul className='individual-rewards'>
                     {rewards.map((reward, index) => (
                         <div key={index}>
-                            <h2 className='reward-name'>{reward.rewardName} </h2>
-                            <h3 className='reward-points'>{reward.rewardPoints} coins</h3>
+                            <span className='reward-name'>{reward.rewardName} </span>
+                            <span className='reward-points'>{reward.rewardPoints} coins</span>
                             <button onClick={() => redeemReward(reward._id)}>Redeem</button>
 
                         </div>
