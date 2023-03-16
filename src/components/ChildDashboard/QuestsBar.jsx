@@ -4,13 +4,13 @@ import axios from "axios";
 export default function QuestsBar({ childObject }) {
   const [tasks, setTasks] = useState([]);
   const currentUser = JSON.parse(localStorage.getItem("child"));
+  const [totalPoints, setTotalPoints] = useState(0)
   const childId = currentUser._id;
-  const [child, setChild] = useState();
 
   const caregiverId = currentUser.caregiverId;
   const taskArray = currentUser.taskArray;
 
-  console.log(childObject?.childName);
+  console.log(currentUser.totalPoints);
   const listTasks = async () => {
     /* try {
       const taskData = await Promise.all(
@@ -36,9 +36,28 @@ export default function QuestsBar({ childObject }) {
     }
   };
 
+  const getTotalPoints = async () => {
+    try {
+      console.log(childId) 
+      const response = await axios.get(
+        `http://localhost:4000/child/${childId}`
+      );
+      const totalPoints = response.data.totalPoints;
+      console.log(response)
+      setTotalPoints(totalPoints);
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   useEffect(() => {
     listTasks();
+    getTotalPoints()
   }, []);
+
+/*   useEffect(() => {
+    setChild(JSON.parse(localStorage.getItem("child")));
+  }, []); */
 
   const handleCompleteTask = async (taskId) => {
     try {
@@ -46,8 +65,8 @@ export default function QuestsBar({ childObject }) {
       await axios.put(
         `http://localhost:4000/tasks/complete/${taskId}/${childId}/`
       );
-
-      listTasks();
+      getTotalPoints()
+      listTasks();;
     } catch (error) {
       console.error(error);
     }
@@ -55,20 +74,29 @@ export default function QuestsBar({ childObject }) {
 
   return (
     <div>
-        <h1>{currentUser.childName}</h1>
-        <h2>{currentUser.totalPoints}</h2>
-        <div className="incomplete-quests">Today's Quests
-        <ul>
-          {tasks.filter(task => !task.completed).map((task) => (
-            <li key={task._id}>
-              <button onClick={() => handleCompleteTask(task._id)}>Complete</button>
-              <span className="task-name">{task.taskName}</span>
-              <span className="task-name">{task.taskPoints} POINTS </span>
-            </li>
-          ))}
-        </ul>
+      <h1>{currentUser.childName}</h1>
+      <h2>Total Coins: {totalPoints}</h2>
+      <div className='quests-rewards-container'>
+        <div className='incomplete-quests-box'>
+          <div className="incomplete-quests">
+            <h3>Today's Quests</h3>
+            <ul className='individual-quest'>
+              {tasks.filter(task => !task.completed).map((task) => (
+                <div key={task._id}>
+                  <button onClick={() => handleCompleteTask(task._id)}>Complete</button>
+                  <span className="task-name">{task.taskName}</span>
+                  <span className="task-points">{task.taskPoints} Coins </span>
+                </div>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div className="complete-quests">Completed Quests
+
+      </div>
+      <div className='quests-rewards-container'>
+        <div className='complete-quests-box'>
+        <div className="complete-quests">
+        <h3>Completed Quests</h3>
         <ul>
           {tasks.filter(task => task.completed).map((task) => (
             <li key={task._id}>
@@ -77,8 +105,11 @@ export default function QuestsBar({ childObject }) {
             </li>
           ))}
         </ul>
-        </div>
-        <div className="points">POINTS</div>
+      </div>
+      </div>
+      </div>
+      
+    
     </div>
   );
 }

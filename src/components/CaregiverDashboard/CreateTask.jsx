@@ -65,25 +65,25 @@ const CreateTask = ({ caregiverId, setRenderEffect }) => {
           >
             {({ isSubmitting }) => (
               <Form className="new-quest-form">
-                <div>
+                <div className="quest-input">
                   <label htmlFor="taskName">Task Name</label>
                   <Field type="text" name="taskName" />
                   <ErrorMessage name="taskName" component="div" />
                 </div>
 
-                <div>
+                <div className="quest-input">
                   <label htmlFor="taskDescription">Task Description</label>
                   <Field as="textarea" name="taskDescription" />
                   <ErrorMessage name="taskDescription" component="div" />
                 </div>
 
-                <div>
+                <div className="quest-input">
                   <label htmlFor="taskPoints">Task Points</label>
                   <Field type="number" name="taskPoints" />
                   <ErrorMessage name="taskPoints" component="div" />
                 </div>
 
-                <div>
+                <div className="quest-input">
                   <label htmlFor="dueDate">Due Date</label>
                   <Field type="date" name="dueDate" />
                   <ErrorMessage name="dueDate" component="div" />

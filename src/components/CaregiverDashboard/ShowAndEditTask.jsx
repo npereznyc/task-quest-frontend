@@ -118,113 +118,122 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
   });
 
   return (
-    <div className="quests-rewards">      <p className="num-adult-tasks">Number of Quests: {taskIds.length}</p>
-
-      <div className="qst">
-      {/* <h4 className="">Total Tasks</h4> */}
-      <div className="quest-bars">
-        {tasks?.map((task, index) => (
-          <div className="each-quest" key={index}>
-            <div clasSName="assign-name-div">
-            <h2 className="each-quest-detail">
-              <span className="adults-task-name">{task?.taskName}</span>
-              <span className="adults-task-coins">
-                {task?.taskPoints} coins
-              </span>
-              <button
-                className="edit-task-btn"
-                onClick={() => toggleAccordion(taskIds[index])}
-              >
-                Edit
-              </button>
-            </h2>
-            </div>
-            {activeTaskId === taskIds[index] && (
-              <div className="assign-form">
-              <Formik
-                initialValues={task}
-                validationSchema={validationSchema}
-                onSubmit={(values) => handleSubmit(values, taskIds[index])}
-              >
-                {({ values, errors, touched }) => (
-                  <Form>
-                    <div>
-                      <label htmlFor="taskName">Task Name</label>
-                      <Field type="text" name="taskName" />
-                      <ErrorMessage name="taskName" />
-                    </div>
-
-                    <div>
-                      <label htmlFor="taskDescription">Task Description</label>
-                      <Field type="text" name="taskDescription" />
-                      <ErrorMessage name="taskDescription" />
-                    </div>
-
-                    <div>
-                      <label htmlFor="completed">Completed?</label>
-                      <Field type="checkbox" name="completed" />
-                    </div>
-
-                    <div>
-                      <label htmlFor="image">Image URL</label>
-                      <Field type="text" name="image" />
-                      <ErrorMessage name="image" />
-                    </div>
-
-                    <div>
-                      <label htmlFor="taskPoints">Task Points</label>
-                      <Field type="number" name="taskPoints" />
-                      <ErrorMessage name="taskPoints" />
-                    </div>
-
-                    <div>
-                      <label htmlFor="dueDate">Due Date</label>
-                      <Field type="date" name="dueDate" />
-                      <ErrorMessage name="dueDate" />
-                    </div>
-
-                    <button type="submit">Update Task</button>
-                    <button
-                      type="submit"
-                      onClick={() => {
-                        handleDeleteSubmit(task.id);
-                      }}
-                    >
-                      Delete Task
-                    </button>
-
-                    <div>
-                      <label htmlFor="child">Assign to Child:</label>
-                      <Field as="select" name="child">
-                        <option value="">-- Select a Child --</option>
-                        {listOfChildren?.map((child) => (
-                          <option key={child._id} value={child._id}>
-                            {child.childName}
-                          </option>
-                        ))}
-                      </Field>
-                    </div>
-                    <button
-                      type="submit"
-                      onClick={() => {
-                        const childId = values.child; // obtain the selected child ID from the form values
-                        assignTaskToChild(task.id, childId);
-                      }}
-                    >
-                      Assign to Child
-                    </button>
-                  </Form>
-                )}
-              </Formik>
-              </div>
-            )}
-          </div>
-        ))}
+    <div className="quests-rewards">
+      <div className="adult-tasks">
+        <div className="tasks-header">
+          <h1 className="tasks-title">Tasks</h1>
+          <p className="num-adult-tasks">
+            <span>{taskIds.length}</span>
+            <span>Total Tasks</span>
+          </p>
+        </div>
       </div>
+      <div className="qst">
+        {/* <h4 className="">Total Tasks</h4> */}
+        <div className="quest-bars">
+          {tasks?.map((task, index) => (
+            <div className="each-quest" key={index}>
+              <div clasSName="assign-name-div">
+                <h2 className="each-quest-detail">
+                  <span className="adults-task-name">{task?.taskName}</span>
+                  <span className="adults-task-coins">
+                    {task?.taskPoints} coins
+                  </span>
+                  <button
+                    className="edit-task-btn"
+                    onClick={() => toggleAccordion(taskIds[index])}
+                  >
+                    Edit
+                  </button>
+                </h2>
+              </div>
+              {activeTaskId === taskIds[index] && (
+                <div className="assign-form">
+                  <Formik
+                    initialValues={task}
+                    validationSchema={validationSchema}
+                    onSubmit={(values) => handleSubmit(values, taskIds[index])}
+                  >
+                    {({ values, errors, touched }) => (
+                      <Form>
+                        <div>
+                          <label htmlFor="taskName">Task Name</label>
+                          <Field type="text" name="taskName" />
+                          <ErrorMessage name="taskName" />
+                        </div>
+
+                        <div>
+                          <label htmlFor="taskDescription">
+                            Task Description
+                          </label>
+                          <Field type="text" name="taskDescription" />
+                          <ErrorMessage name="taskDescription" />
+                        </div>
+
+                        <div>
+                          <label htmlFor="completed">Completed?</label>
+                          <Field type="checkbox" name="completed" />
+                        </div>
+
+                        <div>
+                          <label htmlFor="image">Image URL</label>
+                          <Field type="text" name="image" />
+                          <ErrorMessage name="image" />
+                        </div>
+
+                        <div>
+                          <label htmlFor="taskPoints">Task Points</label>
+                          <Field type="number" name="taskPoints" />
+                          <ErrorMessage name="taskPoints" />
+                        </div>
+
+                        <div>
+                          <label htmlFor="dueDate">Due Date</label>
+                          <Field type="date" name="dueDate" />
+                          <ErrorMessage name="dueDate" />
+                        </div>
+
+                        <button type="submit">Update Task</button>
+                        <button
+                          type="submit"
+                          onClick={() => {
+                            handleDeleteSubmit(task.id);
+                          }}
+                        >
+                          Delete Task
+                        </button>
+
+                        <div>
+                          <label htmlFor="child">Assign to Child:</label>
+                          <Field as="select" name="child">
+                            <option value="">-- Select a Child --</option>
+                            {listOfChildren?.map((child) => (
+                              <option key={child._id} value={child._id}>
+                                {child.childName}
+                              </option>
+                            ))}
+                          </Field>
+                        </div>
+                        <button
+                          type="submit"
+                          onClick={() => {
+                            const childId = values.child; // obtain the selected child ID from the form values
+                            assignTaskToChild(task.id, childId);
+                          }}
+                        >
+                          Assign to Child
+                        </button>
+                      </Form>
+                    )}
+                  </Formik>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
       <div className="assign-quest-div">
-              <h1 className="assign-quest">Assign Quest</h1>
-
+        <h1 className="assign-quest">Assign Quest</h1>
       </div>
       {listOfChildrenWithoutTask?.length > 0 ? (
         <div className="assign-quest-section">
@@ -257,7 +266,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
           ))}
         </div>
       ) : (
-        <p className="all-assigned">All tasks are assigned.</p>
+        <p className="all-assigned"></p>
       )}
     </div>
   );
