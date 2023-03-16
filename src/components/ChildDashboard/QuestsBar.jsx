@@ -72,7 +72,6 @@ export default function QuestsBar({ childObject }) {
         <ul>
           {tasks.filter(task => task.completed).map((task) => (
             <li key={task._id}>
-              <button onClick={() => handleCompleteTask(task._id)}>Complete</button>
               <span className="task-name">{task.taskName}</span>
               <span className="task-name">{task.taskPoints} POINTS </span>
             </li>
