@@ -5,7 +5,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 const URL = process.env.REACT_APP_SERVER_URL || "http://localhost:4000";
-const AddChild = () => {
+const AddChild = ({ setChildRender }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleAccordion = () => {
@@ -28,7 +28,6 @@ const AddChild = () => {
     },
   });
   const formChildSubmit = async (data) => {
-    console.log(data);
     const { childName, username, password } = data;
     const payload = {
       caregiverId,
@@ -37,12 +36,13 @@ const AddChild = () => {
       password,
     };
     try {
-      await axios.post(URL + `/child/create`, payload, {
+      const res = await axios.post(URL + `/child/create`, payload, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       });
+      setChildRender(res.data);
       reset();
     } catch (error) {
       console.log(error);
@@ -114,7 +114,11 @@ const AddChild = () => {
               </div>
               <br />
               <div className="child-register-btn">
-                <input className="auth-input register-child-submit" type="submit" value="Create" />
+                <input
+                  className="auth-input register-child-submit"
+                  type="submit"
+                  value="Create"
+                />
               </div>
             </form>
           )}
