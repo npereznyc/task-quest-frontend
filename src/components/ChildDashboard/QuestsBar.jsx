@@ -12,13 +12,25 @@ export default function QuestsBar({ childObject }) {
 
   console.log(childObject?.childName);
   const listTasks = async () => {
-    try {
+    /* try {
       const taskData = await Promise.all(
         taskArray?.map((id) => axios.get(`http://localhost:4000/tasks/${id}`))
       );
       console.log(taskData);
       setTasks(taskData?.map((response) => response?.data));
       console.log(tasks);
+    }
+      catch (error) {
+      console.error(error);
+    } */
+    try {
+      const taskData = await Promise.all(
+        taskArray.map((id) => axios.get(`http://localhost:4000/tasks/${id}`))
+      );
+      console.log(taskData);
+      const tasks = taskData.map((response) => response.data);
+      console.log(tasks);
+      setTasks(tasks);
     } catch (error) {
       console.error(error);
     }
@@ -47,18 +59,25 @@ export default function QuestsBar({ childObject }) {
         <h1>{currentUser.childName}</h1>
         <h2>{currentUser.totalPoints}</h2>
         <ul>
-          {tasks.map((task) => (
+          {/* {tasks.map((task) => (
             <li key={task._id}>
               {task?.incompletedTask?.map((task) => (
-                <div>
+                <div key={task._id}>
                   <button onClick={() => handleCompleteTask(task._id)}>
                     Complete
                   </button>
-                  <span className="task-name">{task?.taskName}</span>
+                  <span className="task-name">{task.taskName}</span>
 
-                  <span className="task-name">{task?.taskPoints}</span>
+                  <span className="task-name">{task.taskPoints} POINTS </span>
                 </div>
               ))}
+            </li>
+          ))} */}
+          {tasks.map((task) => (
+            <li key={task._id}>
+              <button onClick={() => handleCompleteTask(task._id)}>Complete</button>
+              <span className="task-name">{task.taskName}</span>
+              <span className="task-name">{task.taskPoints} POINTS </span>
             </li>
           ))}
         </ul>
