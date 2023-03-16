@@ -75,18 +75,25 @@ export default function QuestsBar({ childObject }) {
   return (
     <div>
       <h1>{currentUser.childName}</h1>
-      <h2>{totalPoints} POINTS</h2>
-      <div className="incomplete-quests">Today's Quests
-        <ul>
-          {tasks.filter(task => !task.completed).map((task) => (
-            <li key={task._id}>
-              <button onClick={() => handleCompleteTask(task._id)}>Complete</button>
-              <span className="task-name">{task.taskName}</span>
-              <span className="task-name">{task.taskPoints} POINTS </span>
-            </li>
-          ))}
-        </ul>
+      <h2>{totalPoints}</h2>
+      <div className='quests-rewards-container'>
+        <div className='quests-box'>
+          <div className="incomplete-quests">
+            <h3>Today's Quests</h3>
+            <ul className='individual-quest'>
+              {tasks.filter(task => !task.completed).map((task) => (
+                <div key={task._id}>
+                  <button onClick={() => handleCompleteTask(task._id)}>Complete</button>
+                  <span className="task-name">{task.taskName}</span>
+                  <span className="task-points">{task.taskPoints} Coins </span>
+                </div>
+              ))}
+            </ul>
+          </div>
+        </div>
+
       </div>
+
       <div className="complete-quests">Completed Quests
         <ul>
           {tasks.filter(task => task.completed).map((task) => (
