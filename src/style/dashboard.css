@@ -1,3 +1,15 @@
+.caregiverDashboard-navLogo{
+  background-image: url(../assets/game-icons_medieval-gate.svg);
+  background-size: 75% 75%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 15vmax;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 5%; */
+}
+
 .dash {
   display: flex;
   justify-content: center;
@@ -33,9 +45,22 @@
 
 }
 
-.child-bar,
+.child-bar {
+  width: 70vw;
+}
+
+
+.task-list, 
+.quests-todo, 
+.quests-complete
+.quests {
+  width: 65vw;
+}
+
 .task-details {
-  width: 500px;
+  background-color: rgb(82, 64,111);
+  border-radius: 15px;
+  margin-top: 0px;
 }
 
 .child-bar {
@@ -96,7 +121,7 @@
 }
 
 .add-knight {
-  width: 500px;
+  width: 80vh;
   background-color: #0711d9;
   margin-top: 20px;
   padding: 10px;
@@ -148,4 +173,16 @@
   background-color: #0711d9;
   color: white;
   padding: 10px 25px;
+}
+
+.complete-quests {
+  color: white;
+  margin: 50px 0px 15px 0px;
+  font-size: xx-large;
+}
+
+.incomplete-quests {
+  color: white;
+  margin: 20px 0px 15px 0px;
+  font-size: xx-large;
 }

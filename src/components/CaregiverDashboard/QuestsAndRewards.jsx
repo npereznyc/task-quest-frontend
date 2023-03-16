@@ -36,7 +36,7 @@ export default function QuestsAndRewards() {
   }, [renderEffect]);
 
   return (
-    <div>
+    <div className="caregiverDashboardBody">
       <CaregiverNav />
       <ShowAndEditTask
         taskIds={arrayOfAllCaregiverTaskIds}
