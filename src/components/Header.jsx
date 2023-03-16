@@ -1,6 +1,5 @@
 import React from "react";
 import "../style/header.css";
-
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
@@ -11,15 +10,20 @@ const Header = () => {
     navigate(`/`);
   }
 
+  // check if user is logged in
+  const isLoggedIn = localStorage.getItem("user") !== null;
+
   return (
-    <div className="header">
-      <img className="logo"src={process.env.PUBLIC_URL + "/assets/QRlogo.png"} alt="qrlogo" />
-      <div className="logout-div">
-        <h6 onClick={logoutUser} className="logout-button">
-          Log Out
-        </h6>
-      </div>
-    </div>
+    <>
+      <div className="header"></div>
+      {!isLoggedIn && ( // render logout div only if user is not logged in
+        <div className="logout-div">
+          <h6 onClick={logoutUser} className="logout-button">
+            Log Out
+          </h6>
+        </div>
+      )}
+    </>
   );
 };
 

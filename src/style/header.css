@@ -7,7 +7,7 @@
 .logout-div {
   background-color: blue;
   width: 100%;
-  height: 100px;
+  height: 4vmax;
   display: flex;
   justify-content: flex-end;
 }
