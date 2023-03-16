@@ -10,7 +10,7 @@ a{
 }
 
 .header {
-  background-image: url(../assets/QRlogo.png);
+  background-image: url("../assets/QRlogo.png");
   background-position: center center;
   background-repeat: no-repeat;
   height: 10vmax;

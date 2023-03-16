@@ -1,14 +1,35 @@
+.adult-tasks{
+display: flex;
+justify-content:center
+}
+.tasks-header{
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  width: 70vw;
+  background-color: rgba(0, 5, 116, 1);
+  border-radius: 10px;
+}
+.tasks-title{
+  text-align: center;
+  font-family: 'MedievalSharp', cursive;
+}
+
 .qst {
   display: flex;
   justify-content: center;
 }
 .num-adult-tasks {
   text-align: center;
+  color: white;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
 }
 .quest-bars {
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 70vw;
 }
 .each-quest {
   color: white;
@@ -27,6 +48,10 @@
 }
 .assign-quest {
   text-align: center;
+  color: white;
+}
+.assign-point{
+  color: white;
 }
 .assign-quest-div {
   display: flex;
@@ -38,42 +63,64 @@
   flex-direction: column;
 }
 .assign-child-quest {
-  margin-top: 20px;
+  margin-top: 2px;
   padding: 10px;
   border-radius: 10px;
   background-color: #0811da;
-  width: 500px;
+  width: 70vw;
   color: white;
 }
 .assign-form {
   display: flex;
   justify-content: center;
 }
+/* NEW QUEST */
 .create-quest {
   display: flex;
   justify-content: center;
 }
 .new-quest {
     padding: 10px;
-  width: 500px;
+  width: 70vw;
   background-color: red;
-  border-radius: 10px;
+  font-family: 'MedievalSharp', cursive;
 }
 .open-form{
     display: flex;
     justify-content: center;
 }
 .new-quest-form{
-width: 500px
+width: 71vw;
+}
+.quest-input{
+  color: white
 }
 
-
 /* REWARDS */
+.rewards-header-div{
+  display: flex;
+  justify-content: center;
+}
+.rewards-header{
+  display: flex;
+  width: 70vw;
+  justify-content: space-between;
+  background-color: rgba(0, 5, 116, 1);
+  padding: 10px;
+}
 .rewards-title{
   text-align: center;
+  color: white;
+  font-family: 'MedievalSharp', cursive;
 }
 .adult-total-rewards{
   text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+.rewards-nm, .rewards-pt{
+  font-family: 'MedievalSharp', cursive;
 }
 .parent-rewards{
   display: flex;
@@ -81,10 +128,38 @@ width: 500px
 }
 .rewards-bar{
   display: flex;
-  width: 500px;
+  width: 70vw;
   justify-content: space-between;
   margin-top: 20px;
   padding: 10px;
   border-radius: 10px;
   background-color: #DAA442;
+}
+/* CREATE REWARDS */
+.create-new{
+  display: flex;
+  justify-content: center;
+}
+.create-title{
+  font-family: 'MedievalSharp', cursive;
+
+  color: white;
+  width: 70vw;
+  background-color: #0811da;
+  margin-top: 20px;
+  padding: 10px;
+}
+.reward-form-div{
+  display: flex;
+  justify-content: center;
+}
+.reward-form{
+  width: 71.5vw;
+  color: white;
+  background-color: #5b4c93;
+  margin-top: -22px;
+  margin-bottom: 80px;
+}
+.first-reward-add{
+  margin-top: 10px;
 }
