@@ -28,7 +28,7 @@ export default function ChildDashboard() {
     
     return (
         <div>
-            <ChildDashboardNavBar childObject={child}/>
+            <ChildDashboardNavBar />
             <LeaderBoard childObject={child}/>
             <QuestsBar childObject={child} />
             <RedeemRewards caregiverId={caregiverId} />

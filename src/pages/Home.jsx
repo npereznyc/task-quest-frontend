@@ -1,20 +1,22 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
+
 const Home = () => {
   return (
+    <>
     <div className="home-box">
+        <div className="home-title">Quest Runner</div>
       <nav className="home-nav">
-
-      
         <Link className="link home-register" to={"/register"}>
-          SIGN UP
+          Sign up!
         </Link>
         <Link className="link home-login" to={"/login"}>
-          LOGIN
+          Log in
         </Link>
-        </nav>
+      </nav>
     </div>
+    </>
   )
 }
 
