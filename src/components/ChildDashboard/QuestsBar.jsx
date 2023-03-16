@@ -55,25 +55,11 @@ export default function QuestsBar({ childObject }) {
 
   return (
     <div>
-      <div className="todays-quests">
         <h1>{currentUser.childName}</h1>
         <h2>{currentUser.totalPoints}</h2>
+        <div className="incomplete-quests">Today's Quests
         <ul>
-          {/* {tasks.map((task) => (
-            <li key={task._id}>
-              {task?.incompletedTask?.map((task) => (
-                <div key={task._id}>
-                  <button onClick={() => handleCompleteTask(task._id)}>
-                    Complete
-                  </button>
-                  <span className="task-name">{task.taskName}</span>
-
-                  <span className="task-name">{task.taskPoints} POINTS </span>
-                </div>
-              ))}
-            </li>
-          ))} */}
-          {tasks.map((task) => (
+          {tasks.filter(task => !task.completed).map((task) => (
             <li key={task._id}>
               <button onClick={() => handleCompleteTask(task._id)}>Complete</button>
               <span className="task-name">{task.taskName}</span>
@@ -81,8 +67,19 @@ export default function QuestsBar({ childObject }) {
             </li>
           ))}
         </ul>
+        </div>
+        <div className="complete-quests">Completed Quests
+        <ul>
+          {tasks.filter(task => task.completed).map((task) => (
+            <li key={task._id}>
+              <button onClick={() => handleCompleteTask(task._id)}>Complete</button>
+              <span className="task-name">{task.taskName}</span>
+              <span className="task-name">{task.taskPoints} POINTS </span>
+            </li>
+          ))}
+        </ul>
+        </div>
         <div className="points">POINTS</div>
-      </div>
     </div>
   );
 }
