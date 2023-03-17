@@ -38,7 +38,7 @@ export default function QuestsBar({ childObject }) {
 
   const getTotalPoints = async () => {
     try {
-      console.log(childId) 
+      console.log(childId)
       const response = await axios.get(
         `http://localhost:4000/child/${childId}`
       );
@@ -55,9 +55,9 @@ export default function QuestsBar({ childObject }) {
     getTotalPoints()
   }, []);
 
-/*   useEffect(() => {
-    setChild(JSON.parse(localStorage.getItem("child")));
-  }, []); */
+  /*   useEffect(() => {
+      setChild(JSON.parse(localStorage.getItem("child")));
+    }, []); */
 
   const handleCompleteTask = async (taskId) => {
     try {
@@ -78,38 +78,42 @@ export default function QuestsBar({ childObject }) {
       <h2>Total Coins: {totalPoints}</h2>
       <div className='quests-rewards-container'>
         <div className='incomplete-quests-box'>
-          <div className="incomplete-quests">
+          <div clasName='box'>
+            <div className="caregiverDashboard-navLogo"></div>
             <h3>Today's Quests</h3>
-            <ul className='individual-quest'>
+            <div className="quest-bars">
+            {/* <ul className='individual-quest'> */}
               {tasks.filter(task => !task.completed).map((task) => (
-                <div key={task._id}>
-                  <button onClick={() => handleCompleteTask(task._id)}>Complete</button>
+                <div className="each-quest" key={task._id}>
+                  <button className='completeBtn' onClick={() => handleCompleteTask(task._id)}>Complete</button>
                   <span className="task-name">{task.taskName}</span>
                   <span className="task-points">{task.taskPoints} Coins </span>
                 </div>
               ))}
-            </ul>
+            {/* </ul> */}
           </div>
+          </div>
+          
         </div>
 
       </div>
       <div className='quests-rewards-container'>
         <div className='complete-quests-box'>
-        <div className="complete-quests">
-        <h3>Completed Quests</h3>
-        <ul>
-          {tasks.filter(task => task.completed).map((task) => (
-            <li key={task._id}>
-              <span className="task-name">{task.taskName}</span>
-              <span className="task-name">{task.taskPoints} POINTS </span>
-            </li>
-          ))}
-        </ul>
+          <div className="complete-quests">
+            <h3>Completed Quests</h3>
+            <ul>
+              {tasks.filter(task => task.completed).map((task) => (
+                <li key={task._id}>
+                  <span className="task-name">{task.taskName}</span>
+                  <span className="task-name">{task.taskPoints} POINTS </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
-      </div>
-      </div>
-      
-    
+
+
     </div>
   );
 }
