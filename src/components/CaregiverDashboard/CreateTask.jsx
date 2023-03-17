@@ -58,7 +58,7 @@ const CreateTask = ({ caregiverId, setRenderEffect }) => {
         </div>
       </div>
       <div className="open-form">
-        {/* {isOpen && ( */}
+        {isOpen && (
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -107,7 +107,7 @@ const CreateTask = ({ caregiverId, setRenderEffect }) => {
             </Form>
           )}
         </Formik>
-        {/* )} */}
+        )}
       </div>
     </div>
   );

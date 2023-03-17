@@ -189,11 +189,11 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                           <ErrorMessage name="taskPoints" />
                         </div>
 
-                        <div>
+                        {/* <div>
                           <label htmlFor="dueDate">Due Date</label>
                           <Field type="date" name="dueDate" />
                           <ErrorMessage name="dueDate" />
-                        </div>
+                        </div> */}
 
                         <button type="submit">Update Task</button>
                         <button
@@ -278,9 +278,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
           ))}
         </div>
       </div>
-      <div className="assign-quest-div">
-        <h1 className="assign-quest">Assign Quest</h1>
-      </div>
+
       {/* {listOfChildrenWithoutTask?.length > 0 ? (
         <div className="assign-quest-section">
           {listOfChildrenWithoutTask?.map((child) => (
