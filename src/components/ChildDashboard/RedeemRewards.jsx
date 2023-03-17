@@ -7,20 +7,23 @@ import axios from "axios";
 const ShowAndEditReward = ({ caregiverId }) => {
     console.log('caregiver/reward: ', caregiverId)
     const navigate = useNavigate();
+    const child = JSON.parse(localStorage.getItem('child'))
+    const [totalPoints, setTotalPoints] = useState(0)
+    const childId = child._id
     const [rewards, setRewards] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false); // track whether API call is complete
-    
-       
+
+
 
     useEffect(() => {
         const fetchRewards = async () => {
             axios.get(`http://localhost:4000/rewards/show/${caregiverId}`)
-            .then(response=>{
-                setRewards(response.data);
-            })
-            .catch(error => {
-                console.log(error)
-            })
+                .then(response => {
+                    setRewards(response.data);
+                })
+                .catch(error => {
+                    console.log(error)
+                })
             console.log('rewards: ', rewards)
             setIsLoaded(true); // update state to indicate API call is complete
         };
@@ -41,56 +44,37 @@ const ShowAndEditReward = ({ caregiverId }) => {
         return <div>Loading...</div>; // show loading message while API call is in progress
     }
 
+    const redeemReward = async (rewardId) => {
+        try {
+            const res = await axios.put(`http://localhost:4000/rewards/cashin/${rewardId}/${childId}`)
+            // getTotalPoints()
+            // fetchRewards()
+            console.log(res)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
     return (
-        <div>
-            <h1>Available Rewards</h1>
+        <div className='quest-rewards-container'>
+            <div className='rewards-box'>
+                <h3>Redeem Riches</h3>
 
-            <h4>Total Rewards: {rewards.length}</h4>
-            {rewards.map((reward, index) => (
-                <div key={index}>
-                    <h2>{reward.rewardName} </h2>
-                    <h3>{reward.rewardPoints} coins</h3>
-                    
-                    {/* <Formik
-                        initialValues={reward}
-                        validationSchema={validationSchema}
-                    >
-                        {({ values, errors, touched }) => (
-                            <Form>
-                                <div>
-                                    <label htmlFor="rewardName">Reward Name</label>
-                                    <Field type="text" name="rewardName" />
-                                    <ErrorMessage name="rewardName" />
-                                </div>
+                <h4>Number of Rewards Available: {rewards.length}</h4>
+                <ul className='individual-rewards'>
+                    {rewards.map((reward, index) => (
+                        <div key={index}>
+                            <span className='reward-name'>{reward.rewardName} </span>
+                            <span className='reward-points'>{reward.rewardPoints} coins</span>
+                            <button onClick={() => redeemReward(reward._id)}>Redeem</button>
 
-                                <div>
-                                    <label htmlFor="image">Image URL</label>
-                                    <Field type="text" name="image" />
-                                    <ErrorMessage name="image" />
-                                </div>
+                        </div>
+                    ))}
+                </ul>
 
-                                <div>
-                                    <label htmlFor="rewardPoints">Reward Points</label>
-                                    <Field type="number" name="rewardPoints" />
-                                    <ErrorMessage name="rewardPoints" />
-                                </div>
-
-                                <div>
-                                    <label htmlFor="activeReward">Active Reward?</label>
-                                    <Field type="checkbox" name="activeReward" />
-                                </div>
-
-                                <div>
-                                    <label htmlFor="cashedIn">Cashed In</label>
-                                    <Field type="number" name="cashedIn" />
-                                    <ErrorMessage name="cashedIn" />
-                                </div>
-                            </Form>
-                        )}
-                    </Formik> */}
-                </div>
-            ))}
+            </div>
         </div>
+
     );
 };
 
