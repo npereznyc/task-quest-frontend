@@ -9,21 +9,22 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
   const [tasks, setTasks] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false); // track whether API call is complete
   const [openChildId, setOpenChildId] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const [taskOpen, setTaskOpen] = useState(false);
+  const [listOfChildren, setListOfChildren] = useState([]);
+  const [listOfChildrenWithoutTask, setListOfChildrenWithoutTask] = useState([]);
+  const [numTasks, setNumTasks] = useState(0); // track number of task
+  const [activeTaskId, setActiveTaskId] = useState(null);
 
   const currentUser = JSON.parse(localStorage.getItem("caregiver"));
   const caregiverId = currentUser._id;
   const token = currentUser.token;
 
-  const [listOfChildren, setListOfChildren] = useState([]);
-  const [listOfChildrenWithoutTask, setListOfChildrenWithoutTask] = useState(
-    []
-  );
-  const [numTasks, setNumTasks] = useState(0); // track number of task
-  const [activeTaskId, setActiveTaskId] = useState(null);
+  const toggleAccordion = (taskId) => {
+    setActiveTaskId(activeTaskId === taskId ? null : taskId);
+  };
 
   const toggleTaskAccordion = () => {
-    setIsOpen(!isOpen);
+    setTaskOpen(!taskOpen);
   };
   useEffect(() => {
     const fetchTasks = async () => {
@@ -118,9 +119,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
     return !tasks.some((task) => task.childId === child._id && !task.completed);
   });
 
-  const toggleAccordion = () => {
-    setIsOpen(!isOpen);
-  };
+
 
   return (
     <div className="quests-rewards">
@@ -134,7 +133,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
         </div>
       </div>
       <div className="qst">
-        {isOpen && (
+        {taskOpen && (
           <div className="quest-bars">
             {tasks?.map((task, index) => (
               <div className="each-quest" key={index}>
