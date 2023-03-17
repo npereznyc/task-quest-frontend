@@ -12,12 +12,15 @@
             <img src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB"/>
 </p>
 
+## ERD 
+![image](https://user-images.githubusercontent.com/107048020/225791026-8d035b00-5a9b-4d91-b480-eb589c7296c9.png)
+
 ## Software Developers
 <a href="https://github.com/npereznyc">Natalie Perez</a><br>
 <a href="https://github.com/sylvialchen">Sylvia Chen</a><br>
 <a href="https://github.com/EmilyJarecki">Emily Jarecki</a><br>
 <a href="https://github.com/mavicmo">Mo Taraq</a><br>
-<a href="https://github.com/daryacoding">Darya Abdullahzadeh<</a>
+<a href="https://github.com/daryacoding">Darya Abdullahzadeh</a>
 
 ## UI/UX Designers
 
