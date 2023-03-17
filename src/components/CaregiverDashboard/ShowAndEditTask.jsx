@@ -9,21 +9,24 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
   const [tasks, setTasks] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false); // track whether API call is complete
   const [openChildId, setOpenChildId] = useState(null);
-
-  const currentUser = JSON.parse(localStorage.getItem("caregiver"));
-  const caregiverId = currentUser._id;
-  const token = currentUser.token;
-
   const [listOfChildren, setListOfChildren] = useState([]);
   const [listOfChildrenWithoutTask, setListOfChildrenWithoutTask] = useState(
     []
   );
   const [numTasks, setNumTasks] = useState(0); // track number of task
   const [activeTaskId, setActiveTaskId] = useState(null);
+  const [activeAssignId, setActiveAssignId] = useState(null);
+
+  const currentUser = JSON.parse(localStorage.getItem("caregiver"));
+  const caregiverId = currentUser._id;
 
   const toggleAccordion = (taskId) => {
     setActiveTaskId(activeTaskId === taskId ? null : taskId);
   };
+  const toggleAssignAccordion = (taskId) => {
+    setActiveAssignId(activeAssignId === taskId ? null : taskId);
+  };
+
   useEffect(() => {
     const fetchTasks = async () => {
       const taskData = await Promise.all(
@@ -129,12 +132,11 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
         </div>
       </div>
       <div className="qst">
-        {/* <h4 className="">Total Tasks</h4> */}
         <div className="quest-bars">
           {tasks?.map((task, index) => (
             <div className="each-quest" key={index}>
-              <div clasSName="assign-name-div">
-                <h2 className="each-quest-detail">
+              <div clasSName="assign-name-div">              
+                <h2 className="each-quest-detail">              
                   <span className="adults-task-name">{task?.taskName}</span>
                   <span className="adults-task-coins">
                     {task?.taskPoints} coins
@@ -144,6 +146,12 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                     onClick={() => toggleAccordion(taskIds[index])}
                   >
                     Edit
+                  </button>
+                  <button
+                    className="edit-task-btn"
+                    onClick={() => toggleAssignAccordion(taskIds[index])}
+                  >
+                    Assign
                   </button>
                 </h2>
               </div>
@@ -176,23 +184,22 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                         </div>
 
                         <div>
-                          <label htmlFor="image">Image URL</label>
-                          <Field type="text" name="image" />
-                          <ErrorMessage name="image" />
-                        </div>
-
-                        <div>
                           <label htmlFor="taskPoints">Task Points</label>
                           <Field type="number" name="taskPoints" />
                           <ErrorMessage name="taskPoints" />
                         </div>
 
                         <div>
-                          <label htmlFor="dueDate">Due Date</label>
-                          <Field type="date" name="dueDate" />
-                          <ErrorMessage name="dueDate" />
+                          <label htmlFor="child">Assign to Child:</label>
+                          <Field as="select" name="child">
+                            <option value="">-- Select a Child --</option>
+                            {listOfChildren?.map((child) => (
+                              <option key={child._id} value={child._id}>
+                                {child.childName}
+                              </option>
+                            ))}
+                          </Field>
                         </div>
-
                         <button type="submit">Update Task</button>
                         <button
                           type="submit"
@@ -202,7 +209,20 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                         >
                           Delete Task
                         </button>
-
+                      </Form>
+                    )}
+                  </Formik>
+                </div>
+              )}
+              {activeAssignId === taskIds[index] && (
+                <div className="assign-form">
+                  <Formik
+                    initialValues={task}
+                    validationSchema={validationSchema}
+                    onSubmit={(values) => handleSubmit(values, taskIds[index])}
+                  >
+                    {({ values, errors, touched }) => (
+                      <Form className="assign-form">
                         <div>
                           <label htmlFor="child">Assign to Child:</label>
                           <Field as="select" name="child">
@@ -232,42 +252,6 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
           ))}
         </div>
       </div>
-      <div className="assign-quest-div">
-        <h1 className="assign-quest">Assign Quest</h1>
-      </div>
-      {listOfChildrenWithoutTask?.length > 0 ? (
-        <div className="assign-quest-section">
-          {listOfChildrenWithoutTask?.map((child) => (
-            <div className="assign-quest-per-child" key={child._id}>
-              <h4
-                className="assign-child-quest"
-                onClick={() => handleChildClick(child._id)}
-              >
-                {child.childName}
-              </h4>
-              {openChildId === child._id && (
-                <ul className="assign-list">
-                  {tasks
-                    ?.filter((task) => !task?.completed)
-                    .map((task) => (
-                      <li className="assign-point" key={task?.id}>
-                        {task?.taskName} {task?.taskPoints} points{" "}
-                        <button
-                          className="assign-btn"
-                          onClick={() => assignTaskToChild(task?.id, child._id)}
-                        >
-                          Assign Task
-                        </button>
-                      </li>
-                    ))}
-                </ul>
-              )}
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p className="all-assigned"></p>
-      )}
     </div>
   );
 };

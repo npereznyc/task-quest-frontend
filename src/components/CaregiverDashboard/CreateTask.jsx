@@ -53,48 +53,60 @@ const CreateTask = ({ caregiverId, setRenderEffect }) => {
     <div>
       <div className="accordion-header" onClick={toggleAccordion}>
         <div className="create-quest">
-          <h1 className="new-quest">New Quest</h1>
+          <h1 className="new-quest">
+            <span className="add-task">Add Task</span></h1>
         </div>
       </div>
       <div className="open-form">
         {isOpen && (
-          <Formik
-            initialValues={initialValues}
-            validationSchema={validationSchema}
-            onSubmit={handleSubmit}
-          >
-            {({ isSubmitting }) => (
-              <Form className="new-quest-form">
-                <div className="quest-input">
-                  <label htmlFor="taskName">Task Name</label>
-                  <Field type="text" name="taskName" />
-                  <ErrorMessage name="taskName" component="div" />
-                </div>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ isSubmitting }) => (
+            <Form className="new-quest-form">
+              <div className="quest-input">
+                <label htmlFor="taskName">Task Name</label>
+                <br></br>
+                <Field
+                  className="quest-input-input"
+                  type="text"
+                  name="taskName"
+                />
+                <ErrorMessage name="taskName" component="div" />
+              </div>
 
-                <div className="quest-input">
-                  <label htmlFor="taskDescription">Task Description</label>
-                  <Field as="textarea" name="taskDescription" />
-                  <ErrorMessage name="taskDescription" component="div" />
-                </div>
+              <div className="quest-input">
+                <label htmlFor="taskPoints">Task Points</label>
+                <br></br>
+                <Field
+                  className="quest-input-input"
+                  type="number"
+                  name="taskPoints"
+                />
+                <ErrorMessage name="taskPoints" component="div" />
+              </div>
 
-                <div className="quest-input">
-                  <label htmlFor="taskPoints">Task Points</label>
-                  <Field type="number" name="taskPoints" />
-                  <ErrorMessage name="taskPoints" component="div" />
-                </div>
+              <div className="quest-input">
+                <label htmlFor="taskDescription">Task Description</label>
+                <br></br>
+                <Field as="textarea" name="taskDescription" />
+                <ErrorMessage name="taskDescription" component="div" />
+              </div>
 
-                <div className="quest-input">
-                  <label htmlFor="dueDate">Due Date</label>
-                  <Field type="date" name="dueDate" />
-                  <ErrorMessage name="dueDate" component="div" />
-                </div>
-
-                <button type="submit" disabled={isSubmitting}>
-                  Submit
+              <div className="create-div">
+                <button
+                  className="create-btn"
+                  type="submit"
+                  disabled={isSubmitting}
+                >
+                  Create
                 </button>
-              </Form>
-            )}
-          </Formik>
+              </div>
+            </Form>
+          )}
+        </Formik>
         )}
       </div>
     </div>
