@@ -37,7 +37,7 @@ We hope you find our application useful in managing your family's tasks and rewa
 ### Software Developers📱
 → <a href="https://github.com/npereznyc">Natalie Perez</a><br>
 → <a href="https://github.com/sylvialchen">Sylvia Chen</a><br>
-→ <a href="https://github.com/EmilyJarecki" target="_blank">Emily Jarecki</a><br>
+→ <a href="https://github.com/EmilyJarecki">Emily Jarecki</a><br>
 → <a href="https://github.com/mavicmo">Mo Taraq</a><br>
 → <a href="https://github.com/daryacoding">Darya Abdullahzadeh</a>
 
