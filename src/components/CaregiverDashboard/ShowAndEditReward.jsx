@@ -9,6 +9,7 @@ const ShowAndEditReward = ({ caregiverId }) => {
   const navigate = useNavigate();
   const [rewards, setRewards] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false); // track whether API call is complete
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const fetchRewards = async () => {
@@ -35,7 +36,9 @@ const ShowAndEditReward = ({ caregiverId }) => {
     activeReward: Yup.boolean(),
     cashedIn: Yup.number(),
   });
-
+  const toggleAccordion = () => {
+    setIsOpen(!isOpen);
+  };
   if (!isLoaded) {
     return <div>Loading...</div>; // show loading message while API call is in progress
   }
@@ -43,11 +46,12 @@ const ShowAndEditReward = ({ caregiverId }) => {
   return (
     <div>
 <div className="rewards-header-div">
-      <div className="rewards-header">
+      <div onClick={toggleAccordion} className="rewards-header">
         <h1 className="rewards-title">Rewards</h1>
         <h4 className="adult-total-rewards"><span>{rewards.length}</span><span>Total Rewards</span></h4>
       </div></div>
       <div className="parent-rewards">
+      {isOpen && (
         <div blassName="reward-div">
           {rewards.map((reward, index) => (
             <div className="rewards-bar" key={index}>
@@ -55,7 +59,7 @@ const ShowAndEditReward = ({ caregiverId }) => {
               <h3 className="rewards-pt">{reward.rewardPoints} coins</h3>
             </div>
           ))}
-        </div>
+        </div>)}
       </div>
     </div>
   );
