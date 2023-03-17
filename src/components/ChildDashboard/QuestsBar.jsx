@@ -82,6 +82,7 @@ export default function QuestsBar({ childObject }) {
             <div className="caregiverDashboard-navLogo"></div>
             <h3>Today's Quests</h3>
             <div className="quest-bars">
+
               {/* <ul className='individual-quest'> */}
               {tasks.filter(task => !task.completed).map((task) => (
                 <div className="each-quest" key={task._id}>
@@ -98,6 +99,7 @@ export default function QuestsBar({ childObject }) {
               {/* </ul> */}
             </div>
           </div>
+
 
         </div>
 
