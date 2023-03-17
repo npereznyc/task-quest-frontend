@@ -30,7 +30,6 @@ We hope you find our application useful in managing your family's tasks and rewa
 <h2> Entity Relationship Diagram<br><br>
 <img src="https://user-images.githubusercontent.com/107048020/225798973-1a64a6e4-1742-41ff-ad94-cc98994dd047.png"/>
      <br>
-            <br>
             
 <h3> 📍View: <a href="https://www.figma.com/file/mxfodlHwimedeEwuBBb3YD/Hackathon23Group1?node-id=20-787&t=GaF6mdx76EJSkugv-0">Complete Wireframes</a></h3>
 
