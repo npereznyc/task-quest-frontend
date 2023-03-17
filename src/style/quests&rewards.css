@@ -1,6 +1,6 @@
 .adult-tasks{
 display: flex;
-justify-content:center
+justify-content:center;
 }
 .tasks-header{
   margin-top: 40px;
