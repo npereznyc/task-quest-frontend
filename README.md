@@ -1,9 +1,19 @@
 # Quest Runner
-### Goal: 
-We want to GAMIFY the way that caregivers assign chaores and give rewards to their children.
+
+## Project Description
+Welcome to our project that allows parents to manage their children's tasks and rewards using virtual coins. Our application is built using the MERN stack and includes a user authentication system to ensure secure access to parent and child accounts.
+
+Parents can create their children's accounts and assign tasks that are worth a specified number of coins. Additionally, parents can create rewards that require a certain number of coins to redeem. The application will keep track of each child's completed and incompleted tasks.
+
+Children can view their assigned tasks and mark them as completed. Once they earn enough coins, they can redeem rewards created by their parents. The application has a user-friendly interface to make navigation and interaction easy for children.
+
+We hope you find our application useful in managing your family's tasks and rewards.
+
+<br>
+<h3 quote align='center'>We want to GAMIFY the way that caregivers assign chores and give rewards to their children.</br>
 <br>
 <br>
-<br>
+
 <img width="1500" alt="Screen Shot 2023-03-16 at 9 09 55 PM" src="https://user-images.githubusercontent.com/107048020/225794047-e4c9201b-dbc4-4482-a859-d37057230350.png">
 
 
