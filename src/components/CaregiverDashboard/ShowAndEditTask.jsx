@@ -17,7 +17,6 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
 
   const currentUser = JSON.parse(localStorage.getItem("caregiver"));
   const caregiverId = currentUser._id;
-  const token = currentUser.token;
 
   const toggleAccordion = (taskId) => {
     setActiveTaskId(activeTaskId === taskId ? null : taskId);
@@ -179,12 +178,6 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                           <div>
                             <label htmlFor="completed">Completed?</label>
                             <Field type="checkbox" name="completed" />
-                          </div>
-
-                          <div>
-                            <label htmlFor="image">Image URL</label>
-                            <Field type="text" name="image" />
-                            <ErrorMessage name="image" />
                           </div>
 
                           <div>
