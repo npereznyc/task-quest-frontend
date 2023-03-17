@@ -14,7 +14,10 @@ justify-content:center;
   text-align: center;
   font-family: 'MedievalSharp', cursive;
 }
-
+.sword{
+  background-image: url(../assets/Sword.png);
+  background-color: #DAA442;
+}
 .qst {
   display: flex;
   justify-content: center;
@@ -80,33 +83,73 @@ justify-content:center;
   justify-content: center;
 }
 .new-quest {
-    padding: 10px;
   width: 70vw;
-  background-color: red;
+  padding: 20px 0;
+  background-color:#0811DA;
   font-family: 'MedievalSharp', cursive;
+  display: flex;
+}
+.add-task{
+  margin-left: 10vw;
+  font-family: 'MedievalSharp', cursive;
+
 }
 .open-form{
+  padding-top: 10px;
     display: flex;
     justify-content: center;
+
 }
 .new-quest-form{
-width: 71vw;
+  margin-top: -32px;
+width: 70vw;    
+background-color:rgb(82, 64,111);
+border: 1px solid black;
+
+
 }
 .quest-input{
-  color: white
+  color: white;
+  margin-top: 20px;
+  margin-left: 15vw;
+}
+.quest-input-input{
+  border-radius: 10px;
+  border: transparent;
+  width: 30vw;
+  height: 40px
+}
+textarea{
+  border-radius: 10px;
+  width: 40vw;
+
+}
+.create-div{
+
 }
 
+.create-btn{
+margin-left: 50vw;
+margin-bottom: 40px;
+margin-top: 20px;
+background-color: #0811DA;
+border: transparent;
+padding: 5px 40px;
+border-radius: 10px;
+color: white;
+font-size: 18px;
+}
 /* REWARDS */
 .rewards-header-div{
-  display: flex;
-  justify-content: center;
+  margin-top: 20px;
+display: flex;
+justify-content: center;
 }
 .rewards-header{
   display: flex;
   width: 70vw;
   justify-content: space-between;
   background-color: rgba(0, 5, 116, 1);
-  padding: 10px;
 }
 .rewards-title{
   text-align: center;

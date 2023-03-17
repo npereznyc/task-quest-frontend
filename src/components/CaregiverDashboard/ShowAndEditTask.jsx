@@ -135,8 +135,8 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
         <div className="quest-bars">
           {tasks?.map((task, index) => (
             <div className="each-quest" key={index}>
-              <div clasSName="assign-name-div">
-                <h2 className="each-quest-detail">
+              <div clasSName="assign-name-div">              
+                <h2 className="each-quest-detail">              
                   <span className="adults-task-name">{task?.taskName}</span>
                   <span className="adults-task-coins">
                     {task?.taskPoints} coins
@@ -268,7 +268,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                         >
                           Assign to Child
                         </button>
-                        <button type="submit">Update Task</button>
+                        {/* <button type="submit">Update Task</button> */}
                       </Form>
                     )}
                   </Formik>
@@ -281,7 +281,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
       <div className="assign-quest-div">
         <h1 className="assign-quest">Assign Quest</h1>
       </div>
-      {listOfChildrenWithoutTask?.length > 0 ? (
+      {/* {listOfChildrenWithoutTask?.length > 0 ? (
         <div className="assign-quest-section">
           {listOfChildrenWithoutTask?.map((child) => (
             <div className="assign-quest-per-child" key={child._id}>
@@ -313,7 +313,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
         </div>
       ) : (
         <p className="all-assigned"></p>
-      )}
+      )} */}
     </div>
   );
 };
