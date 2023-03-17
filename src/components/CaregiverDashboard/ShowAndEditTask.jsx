@@ -9,11 +9,13 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
   const [tasks, setTasks] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false); // track whether API call is complete
   const [openChildId, setOpenChildId] = useState(null);
-  const [taskOpen, setTaskOpen] = useState(false);
   const [listOfChildren, setListOfChildren] = useState([]);
-  const [listOfChildrenWithoutTask, setListOfChildrenWithoutTask] = useState([]);
+  const [listOfChildrenWithoutTask, setListOfChildrenWithoutTask] = useState(
+    []
+  );
   const [numTasks, setNumTasks] = useState(0); // track number of task
   const [activeTaskId, setActiveTaskId] = useState(null);
+  const [activeAssignId, setActiveAssignId] = useState(null);
 
   const currentUser = JSON.parse(localStorage.getItem("caregiver"));
   const caregiverId = currentUser._id;
@@ -21,10 +23,10 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
   const toggleAccordion = (taskId) => {
     setActiveTaskId(activeTaskId === taskId ? null : taskId);
   };
-
-  const toggleTaskAccordion = () => {
-    setTaskOpen(!taskOpen);
+  const toggleAssignAccordion = (taskId) => {
+    setActiveAssignId(activeAssignId === taskId ? null : taskId);
   };
+
   useEffect(() => {
     const fetchTasks = async () => {
       const taskData = await Promise.all(
@@ -118,12 +120,10 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
     return !tasks.some((task) => task.childId === child._id && !task.completed);
   });
 
-
-
   return (
     <div className="quests-rewards">
-      <div onClick={toggleTaskAccordion} className="adult-tasks">
-        <div  className="tasks-header">
+      <div className="adult-tasks">
+        <div className="tasks-header">
           <h1 className="tasks-title">Tasks</h1>
           <p className="num-adult-tasks">
             <span>{taskIds.length}</span>
@@ -132,105 +132,151 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
         </div>
       </div>
       <div className="qst">
-        {taskOpen && (
-          <div className="quest-bars">
-            {tasks?.map((task, index) => (
-              <div className="each-quest" key={index}>
-                <div clasSName="assign-name-div">
-                  <h2 className="each-quest-detail">
-                    <span className="adults-task-name">{task?.taskName}</span>
-                    <span className="adults-task-coins">
-                      {task?.taskPoints} coins
-                    </span>
-                    <button
-                      className="edit-task-btn"
-                      onClick={() => toggleAccordion(taskIds[index])}
-                    >
-                      Edit
-                    </button>
-                  </h2>
-                </div>
-                {activeTaskId === taskIds[index] && (
-                  <div className="assign-form">
-                    <Formik
-                      initialValues={task}
-                      validationSchema={validationSchema}
-                      onSubmit={(values) =>
-                        handleSubmit(values, taskIds[index])
-                      }
-                    >
-                      {({ values, errors, touched }) => (
-                        <Form>
-                          <div>
-                            <label htmlFor="taskName">Task Name</label>
-                            <Field type="text" name="taskName" />
-                            <ErrorMessage name="taskName" />
-                          </div>
-
-                          <div>
-                            <label htmlFor="taskDescription">
-                              Task Description
-                            </label>
-                            <Field type="text" name="taskDescription" />
-                            <ErrorMessage name="taskDescription" />
-                          </div>
-
-                          <div>
-                            <label htmlFor="completed">Completed?</label>
-                            <Field type="checkbox" name="completed" />
-                          </div>
-
-                          <div>
-                            <label htmlFor="taskPoints">Task Points</label>
-                            <Field type="number" name="taskPoints" />
-                            <ErrorMessage name="taskPoints" />
-                          </div>
-
-                          <div>
-                            <label htmlFor="dueDate">Due Date</label>
-                            <Field type="date" name="dueDate" />
-                            <ErrorMessage name="dueDate" />
-                          </div>
-
-                          <button type="submit">Update Task</button>
-                          <button
-                            type="submit"
-                            onClick={() => {
-                              handleDeleteSubmit(task.id);
-                            }}
-                          >
-                            Delete Task
-                          </button>
-
-                          <div>
-                            <label htmlFor="child">Assign to Child:</label>
-                            <Field as="select" name="child">
-                              <option value="">-- Select a Child --</option>
-                              {listOfChildren?.map((child) => (
-                                <option key={child._id} value={child._id}>
-                                  {child.childName}
-                                </option>
-                              ))}
-                            </Field>
-                          </div>
-                          <button
-                            type="submit"
-                            onClick={() => {
-                              const childId = values.child; // obtain the selected child ID from the form values
-                              assignTaskToChild(task.id, childId);
-                            }}
-                          >
-                            Assign to Child
-                          </button>
-                        </Form>
-                      )}
-                    </Formik>
-                  </div>
-                )}
+        <div className="quest-bars">
+          {tasks?.map((task, index) => (
+            <div className="each-quest" key={index}>
+              <div clasSName="assign-name-div">
+                <h2 className="each-quest-detail">
+                  <span className="adults-task-name">{task?.taskName}</span>
+                  <span className="adults-task-coins">
+                    {task?.taskPoints} coins
+                  </span>
+                  <button
+                    className="edit-task-btn"
+                    onClick={() => toggleAccordion(taskIds[index])}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="edit-task-btn"
+                    onClick={() => toggleAssignAccordion(taskIds[index])}
+                  >
+                    Assign
+                  </button>
+                </h2>
               </div>
-            ))}
-          </div>
-        )}
+              {activeTaskId === taskIds[index] && (
+                <div className="assign-form">
+                  <Formik
+                    initialValues={task}
+                    validationSchema={validationSchema}
+                    onSubmit={(values) => handleSubmit(values, taskIds[index])}
+                  >
+                    {({ values, errors, touched }) => (
+                      <Form>
+                        <div>
+                          <label htmlFor="taskName">Task Name</label>
+                          <Field type="text" name="taskName" />
+                          <ErrorMessage name="taskName" />
+                        </div>
+
+                        <div>
+                          <label htmlFor="taskDescription">
+                            Task Description
+                          </label>
+                          <Field type="text" name="taskDescription" />
+                          <ErrorMessage name="taskDescription" />
+                        </div>
+
+                        <div>
+                          <label htmlFor="completed">Completed?</label>
+                          <Field type="checkbox" name="completed" />
+                        </div>
+
+                        <div>
+                          <label htmlFor="taskPoints">Task Points</label>
+                          <Field type="number" name="taskPoints" />
+                          <ErrorMessage name="taskPoints" />
+                        </div>
+
+                        <div>
+                          <label htmlFor="dueDate">Due Date</label>
+                          <Field type="date" name="dueDate" />
+                          <ErrorMessage name="dueDate" />
+                        </div>
+
+                        <button type="submit">Update Task</button>
+                        <button
+                          type="submit"
+                          onClick={() => {
+                            handleDeleteSubmit(task.id);
+                          }}
+                        >
+                          Delete Task
+                        </button>
+
+                        <div>
+                          <label htmlFor="child">Assign to Child:</label>
+                          <Field as="select" name="child">
+                            <option value="">-- Select a Child --</option>
+                            {listOfChildren?.map((child) => (
+                              <option key={child._id} value={child._id}>
+                                {child.childName}
+                              </option>
+                            ))}
+                          </Field>
+                        </div>
+                        <button
+                          type="submit"
+                          onClick={() => {
+                            const childId = values.child; // obtain the selected child ID from the form values
+                            assignTaskToChild(task.id, childId);
+                          }}
+                        >
+                          Assign to Child
+                        </button>
+                        <button type="submit">Update Task</button>
+                        <button
+                          type="submit"
+                          onClick={() => {
+                            handleDeleteSubmit(task.id);
+                          }}
+                        >
+                          Delete Task
+                        </button>
+                      </Form>
+                    )}
+                  </Formik>
+                </div>
+              )}
+              {activeAssignId === taskIds[index] && (
+                <div className="assign-form">
+                  <Formik
+                    initialValues={task}
+                    validationSchema={validationSchema}
+                    onSubmit={(values) => handleSubmit(values, taskIds[index])}
+                  >
+                    {({ values, errors, touched }) => (
+                      <Form className="assign-form">
+                        <div>
+                          <label htmlFor="child">Assign to Child:</label>
+                          <Field as="select" name="child">
+                            <option value="">-- Select a Child --</option>
+                            {listOfChildren?.map((child) => (
+                              <option key={child._id} value={child._id}>
+                                {child.childName}
+                              </option>
+                            ))}
+                          </Field>
+                        </div>
+                        <button
+                          type="submit"
+                          onClick={() => {
+                            const childId = values.child; // obtain the selected child ID from the form values
+                            assignTaskToChild(task.id, childId);
+                          }}
+                        >
+                          Assign to Child
+                        </button>
+                        <button type="submit">Update Task</button>
+                      </Form>
+                    )}
+                  </Formik>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
       <div className="assign-quest-div">
         <h1 className="assign-quest">Assign Quest</h1>
