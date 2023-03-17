@@ -66,6 +66,7 @@ export default function Child({
     <div className="child-bars">
       <div className="child-section">
         <div className="child-bar" onClick={toggleAccordion}>
+        <div className="childAvatar"></div>
           <h1 className="child-name"> {childName}</h1>
           <div className="content">
 
