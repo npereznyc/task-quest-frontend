@@ -82,18 +82,25 @@ export default function QuestsBar({ childObject }) {
             <div className="caregiverDashboard-navLogo"></div>
             <h3>Today's Quests</h3>
             <div className="quest-bars">
-            {/* <ul className='individual-quest'> */}
+
+              {/* <ul className='individual-quest'> */}
               {tasks.filter(task => !task.completed).map((task) => (
                 <div className="each-quest" key={task._id}>
-                  <button className='completeBtn' onClick={() => handleCompleteTask(task._id)}>Complete</button>
-                  <span className="task-name">{task.taskName}</span>
-                  <span className="task-points">{task.taskPoints} Coins </span>
+                  <div className="each-quest-detail">
+                    <button className='completeBtn' onClick={() => handleCompleteTask(task._id)}>Complete</button>
+                    <span className="task-name">{task.taskName}</span>
+                    <div className="coinAvatar"></div>
+                    <span className="task-points">{task.taskPoints} Coins </span>
+                  </div>
+
+
                 </div>
               ))}
-            {/* </ul> */}
+              {/* </ul> */}
+            </div>
           </div>
-          </div>
-          
+
+
         </div>
 
       </div>

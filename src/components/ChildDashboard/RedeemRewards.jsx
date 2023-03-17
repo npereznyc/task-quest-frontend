@@ -61,7 +61,7 @@ const ShowAndEditReward = ({ caregiverId }) => {
                 <h3>Redeem Riches</h3>
 
                 <h4>Number of Rewards Available: {rewards.length}</h4>
-                <ul className='individual-rewards'>
+                <ul className='individual-quest'>
                     {rewards.map((reward, index) => (
                         <div key={index}>
                             <span className='reward-name'>{reward.rewardName} </span>

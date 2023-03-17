@@ -33,13 +33,6 @@ button {
 
 }
 
-.incomplete-quests {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 10px;
-}
-
 .complete-quests-box {
     display: flex; /* set display property to flex */
     justify-content: center; /* center horizontally */
@@ -69,7 +62,10 @@ button {
     padding: 10px;
     border-radius: 10px;
     width: 90%;
+}
 
+.task-name {
+    margin-right: -10%;
 }
 
 .task-points {
@@ -77,6 +73,19 @@ button {
     color: #daa441;
     padding-left: 100px;
 }
+
+.coinAvatar {
+    background-image: url(../assets/Coin.svg);
+    background-size: 35px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 14%;
+    /* padding-right: 7%; */
+    margin-left: 50%;
+    margin-right: -15%;
+    /* padding-top: 10px;
+    padding-bottom: 10px; */
+  }
 
 .rewards-box {
     color: white;
@@ -102,7 +111,6 @@ button {
     padding: 10px;
     border-radius: 10px;
     width: 90%;
-    background-color: red;
 }
 
 .reward-points {
