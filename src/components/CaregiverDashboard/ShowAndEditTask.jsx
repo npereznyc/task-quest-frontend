@@ -189,22 +189,6 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                           <ErrorMessage name="taskPoints" />
                         </div>
 
-                        {/* <div>
-                          <label htmlFor="dueDate">Due Date</label>
-                          <Field type="date" name="dueDate" />
-                          <ErrorMessage name="dueDate" />
-                        </div> */}
-
-                        <button type="submit">Update Task</button>
-                        <button
-                          type="submit"
-                          onClick={() => {
-                            handleDeleteSubmit(task.id);
-                          }}
-                        >
-                          Delete Task
-                        </button>
-
                         <div>
                           <label htmlFor="child">Assign to Child:</label>
                           <Field as="select" name="child">
@@ -216,15 +200,6 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                             ))}
                           </Field>
                         </div>
-                        <button
-                          type="submit"
-                          onClick={() => {
-                            const childId = values.child; // obtain the selected child ID from the form values
-                            assignTaskToChild(task.id, childId);
-                          }}
-                        >
-                          Assign to Child
-                        </button>
                         <button type="submit">Update Task</button>
                         <button
                           type="submit"
@@ -268,7 +243,6 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                         >
                           Assign to Child
                         </button>
-                        {/* <button type="submit">Update Task</button> */}
                       </Form>
                     )}
                   </Formik>
@@ -278,40 +252,6 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
           ))}
         </div>
       </div>
-
-      {/* {listOfChildrenWithoutTask?.length > 0 ? (
-        <div className="assign-quest-section">
-          {listOfChildrenWithoutTask?.map((child) => (
-            <div className="assign-quest-per-child" key={child._id}>
-              <h4
-                className="assign-child-quest"
-                onClick={() => handleChildClick(child._id)}
-              >
-                {child.childName}
-              </h4>
-              {openChildId === child._id && (
-                <ul className="assign-list">
-                  {tasks
-                    ?.filter((task) => !task?.completed)
-                    .map((task) => (
-                      <li className="assign-point" key={task?.id}>
-                        {task?.taskName} {task?.taskPoints} points{" "}
-                        <button
-                          className="assign-btn"
-                          onClick={() => assignTaskToChild(task?.id, child._id)}
-                        >
-                          Assign Task
-                        </button>
-                      </li>
-                    ))}
-                </ul>
-              )}
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p className="all-assigned"></p>
-      )} */}
     </div>
   );
 };
