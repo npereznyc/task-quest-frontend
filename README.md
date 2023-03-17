@@ -36,17 +36,16 @@ We hope you find our application useful in managing your family's tasks and rewa
 
 ## 👋 Meet the Team
 ### Software Developers📱
-<a href="https://github.com/npereznyc">Natalie Perez</a><br>
-<a href="https://github.com/sylvialchen">Sylvia Chen</a><br>
-<a href="https://github.com/EmilyJarecki">Emily Jarecki</a><br>
-<a href="https://github.com/mavicmo">Mo Taraq</a><br>
-<a href="https://github.com/daryacoding">Darya Abdullahzadeh</a>
+→ <a href="https://github.com/npereznyc">Natalie Perez</a><br>
+→ <a href="https://github.com/sylvialchen">Sylvia Chen</a><br>
+→ <a href="https://github.com/EmilyJarecki">Emily Jarecki</a><br>
+→ <a href="https://github.com/mavicmo">Mo Taraq</a><br>
+→ <a href="https://github.com/daryacoding">Darya Abdullahzadeh</a>
 
 ### UI/UX Designers🎨
-
-<a href="https://www.linkedin.com/in/gerell/">Gerell Allen</a><br>
-<a href="https://www.linkedin.com/in/flannerywilson/">Flannery Wilson</a><br>
-<a href="https://www.linkedin.com/in/adrienne-kaplowitz/">Adrienne Kaplowitz</a>
+→ <a href="https://www.linkedin.com/in/gerell/">Gerell Allen</a><br>
+→ <a href="https://www.linkedin.com/in/flannerywilson/">Flannery Wilson</a><br>
+→ <a href="https://www.linkedin.com/in/adrienne-kaplowitz/">Adrienne Kaplowitz</a>
             
           
 
