@@ -42,54 +42,13 @@
   margin-top: 20px;
   padding: 10px;
 }
-.edit-task-btn, .edit-assign-btn{
-  background-color: #838383;
-  border: transparent;
-  border-radius: 10px;
-  width: 75px;
-  color: white;
-  font-size: 18px;
-}
-
-
 
 .each-quest-detail {
   display: flex;
   justify-content: space-between;
   margin: 1.25%;
 }
-.assign-quest-section {
-  display: flex;
-  flex-direction: column;
-}
-.assign-quest {
-  text-align: center;
-  color: white;
-}
-.assign-point {
-  color: white;
-}
-.assign-quest-div {
-  display: flex;
-  flex-direction: column;
-}
-.assign-quest-per-child {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-.assign-child-quest {
-  margin-top: 2px;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: #0811da;
-  width: 70vw;
-  color: white;
-}
-.assign-form {
-  display: flex;
-  justify-content: center;
-}
+
 /* NEW QUEST */
 .create-quest,
 .create-new {
@@ -139,7 +98,7 @@ textarea {
 .create-div {
 }
 
-.create-btn,
+.create-btn,x
 .reward-submit {
   margin-left: 50vw;
   margin-bottom: 40px;

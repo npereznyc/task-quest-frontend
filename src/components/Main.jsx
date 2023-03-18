@@ -11,6 +11,7 @@ import CaregiverDashboard from "../pages/CaregiverDashboard";
 import "../style/login.css";
 import "../style/editTask.css";
 import "../style/quests&rewards.css";
+import "../style/edit&assign.css";
 import "../App.css";
 import '../style/childDashboard.css'
 import QuestsAndRewards from "./CaregiverDashboard/QuestsAndRewards";

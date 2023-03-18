@@ -135,8 +135,8 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
         <div className="quest-bars">
           {tasks?.map((task, index) => (
             <div className="each-quest" key={index}>
-              <div className="assign-name-div">              
-                <h2 className="each-quest-detail">              
+              <div className="assign-name-div">
+                <h2 className="each-quest-detail">
                   <span className="adults-task-name">{task?.taskName}</span>
                   <span className="adults-task-coins">
                     {task?.taskPoints} coins
@@ -164,51 +164,64 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                   >
                     {({ values, errors, touched }) => (
                       <Form>
-                        <div>
+                        <div className="edit-div">
                           <label htmlFor="taskName">Task Name</label>
-                          <Field type="text" name="taskName" />
+                          <br />
+                          <Field
+                            className="quest-input-input"
+                            type="text"
+                            name="taskName"
+                          />
                           <ErrorMessage name="taskName" />
                         </div>
 
-                        <div>
+                        <div className="edit-div">
                           <label htmlFor="taskDescription">
                             Task Description
                           </label>
-                          <Field type="text" name="taskDescription" />
+                          <br />
+                          <Field
+                            className="quest-input-input"
+                            type="text"
+                            name="taskDescription"
+                          />
                           <ErrorMessage name="taskDescription" />
                         </div>
 
-                        <div>
+                        <div className="edit-div completed-task">
                           <label htmlFor="completed">Completed?</label>
-                          <Field type="checkbox" name="completed" />
+                          <Field
+                            className="quest-input-input checkbox"
+                            type="checkbox"
+                            name="completed"
+                          />
                         </div>
 
-                        <div>
+                        <div className="edit-div">
                           <label htmlFor="taskPoints">Task Points</label>
-                          <Field type="number" name="taskPoints" />
+                          <br />
+                          <Field
+                            className="quest-input-input"
+                            type="number"
+                            name="taskPoints"
+                          />
                           <ErrorMessage name="taskPoints" />
                         </div>
-
-                        <div>
-                          <label htmlFor="child">Assign to Child:</label>
-                          <Field as="select" name="child">
-                            <option value="">-- Select a Child --</option>
-                            {listOfChildren?.map((child) => (
-                              <option key={child._id} value={child._id}>
-                                {child.childName}
-                              </option>
-                            ))}
-                          </Field>
+                        <br/>
+                        <div className="edit-btns">
+                          <button className="update-task" type="submit">
+                            Update Task
+                          </button>
+                          <button
+                            className="delete-task"
+                            type="submit"
+                            onClick={() => {
+                              handleDeleteSubmit(task.id);
+                            }}
+                          >
+                            Delete Task
+                          </button>
                         </div>
-                        <button type="submit">Update Task</button>
-                        <button
-                          type="submit"
-                          onClick={() => {
-                            handleDeleteSubmit(task.id);
-                          }}
-                        >
-                          Delete Task
-                        </button>
                       </Form>
                     )}
                   </Formik>

@@ -1,0 +1,39 @@
+.edit-task-btn,
+.edit-assign-btn {
+  background-color: #838383;
+  border: transparent;
+  border-radius: 10px;
+  width: 75px;
+  height: 35px;
+  color: white;
+  font-size: 18px;
+}
+.update-task,
+.delete-task {
+  background-color: #0811da;
+  border: transparent;
+  padding: 5px 40px;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+.delete-task {
+  background-color: #d93b18;
+}
+.update-task {
+  margin-left: 15vw;
+}
+.completed-task {
+}
+.checkbox {
+  margin-top: 24px;
+  align-content: flex-start;
+}
+.edit-btns {
+  display: flex;
+  flex-direction: row;
+}
+.edit-div {
+  margin-left: 15vw;
+}
