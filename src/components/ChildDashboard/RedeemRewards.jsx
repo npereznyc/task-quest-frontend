@@ -4,83 +4,78 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 
-const ShowAndEditReward = ({ caregiverId }) => {
-    console.log('caregiver/reward: ', caregiverId)
-    const navigate = useNavigate();
-    const child = JSON.parse(localStorage.getItem('child'))
-    const [totalPoints, setTotalPoints] = useState(0)
-    const childId = child._id
-    const [rewards, setRewards] = useState([]);
-    const [isLoaded, setIsLoaded] = useState(false); // track whether API call is complete
+const ShowAndEditReward = ({ caregiverId, setReRender }) => {
+  console.log("caregiver/reward: ", caregiverId);
+  const navigate = useNavigate();
+  const child = JSON.parse(localStorage.getItem("child"));
+  const [totalPoints, setTotalPoints] = useState(0);
+  const childId = child._id;
+  const [rewards, setRewards] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false); // track whether API call is complete
 
+  useEffect(() => {
+    const fetchRewards = async () => {
+      axios
+        .get(`http://localhost:4000/rewards/show/${caregiverId}`)
+        .then((response) => {
+          setRewards(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      console.log("rewards: ", rewards);
+      setIsLoaded(true); // update state to indicate API call is complete
+    };
+    fetchRewards();
+  }, [caregiverId]);
 
+  const validationSchema = Yup.object().shape({
+    rewardName: Yup.string().required("Required"),
+    rewardPoints: Yup.number()
+      .typeError("Must be a number")
+      .positive("Must be positive")
+      .required("Required"),
+    activeReward: Yup.boolean(),
+    cashedIn: Yup.number(),
+  });
 
-    useEffect(() => {
-        const fetchRewards = async () => {
-            axios.get(`http://localhost:4000/rewards/show/${caregiverId}`)
-                .then(response => {
-                    setRewards(response.data);
-                })
-                .catch(error => {
-                    console.log(error)
-                })
-            console.log('rewards: ', rewards)
-            setIsLoaded(true); // update state to indicate API call is complete
-        };
-        fetchRewards();
-    }, [caregiverId]);
+  if (!isLoaded) {
+    return <div>Loading...</div>; // show loading message while API call is in progress
+  }
 
-    const validationSchema = Yup.object().shape({
-        rewardName: Yup.string().required("Required"),
-        rewardPoints: Yup.number()
-            .typeError("Must be a number")
-            .positive("Must be positive")
-            .required("Required"),
-        activeReward: Yup.boolean(),
-        cashedIn: Yup.number(),
-    });
-
-    if (!isLoaded) {
-        return <div>Loading...</div>; // show loading message while API call is in progress
+  const redeemReward = async (rewardId) => {
+    try {
+      const res = await axios.put(
+        `http://localhost:4000/rewards/cashin/${rewardId}/${childId}`
+      );
+      setReRender(res.data);
+      console.log(res);
+    } catch (error) {
+      console.error(error);
     }
+  };
 
-    const redeemReward = async (rewardId) => {
-        try {
-            const res = await axios.put(`http://localhost:4000/rewards/cashin/${rewardId}/${childId}`)
-            // getTotalPoints()
-            // fetchRewards()
-            console.log(res)
-        } catch (error) {
-            console.error(error)
-        }
-    }
+  return (
+    <div className="quest-rewards-container">
+      <div className="rewards-box">
+        <h3>Redeem Riches</h3>
 
-    return (
-        <div className='quest-rewards-container'>
-            <div className='rewards-box'>
-                <h3>Redeem Riches</h3>
-
-                <h4>Number of Rewards Available: {rewards.length}</h4>
-                <ul className='individual-quest'>
-                    {rewards.map((reward, index) => (
-                        <div key={index}>
-                            <span className='reward-name'>{reward.rewardName} </span>
-                            <span className='reward-points'>{reward.rewardPoints} coins</span>
-                            <button onClick={() => redeemReward(reward._id)}>Redeem</button>
-
-                        </div>
-                    ))}
-                </ul>
-
+        <h4>Number of Rewards Available: {rewards.length}</h4>
+        <ul className="individual-quest">
+          {rewards.map((reward, index) => (
+            <div key={index}>
+              <span className="reward-name">{reward.rewardName} </span>
+              <span className="reward-points">{reward.rewardPoints} coins</span>
+              <button onClick={() => redeemReward(reward._id)}>Redeem</button>
             </div>
-        </div>
-
-    );
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
 };
 
 export default ShowAndEditReward;
-
-
 
 // import React from 'react'
 // import { useState, useEffect } from 'react'
