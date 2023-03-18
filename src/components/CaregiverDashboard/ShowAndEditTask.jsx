@@ -133,10 +133,12 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
       </div>
       <div className="qst">
         <div className="quest-bars">
+          
           {tasks?.map((task, index) => (
             <div className="each-quest" key={index}>
               <div className="assign-name-div">
                 <h2 className="each-quest-detail">
+                  <div className="swordAvatar"></div>
                   <span className="adults-task-name">{task?.taskName}</span>
                   <span className="adults-task-coins">
                     {task?.taskPoints} coins
