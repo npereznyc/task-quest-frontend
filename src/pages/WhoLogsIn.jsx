@@ -14,7 +14,7 @@ const WhoLogsIn = () => {
         <Link className="link task-master" to={"/caregiverlogin"}>
          I am the Quest Master
         </Link>
-        <div className="login-tagline">Need an account? <Link className="link-yellow">JOIN OUR WORLD</Link></div>
+        <div className="login-tagline">Need an account? <Link to={"/register"} className="link-yellow">JOIN OUR WORLD</Link></div>
       </div>
 
     </div>
