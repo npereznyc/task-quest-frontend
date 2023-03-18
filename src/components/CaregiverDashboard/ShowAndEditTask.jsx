@@ -135,7 +135,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
         <div className="quest-bars">
           {tasks?.map((task, index) => (
             <div className="each-quest" key={index}>
-              <div clasSName="assign-name-div">              
+              <div className="assign-name-div">              
                 <h2 className="each-quest-detail">              
                   <span className="adults-task-name">{task?.taskName}</span>
                   <span className="adults-task-coins">
@@ -148,7 +148,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                     Edit
                   </button>
                   <button
-                    className="edit-task-btn"
+                    className="edit-assign-btn"
                     onClick={() => toggleAssignAccordion(taskIds[index])}
                   >
                     Assign

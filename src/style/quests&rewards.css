@@ -1,8 +1,8 @@
-.adult-tasks{
-display: flex;
-justify-content:center;
+.adult-tasks {
+  display: flex;
+  justify-content: center;
 }
-.tasks-header{
+.tasks-header {
   margin-top: 40px;
   display: flex;
   justify-content: space-between;
@@ -10,13 +10,13 @@ justify-content:center;
   background-color: rgba(0, 5, 116, 1);
   border-radius: 10px;
 }
-.tasks-title{
+.tasks-title {
   text-align: center;
-  font-family: 'MedievalSharp', cursive;
+  font-family: "MedievalSharp", cursive;
 }
-.sword{
+.sword {
   background-image: url(../assets/Sword.png);
-  background-color: #DAA442;
+  background-color: #daa442;
 }
 .qst {
   display: flex;
@@ -42,6 +42,17 @@ justify-content:center;
   margin-top: 20px;
   padding: 10px;
 }
+.edit-task-btn, .edit-assign-btn{
+  background-color: #838383;
+  border: transparent;
+  border-radius: 10px;
+  width: 75px;
+  color: white;
+  font-size: 18px;
+}
+
+
+
 .each-quest-detail {
   display: flex;
   justify-content: space-between;
@@ -55,7 +66,7 @@ justify-content:center;
   text-align: center;
   color: white;
 }
-.assign-point{
+.assign-point {
   color: white;
 }
 .assign-quest-div {
@@ -80,131 +91,128 @@ justify-content:center;
   justify-content: center;
 }
 /* NEW QUEST */
-.create-quest {
+.create-quest,
+.create-new {
   display: flex;
   justify-content: center;
 }
-.new-quest {
+.new-quest,
+.create-title {
   width: 70vw;
   padding: 20px 0;
-  background-color:#0811DA;
-  font-family: 'MedievalSharp', cursive;
+  background-color: #0811da;
+  font-family: "MedievalSharp", cursive;
   display: flex;
 }
-.add-task{
+.add-task,
+.add-reward {
   margin-left: 10vw;
-  font-family: 'MedievalSharp', cursive;
-
+  font-family: "MedievalSharp", cursive;
 }
-.open-form{
+.open-form {
   padding-top: 10px;
-    display: flex;
-    justify-content: center;
-
+  display: flex;
+  justify-content: center;
 }
-.new-quest-form{
+.new-quest-form,
+.reward-form {
   margin-top: -32px;
-width: 70vw;    
-background-color:rgb(82, 64,111);
-border: 1px solid black;
-
-
+  width: 70vw;
+  background-color: rgb(82, 64, 111);
+  border: 1px solid black;
 }
-.quest-input{
+.quest-input {
   color: white;
   margin-top: 20px;
   margin-left: 15vw;
 }
-.quest-input-input{
+.quest-input-input {
   border-radius: 10px;
   border: transparent;
   width: 30vw;
-  height: 40px
+  height: 40px;
 }
-textarea{
+textarea {
   border-radius: 10px;
   width: 40vw;
-
 }
-.create-div{
-
+.create-div {
 }
 
-.create-btn{
-margin-left: 50vw;
-margin-bottom: 40px;
-margin-top: 20px;
-background-color: #0811DA;
-border: transparent;
-padding: 5px 40px;
-border-radius: 10px;
-color: white;
-font-size: 18px;
+.create-btn,
+.reward-submit {
+  margin-left: 50vw;
+  margin-bottom: 40px;
+  margin-top: 20px;
+  background-color: #0811da;
+  border: transparent;
+  padding: 5px 40px;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
 }
 /* REWARDS */
-.rewards-header-div{
+.rewards-header-div {
   margin-top: 20px;
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 }
-.rewards-header{
+.rewards-header {
   display: flex;
   width: 70vw;
   justify-content: space-between;
   background-color: rgba(0, 5, 116, 1);
+  border-radius: 10px;
 }
-.rewards-title{
+.rewards-title {
   text-align: center;
   color: white;
-  font-family: 'MedievalSharp', cursive;
 }
-.adult-total-rewards{
+.adult-total-rewards {
   text-align: center;
   color: white;
   display: flex;
   flex-direction: column;
 }
-.rewards-nm, .rewards-pt{
-  font-family: 'MedievalSharp', cursive;
+.rewards-nm,
+.rewards-pt {
+  font-family: "MedievalSharp", cursive;
 }
-.parent-rewards{
+.rewards-pt{
+  color:#daa442
+}
+
+.parent-rewards {
   display: flex;
   justify-content: center;
 }
-.rewards-bar{
+.adults-task-coins{
+  color: #daa442
+}
+.rewards-bar {
   display: flex;
   width: 70vw;
   justify-content: space-between;
   margin-top: 20px;
-  padding: 10px;
   border-radius: 10px;
-  background-color: #DAA442;
+  background-color: black;
+  color: white;
+  height: 76px;
 }
 /* CREATE REWARDS */
-.create-new{
+.reward-form-div {
   display: flex;
   justify-content: center;
 }
-.create-title{
-  font-family: 'MedievalSharp', cursive;
-
+.reward-form {
   color: white;
-  width: 70vw;
-  background-color: #0811da;
-  margin-top: 20px;
-  padding: 10px;
-}
-.reward-form-div{
-  display: flex;
-  justify-content: center;
-}
-.reward-form{
-  width: 71.5vw;
-  color: white;
-  background-color: #5b4c93;
-  margin-top: -22px;
+  margin-top: -25px;
   margin-bottom: 80px;
 }
-.first-reward-add{
+.first-reward-add {
   margin-top: 10px;
+}
+.add-reward-input-div {
+  margin-left: 15vw;
+  margin-top: 20px;
 }
