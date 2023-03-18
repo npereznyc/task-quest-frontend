@@ -77,21 +77,20 @@ justify-content:center;
   justify-content: center;
 }
 /* NEW QUEST */
-.create-quest {
+.create-quest, .create-new {
   display: flex;
   justify-content: center;
 }
-.new-quest {
+.new-quest, .create-title {
   width: 70vw;
   padding: 20px 0;
   background-color:#0811DA;
   font-family: 'MedievalSharp', cursive;
   display: flex;
 }
-.add-task{
+.add-task, .add-reward {
   margin-left: 10vw;
   font-family: 'MedievalSharp', cursive;
-
 }
 .open-form{
   padding-top: 10px;
@@ -99,7 +98,7 @@ justify-content:center;
     justify-content: center;
 
 }
-.new-quest-form{
+.new-quest-form, .reward-form{
   margin-top: -32px;
 width: 70vw;    
 background-color:rgb(82, 64,111);
@@ -127,7 +126,7 @@ textarea{
 
 }
 
-.create-btn{
+.create-btn, .reward-submit{
 margin-left: 50vw;
 margin-bottom: 40px;
 margin-top: 20px;
@@ -178,30 +177,36 @@ justify-content: center;
   background-color: #DAA442;
 }
 /* CREATE REWARDS */
-.create-new{
+/* .create-new{
   display: flex;
   justify-content: center;
-}
-.create-title{
+} */
+/* .create-title{
   font-family: 'MedievalSharp', cursive;
-
   color: white;
   width: 70vw;
   background-color: #0811da;
-  margin-top: 20px;
-  padding: 10px;
+  padding: 20px 0;
 }
+.add-reward{
+  /* margin-left: 10vw; */
+  /* font-family: 'MedievalSharp', cursive; }*/
+
+
 .reward-form-div{
   display: flex;
   justify-content: center;
 }
 .reward-form{
-  width: 71.5vw;
   color: white;
-  background-color: #5b4c93;
-  margin-top: -22px;
+  margin-top: -25px;
   margin-bottom: 80px;
 }
 .first-reward-add{
   margin-top: 10px;
 }
+.add-reward-input-div{
+margin-left: 15vw;
+margin-top: 20px;
+}
+
