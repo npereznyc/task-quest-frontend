@@ -96,6 +96,12 @@ const CreateTask = ({ caregiverId, setRenderEffect }) => {
                 <ErrorMessage name="taskDescription" component="div" />
               </div>
 
+              <div className="quest-input">
+               <label htmlFor="dueDate">Due Date</label><br/>
+               <Field type="date" name="dueDate" />
+               <ErrorMessage name="dueDate" component="div" />
+             </div>
+
               <div className="create-div">
                 <button
                   className="create-btn"

@@ -11,6 +11,7 @@ const ShowAndEditReward = ({ caregiverId, setReRender }) => {
   const childId = child._id;
   const [rewards, setRewards] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false); // track whether API call is complete
+  const [totalPoints, setTotalPoints] = useState(0);
 
   useEffect(() => {
     const fetchRewards = async () => {
@@ -54,11 +55,26 @@ const ShowAndEditReward = ({ caregiverId, setReRender }) => {
     }
   };
 
+  const getTotalPoints = async () => {
+    try {
+      console.log(childId);
+      const response = await axios.get(
+        `http://localhost:4000/child/${childId}`
+      );
+      const totalPoints = response.data.totalPoints;
+      console.log(response);
+      setTotalPoints(totalPoints);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="quest-rewards-container">
       <div className="rewards-box">
         <h3 className="redeem-riches">Redeem Riches</h3>
-
+        <h1>{childId.childName}</h1>
+      <h2>Total Coins: {totalPoints}</h2>
         <h4 className="rew-avbl">
           Number of Rewards Available: {rewards.length}
         </h4>
