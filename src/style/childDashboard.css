@@ -1,121 +1,62 @@
-h1, h2 {
+.individual-reward{
+    transform: translateX(15vw);
+
+}
+.child-rewards{
+    width: 70vw;
+}
+.child-reward{
     color: white;
-    text-align: center;
-}
-
-h3 {
-    text-align: center;
-}
-
-button {
-    margin-right: 50px;
-}
-
-.quests-rewards-container {
-    display: flex;
-    color: white;
-    flex-direction: row;
-    justify-content: center;
-    margin: 0 auto;
-}
-
-.incomplete-quests-box {
-    display: flex; /* set display property to flex */
-    justify-content: center; /* center horizontally */
-    align-items: center; /* center vertically */
-    width: 80%;
-    height: 80%;
-    background-color: #3d3751;
-    border: 2px solid #977a99;
-    border-radius: 5px;
-    opacity: 90%;
-    margin: 30px;
-
-}
-
-.complete-quests-box {
-    display: flex; /* set display property to flex */
-    justify-content: center; /* center horizontally */
-    align-items: center; /* center vertically */
-    width: 80%;
-    height: 80%;
-    background-color: #3d3751;
-    border: 2px solid #977a99;
-    border-radius: 5px;
-    opacity: 90%;
-    margin: 30px;
-}
-
-.complete-quests {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 10px;
-}
-
-.individual-quest {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    align-self: center;
     background-color: black;
-    padding: 10px;
-    border-radius: 10px;
-    width: 90%;
+    margin-bottom: 20px;
 }
-
-.task-name {
-    margin-right: -10%;
+.reward-content{
+    display: flex;
+    justify-content: space-between;
 }
-
-.task-points {
-    align-self: flex-end;
-    color: #daa441;
-    padding-left: 100px;
+.reward-name{
+    display: flex;
+    font-family: "MedievalSharp", cursive;
+    font-size: 24px;
 }
-
-.coinAvatar {
+.child-coin{
     background-image: url(../assets/Coin.svg);
-    background-size: 35px;
+    background-size: 60px;
+    width: 100px;
+    height: 100px;
     background-position: center center;
     background-repeat: no-repeat;
-    width: 14%;
-    /* padding-right: 7%; */
-    margin-left: 50%;
-    margin-right: -15%;
-    /* padding-top: 10px;
-    padding-bottom: 10px; */
-  }
-
-.rewards-box {
-    color: white;
-    display: flex; /* set display property to flex */
-    flex-direction: column;
-    justify-content: center; /* center horizontally */
-    align-items: center; /* center vertically */
-    width: 80%;
-    height: 80%;
-    background-color: #3d3751;
-    border: 2px solid #977a99;
-    border-radius: 5px;
-    opacity: 90%;
-    margin: 30px;
 }
+.redeem-btn{
+    background-color: #0811da;
+  border: transparent;
+  padding: 5px 40px;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+.reward-points, .reward-name, .child-num{
+    display: flex;
+    align-items: center;
+    font-family: "MedievalSharp", cursive;
 
-.individual-rewards {
+}
+.reward-points{
+text-align: center;
+display: flex;
+justify-content: center;
+flex-direction: column;
+margin: 0;
+font-family: "MedievalSharp", cursive;
+font-size: 24px;
+color:#daa442;
+margin-right: 5vw;
+
+}
+.other-half{
     display: flex;
     flex-direction: row;
-    align-items: center;
-    align-self: center;
-    background-color: black;
-    padding: 10px;
-    border-radius: 10px;
-    width: 90%;
+    margin-right: 5vw;
 }
-
-.reward-points {
-    align-self: flex-end;
-    color: #daa441;
-    padding-left: 100px;
-}
-
