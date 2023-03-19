@@ -158,6 +158,8 @@ margin: 0
   color:#daa442;
   display: flex;
   align-items: center;
+  margin-right: 3rem;
+  font-size: 24px;
 }
 
 .parent-rewards {
@@ -168,7 +170,7 @@ margin: 0
   color: #daa442;
   display: flex;
   align-items: center;
-
+  
 }
 .adults-task-name{
   display: flex;
@@ -183,6 +185,9 @@ margin: 0
   color: white;
   height: 76px;
   padding: 10px 0;
+}
+.coin-word{
+  display: flex;
 }
 /* CREATE REWARDS */
 .reward-form-div {
@@ -245,6 +250,7 @@ margin: 0
     width: 60px;
     height: 100%;
     margin-left: 15px;
+    margin-right: 20px;
     background-position: center center;
     background-repeat: no-repeat;
 }

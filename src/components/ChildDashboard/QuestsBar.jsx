@@ -67,7 +67,7 @@ export default function QuestsBar({ childObject, reRender }) {
       <h2>Total Coins: {totalPoints}</h2>
       <div className="quests-rewards-container">
         <div className="incomplete-quests-box">
-          <div clasName="box">
+          <div className="box">
             <div className="caregiverDashboard-navLogo"></div>
             <h3>Today's Quests</h3>
             <div className="quest-bars">

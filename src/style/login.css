@@ -8,7 +8,14 @@ html {
 a{
   color: rgb(217, 164, 65);
 }
-
+.logout-div{
+  display: flex;
+  align-items: center;
+}
+.logout-button{
+  display: flex;
+  align-items: center;
+}
 .header {
   background-image: url(../assets/Logo.svg);
   background-size: 75% 75%;

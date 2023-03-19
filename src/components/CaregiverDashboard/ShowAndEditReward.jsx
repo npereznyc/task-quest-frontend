@@ -60,8 +60,11 @@ const ShowAndEditReward = ({ caregiverId }) => {
         <div className="reward-div">
           {rewards.map((reward, index) => (
             <div className="rewards-bar" key={index}>
-              <div className="coinIcon"></div>
-              <h2 className="rewards-nm">{reward.rewardName} </h2>
+              <div className="coin-word">
+                <div className="coinIcon"></div>
+                <h2 className="rewards-nm">{reward.rewardName} </h2>
+              </div>
+
               <h3 className="rewards-pt">{reward.rewardPoints} coins</h3>
             </div>
           ))}
