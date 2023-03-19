@@ -28,7 +28,6 @@ const Main = () => {
         <Route path="/childdashboard" element={<ChildDashboard />} />
         <Route path="/caregiverlogin" element={<CaregiverLogin />} />
         <Route path="/register" element={<RegisterForm />} />
-
         <Route path="/caregiverdashboard" element={<CaregiverDashboard />} />
         <Route
           path="/caregiverdashboard/QuestsAndRewards"

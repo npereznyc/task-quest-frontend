@@ -43,7 +43,7 @@ export default function ChildList(props) {
   }, [childRender]);
 
   return (
-    <div className="children-list-container">
+    <div className="first-half">
       {children.map(
         ({ _id, caregiverId, childName, rewardsArray, taskArray }) => (
           <Child

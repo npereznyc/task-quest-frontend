@@ -22,8 +22,9 @@
   color: black;
   margin: 0 40px;
   font-family: 'MedievalSharp', cursive;
-  font-size: 24px;
-  color: #A65BD9
+  font-size: 36px;
+  color: white;
+  margin-bottom: 40px;
 }
 
 .tasks {
@@ -54,7 +55,7 @@
 }
 .add-knight-form,
 .task-details {
-  background-color: rgb(82, 64,111);
+  background-color: rgba(9, 8, 218, 0.16);
   /* background-color: red; */
   border-radius: 0px 0px 15px 15px;
   margin-top: 0px;
@@ -71,7 +72,7 @@
   display: flex;
   justify-content: flex-start;
   color: white;
-  margin-top: 5%;
+  margin-top: 20px;
   padding: 1%;
   border-radius: 10px;
   width: 70vw;
@@ -171,9 +172,15 @@
 }
 
 .register-child-submit {
-  background-color: #0711d9;
+  margin-left: 50vw;
+  margin-bottom: 40px;
+  margin-top: 20px;
+  background-color: #0811da;
+  border: transparent;
+  padding: 5px 40px;
+  border-radius: 10px;
   color: white;
-  padding: 10px 25px;
+  font-size: 18px;
 }
 
 .complete-quests {
