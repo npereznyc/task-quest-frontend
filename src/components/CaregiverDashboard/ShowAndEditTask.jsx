@@ -219,6 +219,11 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                           <ErrorMessage name="taskPoints" />
                         </div>
                         <br />
+                        <div>
+                          <label htmlFor="dueDate">Due Date</label>
+                          <Field type="date" name="dueDate" />
+                          <ErrorMessage name="dueDate" />
+                        </div>
                         <div className="edit-btns">
                           <button className="update-task" type="submit">
                             Update Task

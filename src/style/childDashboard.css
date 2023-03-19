@@ -1,34 +1,66 @@
-.individual-reward{
-    transform: translateX(15vw);
+/* TASKS TO COMPLETE */
+.box {
+  transform: translateX(5%);
+}
 
+.eachQuest {
+  background-color: black;
+  color: white;
+  margin-bottom: 20px;
 }
-.child-rewards{
-    width: 70vw;
+.curr-child-nm {
+  text-align: center;
+  font-family: "MedievalSharp", cursive;
+  font-size: 36px;
+  color: white;
 }
-.child-reward{
-    color: white;
-    background-color: black;
-    margin-bottom: 20px;
+.child-quest-pay {
+  display: flex;
 }
-.reward-content{
-    display: flex;
-    justify-content: space-between;
+.child-quest-name {
+  display: flex;
+  align-items: center;
 }
-.reward-name{
-    display: flex;
-    font-family: "MedievalSharp", cursive;
-    font-size: 24px;
+.completeBtn {
+  margin-left: 2vw;
+  margin-right: 20px;
+  background-color: #d93b18;
+  border: transparent;
+  padding: 5px 40px;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
 }
-.child-coin{
-    background-image: url(../assets/Coin.svg);
-    background-size: 60px;
-    width: 100px;
-    height: 100px;
-    background-position: center center;
-    background-repeat: no-repeat;
+/* REWARD */
+
+.child-rewards {
+  width: 70vw;
 }
-.redeem-btn{
-    background-color: #0811da;
+.child-reward {
+  color: white;
+  background-color: black;
+  margin-bottom: 20px;
+}
+.reward-content {
+  display: flex;
+  justify-content: space-between;
+}
+.reward-name,
+.task-name {
+  display: flex;
+  font-family: "MedievalSharp", cursive;
+  font-size: 24px;
+}
+.child-coin {
+  background-image: url(../assets/Coin.svg);
+  background-size: 60px;
+  width: 100px;
+  height: 100px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.redeem-btn {
+  background-color: #0811da;
   border: transparent;
   padding: 5px 40px;
   border-radius: 10px;
@@ -37,26 +69,105 @@
   margin-bottom: 30px;
   margin-top: 30px;
 }
-.reward-points, .reward-name, .child-num{
-    display: flex;
-    align-items: center;
-    font-family: "MedievalSharp", cursive;
-
+.reward-points,
+.reward-name,
+.child-num {
+  display: flex;
+  align-items: center;
+  font-family: "MedievalSharp", cursive;
 }
-.reward-points{
-text-align: center;
-display: flex;
-justify-content: center;
-flex-direction: column;
-margin: 0;
-font-family: "MedievalSharp", cursive;
-font-size: 24px;
-color:#daa442;
-margin-right: 5vw;
-
+.reward-points,
+.task-points {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0;
+  font-family: "MedievalSharp", cursive;
+  font-size: 24px;
+  color: #daa442;
+  margin-right: 5vw;
 }
-.other-half{
-    display: flex;
-    flex-direction: row;
-    margin-right: 5vw;
+.other-half {
+  display: flex;
+  flex-direction: row;
+  margin-right: 5vw;
+}
+.treasure-chest {
+  background-image: url(../assets/Treasure-chest.svg);
+  background-size: 200px;
+  height: 200px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  text-align: center;
+  margin-top: 50px;
+}
+.quest-rewards-container {
+  transform: translateX(15vw);
+  width: 70vw;
+}
+.redeem-coin {
+  height: 100%;
+}
+.total-coins,
+.redeem-riches,
+.redeem-coin {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  font-family: "MedievalSharp", cursive;
+}
+.redeem-header {
+  display: flex;
+  color: #daa442;
+  justify-content: space-between;
+  height: 200px;
+}
+.redeem-header-half {
+  display: flex;
+}
+.total-coins {
+  margin: 0 4vw 0 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 16px;
+}
+.larger {
+  font-size: 32px;
+  font-family: "MedievalSharp", cursive;
+}
+.smaller {
+  font-size: 16px;
+}
+.redeem-riches {
+  margin-left: 4vw;
+}
+.quest-rewards-container {
+  width: 80%;
+  height: 80%;
+  background-color: #3d3751;
+  border: 2px solid #966F29;
+  border-radius: 5px;
+  opacity: 90%;
+  margin: 30px;
+  transform: translateX(10%);
+  margin-bottom: 5rem;
+  padding-bottom: 10vh;
+}
+.individual-reward{
+    transform: translateX(5%);
+}
+
+.incomplete-quests-box{
+    width: 80%;
+  height: 80%;
+  background-color: #3d3751;
+  border: 2px solid #977a99;
+  border-radius: 5px;
+  opacity: 90%;
+  margin: 30px;
+  transform: translateX(10%);
+  margin-bottom: 5rem;
+  padding: 10vh 0;
 }

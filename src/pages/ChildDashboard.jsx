@@ -8,7 +8,6 @@ import axios from "axios";
 export default function ChildDashboard() {
   const currentUser = JSON.parse(localStorage.getItem("child"));
   const caregiverId = currentUser.caregiverId;
-  const token = currentUser.token;
   const [child, setChild] = useState(null);
   const [reRender, setReRender] = useState();
 
@@ -32,6 +31,8 @@ export default function ChildDashboard() {
       <ChildDashboardNavBar />
       <QuestsBar childObject={child} reRender={reRender} />
       <RedeemRewards caregiverId={caregiverId} setReRender={setReRender} />
+      <br/>
+      <br/>
     </div>
   );
 }

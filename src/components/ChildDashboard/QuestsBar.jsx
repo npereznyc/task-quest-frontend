@@ -24,15 +24,9 @@ export default function QuestsBar({ childObject, reRender }) {
     }
   };
 
-
-
   useEffect(() => {
     listTasks();
   }, [reRender]);
-
-  /*   useEffect(() => {
-      setChild(JSON.parse(localStorage.getItem("child")));
-    }, []); */
 
   const handleCompleteTask = async (taskId) => {
     try {
@@ -48,7 +42,7 @@ export default function QuestsBar({ childObject, reRender }) {
 
   return (
     <div>
-      <h1>{currentUser.childName}</h1>
+      {/* <h1 className="curr-child-nm">{currentUser.childName}</h1> */}
       <div className="quests-rewards-container">
         <div className="incomplete-quests-box">
           <div className="box">
@@ -56,41 +50,31 @@ export default function QuestsBar({ childObject, reRender }) {
               {tasks
                 .filter((task) => !task.completed)
                 .map((task) => (
-                  <div className="each-quest" key={task._id}>
-                    <div className="each-quest-detail">
-                      <button
-                        className="completeBtn"
-                        onClick={() => handleCompleteTask(task._id)}
-                      >
-                        Complete
-                      </button>
-                      <span className="task-name">{task.taskName}</span>
-                      <div className="coinAvatar"></div>
-                      <span className="task-points">
-                        {task.taskPoints} Coins{" "}
-                      </span>
+                  <div className="eachQuest" key={task._id}>
+                    <div className="each-quest-detail child-quest-detail">
+                      <div className="child-quest-name">
+                        <button
+                          className="completeBtn"
+                          onClick={() => handleCompleteTask(task._id)}
+                        >
+                          Complete
+                        </button>
+                        <span className="task-name">{task.taskName}</span>
+                      </div>
+                      <div className="child-quest-pay">
+                        <div className="child-coin"></div>
+
+                        <span className="task-points">
+                          
+                          <span className="larger">{task.taskPoints}</span>
+                          <span className="smaller">Coins</span>
+                          
+                        </span>
+                      </div>
                     </div>
                   </div>
                 ))}
-              {/* </ul> */}
             </div>
-          </div>
-        </div>
-      </div>
-      <div className="quests-rewards-container">
-        <div className="complete-quests-box">
-          <div className="complete-quests">
-            <h3>Completed Quests</h3>
-            <ul>
-              {tasks
-                .filter((task) => task.completed)
-                .map((task) => (
-                  <li key={task._id}>
-                    <span className="task-name">{task.taskName}</span>
-                    <span className="task-name">{task.taskPoints} POINTS </span>
-                  </li>
-                ))}
-            </ul>
           </div>
         </div>
       </div>
