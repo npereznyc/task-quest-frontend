@@ -27,6 +27,7 @@ const ShowAndEditReward = ({ caregiverId, setReRender }) => {
       setIsLoaded(true); // update state to indicate API call is complete
     };
     fetchRewards();
+    getTotalPoints();
   }, [caregiverId]);
 
   const validationSchema = Yup.object().shape({
@@ -71,10 +72,9 @@ const ShowAndEditReward = ({ caregiverId, setReRender }) => {
 
   return (
     <div className="quest-rewards-container">
+      <h2>Total Coins: {totalPoints}</h2>
       <div className="rewards-box">
         <h3 className="redeem-riches">Redeem Riches</h3>
-        <h1>{childId.childName}</h1>
-      <h2>Total Coins: {totalPoints}</h2>
         <h4 className="rew-avbl">
           Number of Rewards Available: {rewards.length}
         </h4>
@@ -89,15 +89,17 @@ const ShowAndEditReward = ({ caregiverId, setReRender }) => {
                     {reward.rewardName}{" "}
                   </span>
                   <div className="other-half">
-                  <span className="reward-points">
-                    {reward.rewardPoints}<br/>coins
-                  </span>
-                  <button
-                    className="redeem-btn"
-                    onClick={() => redeemReward(reward._id)}
-                  >
-                    Redeem
-                  </button>
+                    <span className="reward-points">
+                      {reward.rewardPoints}
+                      <br />
+                      coins
+                    </span>
+                    <button
+                      className="redeem-btn"
+                      onClick={() => redeemReward(reward._id)}
+                    >
+                      Redeem
+                    </button>
                   </div>
                 </div>
               </div>
