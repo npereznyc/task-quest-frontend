@@ -13,6 +13,20 @@ const ShowAndEditReward = ({ caregiverId, setReRender }) => {
   const [isLoaded, setIsLoaded] = useState(false); // track whether API call is complete
   const [totalPoints, setTotalPoints] = useState(0);
 
+    const getTotalPoints = async () => {
+    try {
+      console.log(childId);
+      const response = await axios.get(
+        `http://localhost:4000/child/${childId}`
+      );
+      const totalPoints = response.data.totalPoints;
+      console.log(response);
+      setTotalPoints(totalPoints);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
   useEffect(() => {
     const fetchRewards = async () => {
       axios
@@ -56,19 +70,7 @@ const ShowAndEditReward = ({ caregiverId, setReRender }) => {
     }
   };
 
-  const getTotalPoints = async () => {
-    try {
-      console.log(childId);
-      const response = await axios.get(
-        `http://localhost:4000/child/${childId}`
-      );
-      const totalPoints = response.data.totalPoints;
-      console.log(response);
-      setTotalPoints(totalPoints);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+
 
   return (
     <div className="quest-rewards-container">

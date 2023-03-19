@@ -52,10 +52,7 @@ export default function QuestsBar({ childObject, reRender }) {
       <div className="quests-rewards-container">
         <div className="incomplete-quests-box">
           <div className="box">
-            <div className="caregiverDashboard-navLogo"></div>
-            <h3>Today's Quests</h3>
             <div className="quest-bars">
-              {/* <ul className='individual-quest'> */}
               {tasks
                 .filter((task) => !task.completed)
                 .map((task) => (

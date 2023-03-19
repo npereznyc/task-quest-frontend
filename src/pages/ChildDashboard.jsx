@@ -29,8 +29,8 @@ export default function ChildDashboard() {
 
   return (
     <div>
+      <ChildDashboardNavBar />
       <QuestsBar childObject={child} reRender={reRender} />
-
       <RedeemRewards caregiverId={caregiverId} setReRender={setReRender} />
     </div>
   );
