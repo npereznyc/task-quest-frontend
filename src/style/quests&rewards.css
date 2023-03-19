@@ -91,8 +91,9 @@ display: flex;
 .reward-form {
   margin-top: -32px;
   width: 70vw;
-  background-color: rgb(82, 64, 111);
+  background-color: rgba(9, 8, 218, 0.16);
   border: 1px solid black;
+  margin-bottom: 40px;
 }
 .quest-input {
   color: white;
@@ -125,7 +126,7 @@ textarea {
 }
 /* REWARDS */
 .rewards-header-div {
-  margin-top: 125px;
+  margin-top: 40px;
   display: flex;
   justify-content: center;
 }
@@ -253,4 +254,20 @@ margin: 0
     margin-right: 20px;
     background-position: center center;
     background-repeat: no-repeat;
+}
+
+
+.caregiverDashboardBody{
+  position:relative;
+}
+.first-half{
+  width: 80%;
+  height: 80%;
+  background-color: #3d3751;
+  border: 2px solid #977a99;
+  border-radius: 5px;
+  opacity: 90%;
+  margin: 30px;
+  transform: translateX(10%);
+  margin-bottom: 5rem;
 }
