@@ -7,6 +7,7 @@
   background-color: black;
   color: white;
   margin-bottom: 20px;
+  border-radius: 10px;
 }
 .curr-child-nm {
   text-align: center;
@@ -40,6 +41,7 @@
   color: white;
   background-color: black;
   margin-bottom: 20px;
+  border-radius: 10px;
 }
 .reward-content {
   display: flex;
@@ -181,6 +183,7 @@
     width: 70vw;
     display: flex;
     justify-content: space-between;
+    border-radius: 10px;
 }
 .complete-pay{
     display: flex;
