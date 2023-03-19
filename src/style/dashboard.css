@@ -7,7 +7,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin-top: 5%; */
 }
 
 .dash {
@@ -51,15 +50,15 @@
 .task-list, 
 .quests-todo, 
 .quests-complete {
-  width: 65vw;
+  width: 70vw;
 }
 .add-knight-form,
 .task-details {
-  background-color: rgba(9, 8, 218, 0.16);
-  /* background-color: red; */
+  position:relative;
+  z-index:-100;
+  background-color: #a75cd979;
   border-radius: 0px 0px 15px 15px;
-  margin-top: 0px;
-  padding: 5px 5px 5px 5px;
+  margin-top: -5px;
   width: 70vw;
   display: flex;
   flex-direction: column;
@@ -73,7 +72,6 @@
   justify-content: flex-start;
   color: white;
   margin-top: 20px;
-  padding: 1%;
   border-radius: 10px;
   width: 70vw;
   margin-bottom: 0px;
@@ -89,6 +87,14 @@
 
 .add-knight {
   background-color: #0711d9;
+  height: 70px;
+
+}
+.addKnight{
+  display: flex;
+  align-items: center;
+  font-family: 'MedievalSharp', cursive;
+
 }
 .child-bar{
   background-color: #000000;
@@ -118,25 +124,18 @@
   justify-content: flex-start;
   background-color: black;
   color: white;
-  padding: 1% 1% 1% 0%;
-  margin: 1.5% 0% 1.5% 0%; 
-  width: 65vw;
+  padding: 1% 0;
+  width:65vw;
+  margin-left: 2.5vw;
+  margin-bottom: 10px;
 }
 
 .quest-coins {
   color: #d9a441;
-}
-
-.complete-quests,
-.incomplete-quests {
   font-size: 24px;
-  margin: 10px 0 10px 0;
-  font-family: 'MedievalSharp', cursive;
+  margin-right: 2rem;
+
 }
-
-
-
-
 
 
 /* REGISTER CHILD */
@@ -183,16 +182,11 @@
   font-size: 18px;
 }
 
-.complete-quests {
+.complete-quests, .incomplete-quests {
   color: white;
-  margin: 50px 0px 15px 0px;
+  margin: 20px 0px 15px 2.5rem;
   font-size: xx-large;
-}
-
-.incomplete-quests {
-  color: white;
-  margin: 20px 0px 15px 0px;
-  font-size: xx-large;
+  font-family: 'MedievalSharp', cursive;
 }
 
 .quest-coins {
@@ -203,7 +197,7 @@
 /* AVATARS & ICONS START HERE */
 .childAvatar {
   background-image: url(../assets/OrangeAvatar.svg);
-  background-size: 50px;
+  background-size: 60px;
   background-position: center center;
   background-repeat: no-repeat;
   width: 14%;
@@ -213,7 +207,7 @@
 
 .questSwordAvatar {
   background-image: url(../assets/Sword.png);
-  background-size: 50px;
+  background-size: 60px;
   background-position: center center;
   background-repeat: no-repeat;
   width: 14%;
@@ -223,7 +217,7 @@
 
 .addUserAvatar {
   background-image: url(../assets/AddUser.svg);
-  background-size: 50px;
+  background-size: 60px;
   background-position: center center;
   background-repeat: no-repeat;
   width: 14%;

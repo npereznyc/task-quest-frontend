@@ -56,7 +56,7 @@ const AddChild = ({ setChildRender }) => {
         
           <h1 className="add-knight" onClick={toggleAccordion}>
           <div className="addUserAvatar"> </div>
-            Add Knight
+            <span className="addKnight">Add Knight</span>
           </h1>
         </div>
         <div className="add-knight-form">
