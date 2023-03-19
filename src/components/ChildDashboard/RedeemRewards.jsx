@@ -8,7 +8,6 @@ const ShowAndEditReward = ({ caregiverId, setReRender }) => {
   console.log("caregiver/reward: ", caregiverId);
   const navigate = useNavigate();
   const child = JSON.parse(localStorage.getItem("child"));
-  const [totalPoints, setTotalPoints] = useState(0);
   const childId = child._id;
   const [rewards, setRewards] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false); // track whether API call is complete
@@ -58,63 +57,40 @@ const ShowAndEditReward = ({ caregiverId, setReRender }) => {
   return (
     <div className="quest-rewards-container">
       <div className="rewards-box">
-        <h3>Redeem Riches</h3>
+        <h3 className="redeem-riches">Redeem Riches</h3>
 
-        <h4>Number of Rewards Available: {rewards.length}</h4>
-        <ul className="individual-quest">
-          {rewards.map((reward, index) => (
-            <div key={index}>
-              <span className="reward-name">{reward.rewardName} </span>
-              <span className="reward-points">{reward.rewardPoints} coins</span>
-              <button onClick={() => redeemReward(reward._id)}>Redeem</button>
-            </div>
-          ))}
-        </ul>
+        <h4 className="rew-avbl">
+          Number of Rewards Available: {rewards.length}
+        </h4>
+        <div className="individual-reward">
+          <div className="child-rewards">
+            {rewards.map((reward, index) => (
+              <div className="child-reward" key={index}>
+                <div className="reward-content">
+                  <span className="reward-name">
+                    {" "}
+                    <div className="child-coin"></div>
+                    {reward.rewardName}{" "}
+                  </span>
+                  <div className="other-half">
+                  <span className="reward-points">
+                    {reward.rewardPoints}<br/>coins
+                  </span>
+                  <button
+                    className="redeem-btn"
+                    onClick={() => redeemReward(reward._id)}
+                  >
+                    Redeem
+                  </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>{" "}
+        </div>
       </div>
     </div>
   );
 };
 
 export default ShowAndEditReward;
-
-// import React from 'react'
-// import { useState, useEffect } from 'react'
-
-// export default function RedeemRewards({ caregiverId }) {
-//     const [rewards, setRewards] = useState([])
-//     const listRewards = async () => {
-//         try {
-//             const response = await fetch('/reward', {
-//                 method: 'GET',
-//                 headers: {
-//                     'Content-Type': 'application/json'
-//                 }
-//             })
-//             const data = await response.json()
-//             setRewards(data)
-//         } catch (error) {
-//             console.error(error)
-//         }
-//     }
-
-//     useEffect(() => {
-//         listRewards()
-//     }, [rewards])
-
-//     return (
-//         <div className='redeem-rewards'>
-//             <h4>Redeem Rewards</h4>
-//                 <ul>
-//                     {rewards.map((reward) => {
-//                         return (
-//                             <li key={reward._id}>
-//                                 <div className='reward-name'>{reward.rewardName}</div>
-//                                 <div className='reward-points'>{reward.rewardPoints} Points</div>
-//                                 <button>Buy</button>
-//                             </li>
-//                         )
-//                     })}
-//                 </ul>
-//         </div>
-//     )
-// }
