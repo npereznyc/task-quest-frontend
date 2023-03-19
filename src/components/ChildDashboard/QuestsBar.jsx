@@ -24,8 +24,6 @@ export default function QuestsBar({ childObject, reRender }) {
     }
   };
 
-
-
   useEffect(() => {
     listTasks();
   }, [reRender]);
@@ -56,19 +54,25 @@ export default function QuestsBar({ childObject, reRender }) {
               {tasks
                 .filter((task) => !task.completed)
                 .map((task) => (
-                  <div className="each-quest" key={task._id}>
-                    <div className="each-quest-detail">
-                      <button
-                        className="completeBtn"
-                        onClick={() => handleCompleteTask(task._id)}
-                      >
-                        Complete
-                      </button>
-                      <span className="task-name">{task.taskName}</span>
-                      <div className="coinAvatar"></div>
-                      <span className="task-points">
-                        {task.taskPoints} Coins{" "}
-                      </span>
+                  <div className="eachQuest" key={task._id}>
+                    <div className="each-quest-detail child-quest-detail">
+                      <div className="child-quest-name">
+                        <button
+                          className="completeBtn"
+                          onClick={() => handleCompleteTask(task._id)}
+                        >
+                          
+                        </button>
+                        <span className="task-name">{task.taskName}</span>
+                      </div>
+                      <div className="child-quest-pay">
+                        <div className="child-coin"></div>
+
+                        <span className="task-points">
+                          {task.taskPoints} <br />
+                          Coins{" "}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 ))}
