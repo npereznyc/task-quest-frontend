@@ -227,6 +227,7 @@ margin: 0
   height: 60px;
   background-position: center center;
   background-repeat: no-repeat;
+  margin-right: 20px;
 }
 .rewardsIcon{
   background-image: url(../assets/Rewards.svg);

@@ -142,8 +142,11 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
             <div className="each-quest" key={index}>
               <div className="assign-name-div">
                 <h2 className="each-quest-detail">
-                  <div className="swordAvatar"></div>
-                  <span className="adults-task-name">{task?.taskName}</span>
+                  <span className="adults-task-name">
+                    {" "}
+                    <div className="swordAvatar"></div>
+                    {task?.taskName}
+                  </span>
                   <span className="adults-task-coins">
                     {task?.taskPoints} coins
                   </span>
