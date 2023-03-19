@@ -124,10 +124,14 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
     <div className="quests-rewards">
       <div className="adult-tasks">
         <div className="tasks-header">
-          <div className="taskRunner"></div>
-          <h1 className="tasks-title">Tasks</h1>
+          <div className="icon-word">
+            {" "}
+            <div className="taskRunner"></div>
+            <h1 className="tasks-title">Tasks</h1>
+          </div>
+
           <p className="num-adult-tasks">
-            <span>{taskIds.length}</span>
+            <span className="num-num">{taskIds.length}</span>
             <span>Total Tasks</span>
           </p>
         </div>
@@ -241,19 +245,32 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                     {({ values, errors, touched }) => (
                       <Form className="assign-form">
                         <div className="assign-div">
-                          <label className="assign-title" htmlFor="child">Assign to Child:</label><br/>
-                          <Field className="assign-field quest-input-input" as="select" name="child">
-                            <option className="assign-face" value="">Select a Child</option>
+                          <label className="assign-title" htmlFor="child">
+                            Assign to Child:
+                          </label>
+                          <br />
+                          <Field
+                            className="assign-field quest-input-input"
+                            as="select"
+                            name="child"
+                          >
+                            <option className="assign-face" value="">
+                              Select a Child
+                            </option>
                             {listOfChildren?.map((child) => (
-                              <option className="assign-opt" key={child._id} value={child._id}>
+                              <option
+                                className="assign-opt"
+                                key={child._id}
+                                value={child._id}
+                              >
                                 {child.childName}
                               </option>
                             ))}
                           </Field>
                         </div>
-                      
+
                         <button
-                        className="assign-child"
+                          className="assign-child"
                           type="submit"
                           onClick={() => {
                             const childId = values.child; // obtain the selected child ID from the form values

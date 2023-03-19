@@ -44,10 +44,14 @@ const ShowAndEditReward = ({ caregiverId }) => {
     <div>
       <div className="rewards-header-div">
         <div className="rewards-header">
-          <div className="rewardsIcon"></div>
-          <h1 className="rewards-title">Rewards</h1>
+          <h1 className="rewards-title">
+            {" "}
+            <div className="rewardsIcon"></div>
+            Rewards
+          </h1>
+
           <h4 className="adult-total-rewards">
-            <span>{rewards.length}</span>
+            <span className="num-num">{rewards.length}</span>
             <span>Total Rewards</span>
           </h4>
         </div>
