@@ -41,9 +41,8 @@ export default function QuestsBar({ childObject, reRender }) {
   };
 
   return (
-    <div>
-      {/* <h1 className="curr-child-nm">{currentUser.childName}</h1> */}
-      <div className="quests-rewards-container">
+    <div className="completed-div">
+      <div className="quests-rewards-cont">
         <div className="incomplete-quests-box">
           <div className="box">
             <div className="quest-bars">
@@ -57,7 +56,6 @@ export default function QuestsBar({ childObject, reRender }) {
                           className="completeBtn"
                           onClick={() => handleCompleteTask(task._id)}
                         >
-                          Complete
                         </button>
                         <span className="task-name">{task.taskName}</span>
                       </div>

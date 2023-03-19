@@ -2,7 +2,6 @@ import ChildDashboardNavBar from "./ChildDashboardNavBar";
 import React, { useState, useEffect } from "react";
 import QuestsBar from "./QuestsBar";
 import axios from "axios";
-
 const ChildCompleted = () => {
   const [tasks, setTasks] = useState([]);
 
@@ -31,23 +30,31 @@ const ChildCompleted = () => {
     <div>
       <ChildDashboardNavBar />
 
-      <div className="quests-rewards-container">
-        <div className="complete-quests-box">
+      <div className="quests-rewards-cont">
+        <div className="complete-box">
           <div className="complete-quests">
-            <h3>Completed Quests</h3>
-            <ul>
-              {tasks
-                .filter((task) => task.completed)
-                .map((task) => (
-                  <li key={task._id}>
-                    <span className="task-name">{task.taskName}</span>
-                    <span className="task-name">{task.taskPoints} POINTS </span>
-                  </li>
-                ))}
-            </ul>
+            {tasks
+              .filter((task) => task.completed)
+              .map((task) => (
+                <div className="complete-bar" key={task._id}>
+                  <div className="complete-name">
+                    <h4 class="completedBtn"></h4>
+                    <span className="tasknm">{task.taskName}</span>
+                  </div>
+                  <div className="complete-pay">
+                    <div class="child-coin"></div>
+                    <p className="taskpt">
+                      <span className="taskpt-int larger">{task.taskPoints}</span>
+                      <span className="taskpt-coins smaller">coins</span>{" "}
+                    </p>
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
+        <br/>
       </div>
+      <br/>
     </div>
   );
 };

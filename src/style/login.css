@@ -5,14 +5,14 @@ html {
   margin: 0px;
   background-color: rgb(48, 50, 63);
 }
-a{
+a {
   color: rgb(217, 164, 65);
 }
-.logout-div{
+.logout-div {
   display: flex;
   align-items: center;
 }
-.logout-button{
+.logout-button {
   display: flex;
   align-items: center;
 }
@@ -26,18 +26,18 @@ a{
   justify-content: center;
   align-items: center;
   border: 1px solid black;
-
+  object-fit: cover;
 }
 
 .home-box {
   background-color: rgb(195, 195, 195);
   background-image: url(../assets/LandingPage.jpg);
   background-position: top;
-  background-size: 130% 150%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   border-radius: 20px;
-  filter: opacity(2) brightness(1.2) saturate(.55);
+  filter: opacity(2) brightness(1.2) saturate(0.55);
   width: 75%;
   height: 80vh;
   margin: 25px auto;
@@ -45,7 +45,6 @@ a{
   justify-content: center;
   flex-direction: column;
   align-content: center;
-
 }
 
 .link {
@@ -57,17 +56,17 @@ a{
   justify-content: center;
   height: 50px;
   margin-top: 100px;
-  font-family: 'MedievalSharp', cursive;
-  
+  font-family: "MedievalSharp", cursive;
 }
 
 .home-title {
   display: flex;
-  font-family: 'MedievalSharp', cursive;
-  font-size: 100px;
+  font-family: "MedievalSharp", cursive;
+  font-size: 10vw;
   white-space: nowrap;
   margin: 0 auto;
   height: 100px;
+  color: white;
 }
 
 .home-register {
@@ -77,7 +76,7 @@ a{
   justify-content: center;
   align-items: center;
   width: 20vw;
-  font-family: 'MedievalSharp', cursive;
+  font-family: "MedievalSharp", cursive;
   border-radius: 20px;
   background-color: white;
   color: black;
@@ -92,7 +91,7 @@ a{
   justify-content: center;
   align-items: center;
   width: 20vw;
-  font-family: 'MedievalSharp', cursive;
+  font-family: "MedievalSharp", cursive;
   border-radius: 20px;
   font-size: large;
 }
@@ -103,7 +102,6 @@ a{
 .whose-box {
   display: flex;
   justify-content: center;
-
 }
 
 .random-box {
@@ -112,7 +110,7 @@ a{
   background-color: rgb(67, 65, 65);
   background-image: url(../assets/Hallway.jpg);
   background-position: center;
-  background-size: 100% 120%;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
@@ -130,13 +128,13 @@ a{
 }
 
 .login-title,
-.login-heading{
-  font-family: 'MedievalSharp', cursive;
+.login-heading {
+  font-family: "MedievalSharp", cursive;
   color: white;
-  font-size: 35px
+  font-size: 35px;
 }
-.login-tagline{
-  font-family: 'MedievalSharp', cursive;
+.login-tagline {
+  font-family: "MedievalSharp", cursive;
   color: white;
 }
 .register-title {
@@ -151,11 +149,11 @@ a{
   justify-content: center;
   flex-direction: column;
   margin: 0 4vw;
-  font-family: 'MedievalSharp', cursive;
+  font-family: "MedievalSharp", cursive;
   width: 75%;
 }
 .email-input,
-.password-input, 
+.password-input,
 .password-input:focus,
 .username-input {
   background-color: black;
@@ -165,9 +163,9 @@ a{
   padding: 10px;
   font-size: 16px;
 }
-.care-email, 
+.care-email,
 .password {
-  font-family: 'MedievalSharp', cursive;
+  font-family: "MedievalSharp", cursive;
 }
 .auth-log {
   background-color: rgb(123, 122, 122);
@@ -191,31 +189,6 @@ a{
   justify-content: center;
   border-radius: 10px;
   margin: 20px 0px 20px 0px;
-}
-
-.two-other-register {
-  display: flex;
-  justify-content: center;
-}
-
-.or {
-  text-align: center;
-}
-
-.other-register {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  justify-content: flex-end;
-}
-
-.apple-sign,
-.google-sign {
-  height: 30px;
-  width: 100px;
-  margin: 0 10px;
-  border-radius: 30px;
-  background-color: rgb(126, 126, 126);
 }
 
 .already-account {
@@ -246,7 +219,7 @@ a{
   margin-bottom: 5px; */
   height: 85px;
   width: 300px;
-  font-family: 'MedievalSharp', cursive;
+  font-family: "MedievalSharp", cursive;
   font-size: 20px;
 }
 
@@ -256,10 +229,9 @@ a{
   margin: 0 auto;
   height: 85px;
   width: 300px;
-  font-family: 'MedievalSharp', cursive;
+  font-family: "MedievalSharp", cursive;
   font-size: 20px;
 }
-
 
 @media only screen and (max-width: 800px) {
   .random-box {

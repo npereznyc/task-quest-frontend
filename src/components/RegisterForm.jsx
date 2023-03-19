@@ -113,13 +113,7 @@ const RegisterForm = ({ signUp }) => {
                 <input className="auth-log" type="submit" value="Sign Up" />
               </div>
             </form>
-            <div className="other-register">
-              <p className="or">OR</p>
-              <nav className="two-other-register">
-                <div className="apple-sign">Apple</div>
-                <div className="google-sign">G</div>
-              </nav>
-            </div>
+            
             <Link className="already-account" to={"/login"}>
               Already have an account? Login.
             </Link>{" "}
