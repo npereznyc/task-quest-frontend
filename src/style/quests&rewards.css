@@ -81,6 +81,7 @@ display: flex;
   font-family: "MedievalSharp", cursive;
   display: flex;
   align-items: center;
+  color: white;
 }
 .open-form {
   padding-top: 10px;
@@ -176,6 +177,7 @@ margin: 0
 .adults-task-name{
   display: flex;
   align-items: center;
+  color: white;
 }
 .rewards-bar, .individual-quest {
   display: flex;

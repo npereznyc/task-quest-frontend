@@ -42,7 +42,7 @@ export default function QuestsBar({ childObject, reRender }) {
 
   return (
     <div>
-      <h1 className="curr-child-nm">{currentUser.childName}</h1>
+      {/* <h1 className="curr-child-nm">{currentUser.childName}</h1> */}
       <div className="quests-rewards-container">
         <div className="incomplete-quests-box">
           <div className="box">
@@ -65,8 +65,10 @@ export default function QuestsBar({ childObject, reRender }) {
                         <div className="child-coin"></div>
 
                         <span className="task-points">
-                          {task.taskPoints} <br />
-                          Coins{" "}
+                          
+                          <span className="larger">{task.taskPoints}</span>
+                          <span className="smaller">Coins</span>
+                          
                         </span>
                       </div>
                     </div>
