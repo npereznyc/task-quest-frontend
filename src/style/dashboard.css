@@ -85,6 +85,17 @@
   justify-content: end;
 }
 
+.child-bar-active{
+  background-color: #A65BD9;
+  display: flex;
+  justify-content: flex-start;
+  color: white;
+  margin-top: 20px;
+  border-radius: 10px;
+  width: 70vw;
+  margin-bottom: 0px;
+}
+
 .add-knight {
   background-color: #0711d9;
   height: 70px;
