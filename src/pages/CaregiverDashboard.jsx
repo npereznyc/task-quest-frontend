@@ -10,7 +10,7 @@ import '../style/dashboard.css'
 
 export default function CaregiverDashboard() {
   return (
-    <div>
+    <div className="caregiver-dashboard">
       <CaregiverNav />
       <ChildList />
       {/* <TaskList /> */}

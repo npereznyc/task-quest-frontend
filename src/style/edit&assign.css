@@ -1,3 +1,8 @@
+.change-btns{
+  display: flex;
+  align-items: center;
+}
+
 .edit-task-btn,
 .edit-assign-btn {
   background-color: #838383;
@@ -9,7 +14,8 @@
   font-size: 18px;
 }
 .update-task,
-.delete-task {
+.delete-task, 
+.assign-child {
   background-color: #0811da;
   border: transparent;
   padding: 5px 40px;
@@ -22,13 +28,17 @@
   background-color: #d93b18;
 }
 .update-task {
-  margin-left: 15vw;
+  margin-left: 35vw;
 }
 .completed-task {
+  display: flex;
+  align-items: center;
 }
 .checkbox {
-  margin-top: 24px;
-  align-content: flex-start;
+  height: 50px;
+  width: 25px;
+  margin-left: 20px;
+  align-items: center;
 }
 .edit-btns {
   display: flex;
@@ -36,4 +46,12 @@
 }
 .edit-div {
   margin-left: 15vw;
+  margin-top: 20px;
+}
+/* ASSIGN TO CHILD */
+.assign-div{
+  margin-left: 15vw;
+}
+.assign-child{
+  margin-left: 50vw;
 }
