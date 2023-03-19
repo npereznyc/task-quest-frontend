@@ -124,6 +124,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
     <div className="quests-rewards">
       <div className="adult-tasks">
         <div className="tasks-header">
+          <div className="taskRunner"></div>
           <h1 className="tasks-title">Tasks</h1>
           <p className="num-adult-tasks">
             <span>{taskIds.length}</span>
@@ -133,7 +134,6 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
       </div>
       <div className="qst">
         <div className="quest-bars">
-          
           {tasks?.map((task, index) => (
             <div className="each-quest" key={index}>
               <div className="assign-name-div">
@@ -143,18 +143,20 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                   <span className="adults-task-coins">
                     {task?.taskPoints} coins
                   </span>
-                  <button
-                    className="edit-task-btn"
-                    onClick={() => toggleAccordion(taskIds[index])}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="edit-assign-btn"
-                    onClick={() => toggleAssignAccordion(taskIds[index])}
-                  >
-                    Assign
-                  </button>
+                  <div className="change-btns">
+                    <button
+                      className="edit-task-btn"
+                      onClick={() => toggleAccordion(taskIds[index])}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className="edit-assign-btn"
+                      onClick={() => toggleAssignAccordion(taskIds[index])}
+                    >
+                      Assign
+                    </button>
+                  </div>
                 </h2>
               </div>
               {activeTaskId === taskIds[index] && (
@@ -193,7 +195,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                         <div className="edit-div completed-task">
                           <label htmlFor="completed">Completed?</label>
                           <Field
-                            className="quest-input-input checkbox"
+                            className="checkbox"
                             type="checkbox"
                             name="completed"
                           />
@@ -209,7 +211,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                           />
                           <ErrorMessage name="taskPoints" />
                         </div>
-                        <br/>
+                        <br />
                         <div className="edit-btns">
                           <button className="update-task" type="submit">
                             Update Task
@@ -238,25 +240,27 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                   >
                     {({ values, errors, touched }) => (
                       <Form className="assign-form">
-                        <div>
-                          <label htmlFor="child">Assign to Child:</label>
-                          <Field as="select" name="child">
-                            <option value="">-- Select a Child --</option>
+                        <div className="assign-div">
+                          <label className="assign-title" htmlFor="child">Assign to Child:</label><br/>
+                          <Field className="assign-field quest-input-input" as="select" name="child">
+                            <option className="assign-face" value="">Select a Child</option>
                             {listOfChildren?.map((child) => (
-                              <option key={child._id} value={child._id}>
+                              <option className="assign-opt" key={child._id} value={child._id}>
                                 {child.childName}
                               </option>
                             ))}
                           </Field>
                         </div>
+                      
                         <button
+                        className="assign-child"
                           type="submit"
                           onClick={() => {
                             const childId = values.child; // obtain the selected child ID from the form values
                             assignTaskToChild(task.id, childId);
                           }}
                         >
-                          Assign to Child
+                          Assign
                         </button>
                       </Form>
                     )}

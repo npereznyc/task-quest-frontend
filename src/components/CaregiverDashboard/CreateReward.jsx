@@ -51,6 +51,7 @@ const CreateReward = ({ caregiverId }) => {
     <div>
       <div className="accordion-header create-new" onClick={toggleAccordion}>
         <h1 className="create-title">
+          <div className="add-Avatar"></div>
           <span className="add-reward">Add Reward</span>
         </h1>
       </div>

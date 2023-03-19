@@ -54,6 +54,7 @@ const CreateTask = ({ caregiverId, setRenderEffect }) => {
       <div className="accordion-header" onClick={toggleAccordion}>
         <div className="create-quest">
           <h1 className="new-quest">
+            <div className="add-Avatar"></div>
             <span className="add-task">Add Task</span></h1>
         </div>
       </div>

@@ -10,6 +10,24 @@
   background-color: rgba(0, 5, 116, 1);
   border-radius: 10px;
 }
+.taskRunner{
+  background-image: url(../assets/TaskRunner.png);
+  background-size: 50px;
+  width: 80px;
+  height: 80px;  
+  margin-left: 10px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.add-Avatar{
+  background-image: url(../assets/Plus.svg);
+  background-size: 40px;
+  width: 50px;
+  height: 50px;  
+  margin-left: 10px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
 .swordAvatar{
   background-image: url(../assets/Sword.png);
   background-size: 60px;
@@ -17,6 +35,22 @@
   height: 60px;
   background-position: center center;
   background-repeat: no-repeat;
+}
+.rewardsIcon{
+  background-image: url(../assets/Rewards.svg);
+    background-size: 80px;
+    width: 90px;
+    height: 90px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.coinIcon{
+  background-image: url(../assets/Coin.svg);
+    background-size: 60px;
+    width: 60px;
+    height: 60px;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 .tasks-title {
   text-align: center;
@@ -73,8 +107,9 @@
 }
 .add-task,
 .add-reward {
-  margin-left: 10vw;
   font-family: "MedievalSharp", cursive;
+  display: flex;
+  align-items: center;
 }
 .open-form {
   padding-top: 10px;
@@ -98,15 +133,14 @@
   border: transparent;
   width: 30vw;
   height: 40px;
+  font-size: 18px;
 }
 textarea {
   border-radius: 10px;
   width: 40vw;
 }
-.create-div {
-}
 
-.create-btn,x
+.create-btn,
 .reward-submit {
   margin-left: 50vw;
   margin-bottom: 40px;
@@ -146,7 +180,9 @@ textarea {
   font-family: "MedievalSharp", cursive;
 }
 .rewards-pt{
-  color:#daa442
+  color:#daa442;
+  display: flex;
+  align-items: center;
 }
 
 .parent-rewards {
@@ -154,7 +190,14 @@ textarea {
   justify-content: center;
 }
 .adults-task-coins{
-  color: #daa442
+  color: #daa442;
+  display: flex;
+  align-items: center;
+
+}
+.adults-task-name{
+  display: flex;
+  align-items: center;
 }
 .rewards-bar {
   display: flex;
