@@ -11,6 +11,7 @@ export default function ChildDashboard() {
   const token = currentUser.token;
   const [child, setChild] = useState(null);
   const [reRender, setReRender] = useState();
+  const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
     const fetchChild = async () => {

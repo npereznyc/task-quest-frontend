@@ -28,10 +28,6 @@ export default function QuestsBar({ childObject, reRender }) {
     listTasks();
   }, [reRender]);
 
-  /*   useEffect(() => {
-      setChild(JSON.parse(localStorage.getItem("child")));
-    }, []); */
-
   const handleCompleteTask = async (taskId) => {
     try {
       console.log(childId);
@@ -46,7 +42,7 @@ export default function QuestsBar({ childObject, reRender }) {
 
   return (
     <div>
-      <h1>{currentUser.childName}</h1>
+      <h1 className="curr-child-nm">{currentUser.childName}</h1>
       <div className="quests-rewards-container">
         <div className="incomplete-quests-box">
           <div className="box">
@@ -61,7 +57,7 @@ export default function QuestsBar({ childObject, reRender }) {
                           className="completeBtn"
                           onClick={() => handleCompleteTask(task._id)}
                         >
-                          
+                          Complete
                         </button>
                         <span className="task-name">{task.taskName}</span>
                       </div>
@@ -76,25 +72,7 @@ export default function QuestsBar({ childObject, reRender }) {
                     </div>
                   </div>
                 ))}
-              {/* </ul> */}
             </div>
-          </div>
-        </div>
-      </div>
-      <div className="quests-rewards-container">
-        <div className="complete-quests-box">
-          <div className="complete-quests">
-            <h3>Completed Quests</h3>
-            <ul>
-              {tasks
-                .filter((task) => task.completed)
-                .map((task) => (
-                  <li key={task._id}>
-                    <span className="task-name">{task.taskName}</span>
-                    <span className="task-name">{task.taskPoints} POINTS </span>
-                  </li>
-                ))}
-            </ul>
           </div>
         </div>
       </div>
