@@ -44,14 +44,17 @@ We hope you find our application useful in managing your family's tasks and rewa
 
   </details>
 
-
-
 <h2>Entity Relationship Diagram</h2>
+<details>
+            <summary>View ERD</summary>
+            <div>
 <img src="https://user-images.githubusercontent.com/107048020/225798973-1a64a6e4-1742-41ff-ad94-cc98994dd047.png"/>
+            </div>
 <br>
+                                    </details>
             
 <h3> 📍View: <a href="https://www.figma.com/file/mxfodlHwimedeEwuBBb3YD/Hackathon23Group1?node-id=20-787&t=GaF6mdx76EJSkugv-0">Complete Wireframes</a></h3>
-<h3>🔗<a href="https://github.com/sylvialchen/task-quest-backend">Link</a> to BackEnd Repo</h3>
+<h3>🔗<a href="https://github.com/sylvialchen/task-quest-backend">Link</a> to BackEnd Reposotory</h3>
 
 ## 👋 Meet the Team
 ### Software Developers📱
