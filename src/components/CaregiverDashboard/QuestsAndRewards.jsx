@@ -23,7 +23,7 @@ export default function QuestsAndRewards() {
     const fetchTasks = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4000/caregiver/${caregiverId}/tasks`
+          `https://quest-runner.herokuapp.com/caregiver/${caregiverId}/tasks`
         );
         const arrayOfIds = response.data.map((obj) => obj._id);
         setArrayOfAllCaregiverTaskIds(arrayOfIds);

@@ -11,7 +11,7 @@ export default function ({ taskIds }) {
     try {
       const taskData = await Promise.all(
         taskIds?.map((id) =>
-          axios.get(`http://localhost:4000/tasks/incompleteandcomplete/${id}`)
+          axios.get(`https://quest-runner.herokuapp.com/tasks/incompleteandcomplete/${id}`)
         )
       );
 

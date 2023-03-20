@@ -13,7 +13,7 @@ const ShowAndEditReward = ({ caregiverId }) => {
   useEffect(() => {
     const fetchRewards = async () => {
       axios
-        .get(`http://localhost:4000/rewards/show/${caregiverId}`)
+        .get(`https://quest-runner.herokuapp.com/rewards/show/${caregiverId}`)
         .then((response) => {
           setRewards(response.data);
         })

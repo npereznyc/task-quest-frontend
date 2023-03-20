@@ -22,7 +22,7 @@ const CaregiverLogin = ({ signIn }) => {
   const formLoginSubmit = async (data) => {
     console.log(data);
     try {
-      const res = await axios.post(URL + `/caregiver/login`, data);
+      const res = await axios.post(`https://quest-runner.herokuapp.com/caregiver/login`, data);
       localStorage.setItem("caregiver", JSON.stringify(res.data));
       console.log(res.data);
       navigate("/caregiverdashboard");

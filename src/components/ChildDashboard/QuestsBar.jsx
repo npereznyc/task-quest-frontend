@@ -13,7 +13,7 @@ export default function QuestsBar({ childObject, reRender }) {
   const listTasks = async () => {
     try {
       const taskData = await Promise.all(
-        taskArray.map((id) => axios.get(`http://localhost:4000/tasks/${id}`))
+        taskArray.map((id) => axios.get(`https://quest-runner.herokuapp.com/tasks/${id}`))
       );
 
       const tasks = taskData.map((response) => response.data);

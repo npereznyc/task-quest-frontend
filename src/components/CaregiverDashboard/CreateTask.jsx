@@ -30,7 +30,7 @@ const CreateTask = ({ caregiverId, setRenderEffect }) => {
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
       console.log(values);
-      const response = await fetch("http://localhost:4000/tasks/", {
+      const response = await fetch("https://quest-runner.herokuapp.com/tasks/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

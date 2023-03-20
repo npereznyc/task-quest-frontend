@@ -22,7 +22,7 @@ const ChildLogin = () => {
   const formLoginSubmit = async (data) => {
     console.log(data);
     try {
-      const res = await axios.post(URL + `/child/login`, data);
+      const res = await axios.post(`https://quest-runner.herokuapp.com/child/login`, data);
       localStorage.setItem("child", JSON.stringify(res.data));
       console.log(res.data);
       navigate("/childdashboard");

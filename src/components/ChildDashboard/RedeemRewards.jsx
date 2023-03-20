@@ -17,7 +17,7 @@ const ShowAndEditReward = ({ caregiverId, setReRender }) => {
     try {
       console.log(childId);
       const response = await axios.get(
-        `http://localhost:4000/child/${childId}`
+        `https://quest-runner.herokuapp.com/child/${childId}`
       );
       const totalPoints = response.data.totalPoints;
       console.log(response);

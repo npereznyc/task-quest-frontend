@@ -24,7 +24,7 @@ const RegisterForm = ({ signUp }) => {
 
   const formRegisterSubmit = async (data) => {
     try {
-      const res = await axios.post(URL + `/caregiver/register`, data);
+      const res = await axios.post(`https://quest-runner.herokuapp.com/caregiver/register`, data);
       localStorage.setItem("caregiver", JSON.stringify(res.data.caregiver));
       const currentUser = JSON.parse(localStorage.getItem("caregiver"));
 

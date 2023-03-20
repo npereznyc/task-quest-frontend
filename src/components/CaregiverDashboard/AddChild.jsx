@@ -36,7 +36,7 @@ const AddChild = ({ setChildRender }) => {
       password,
     };
     try {
-      const res = await axios.post(URL + `/child/create`, payload, {
+      const res = await axios.post(`https://quest-runner.herokuapp.com/child/create`, payload, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
