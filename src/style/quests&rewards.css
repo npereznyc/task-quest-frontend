@@ -58,6 +58,10 @@ display: flex;
   justify-content: space-between;
   margin: 1.25%;
 }
+.each-quest{
+    background-color: #000000;
+margin-top: 20px;
+}
 
 /* NEW QUEST */
 .create-quest,
