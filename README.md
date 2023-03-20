@@ -1,7 +1,6 @@
 # Quest Runner
 
 ## Project Description
-
 Welcome to our project that allows parents to manage their children's tasks and rewards using virtual coins. Our application is built using the MERN stack and includes a user authentication system to ensure secure access to parent and child accounts.
 
 Parents can create their children's accounts and assign tasks that are worth a specified number of coins. Additionally, parents can create rewards that require a certain number of coins to redeem. The application will keep track of each child's completed and incompleted tasks.
@@ -55,12 +54,52 @@ We hope you find our application useful in managing your family's tasks and rewa
                                     </details>
             
 <h3> 📍View: <a href="https://www.figma.com/file/mxfodlHwimedeEwuBBb3YD/Hackathon23Group1?node-id=20-787&t=GaF6mdx76EJSkugv-0">Complete Wireframes</a></h3>
-<h3>🔗<a href="https://github.com/sylvialchen/task-quest-backend">Link</a> to BackEnd Reposotory</h3>
+
+## Installation Steps: 
+<ol>
+<li>Fork and clone this repository.
+
+
+
+
+
+</li>
+<li>In your terminal, 
+</li>
+
+
+```
+$ cd task-quest-frontend
+$ npm install (to install client-side dependencies)
+$ npm start (to start the client)
+```
+
+
+
+<li>
+In a new terminal, 
+</li>
+
+```
+$ cd task-quest-backend
+$ npm install (to install server-side dependencies)
+$ npm i nodemon
+$ nodemon (to start the server)
+```
+
+
+
+
+</ol>
+
+
+
+
+
+
 
 ## 👋 Meet the Team
-
 ### Software Developers📱
-
 → <a href="https://github.com/npereznyc">Natalie Perez</a><br>
 → <a href="https://github.com/sylvialchen">Sylvia Chen</a><br>
 → <a href="https://github.com/EmilyJarecki">Emily Jarecki</a><br>
@@ -68,15 +107,14 @@ We hope you find our application useful in managing your family's tasks and rewa
 → <a href="https://github.com/daryacoding">Darya Abdullahzadeh</a>
 
 ### UI/UX Designers🎨
-
 → <a href="https://www.linkedin.com/in/gerell/">Gerell Allen</a><br>
 → <a href="https://www.linkedin.com/in/flannerywilson/">Flannery Wilson</a><br>
 → <a href="https://www.linkedin.com/in/adrienne-kaplowitz/">Adrienne Kaplowitz</a>
-
-## Roadmap
-
+            
+## Roadmap 
 - [ ] Edit/delete a reward
 - [ ] Assign a reward per child
 - [ ] Fix the relationship between Child and Task, where one child per task
 - [ ] Edit/delete Child
 - [ ] Edit parent
+<h3>🔗<a href="https://github.com/sylvialchen/task-quest-backend">Link</a> to BackEnd Reposotory</h3>
