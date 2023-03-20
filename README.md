@@ -32,12 +32,16 @@ We hope you find our application useful in managing your family's tasks and rewa
 <details>
     <summary>Show Images</summary>
         <div>
-           <img width="528" alt="Screen Shot 2023-03-19 at 7 45 12 PM" src="https://user-images.githubusercontent.com/107048020/226221908-d592ae66-102e-4a98-8840-b3b71cc93be5.png" alt="login-page">
-            <img width="530" alt="Screen Shot 2023-03-19 at 7 42 04 PM" src="https://user-images.githubusercontent.com/107048020/226221948-5eef137e-13e3-4b10-9007-73bd60d56b64.png" alt="parent-dashboard">
-            <img width="528" alt="Screen Shot 2023-03-19 at 7 44 30 PM" src="https://user-images.githubusercontent.com/107048020/226221988-bb1d1627-353c-4c46-b9ec-eca5e497d0f4.png" alt="tasks&rewards">
-            <img width="531" alt="Screen Shot 2023-03-19 at 7 47 09 PM" src="https://user-images.githubusercontent.com/107048020/226222012-c19378db-63c5-418c-9fb6-209d9e88146e.png" alt="child-dashboard">
-            <img width="530" alt="Screen Shot 2023-03-19 at 7 47 32 PM" src="https://user-images.githubusercontent.com/107048020/226222015-734eea17-9f7e-4e61-af3c-fa72fb5bdcab.png" alt="children-completed">
-       </div>
+            <h3>Login<br/>
+<img width="300" alt="Screen Shot 2023-03-19 at 8 15 06 PM" src="https://user-images.githubusercontent.com/107048020/226226334-44f6255e-9fd0-42d6-94b7-75772510f2bd.png">
+<img width="300" alt="Screen Shot 2023-03-19 at 8 15 13 PM" src="https://user-images.githubusercontent.com/107048020/226226336-61cfe324-c8ef-46db-9c51-01fa860142e0.png"><br/>
+                        <h3>Parent Dashboard<br/>
+<img width="300" alt="Screen Shot 2023-03-19 at 8 16 22 PM" src="https://user-images.githubusercontent.com/107048020/226226339-afa00fcd-1b72-4977-9e94-e78fe0d14cb7.png">
+<img width="300" alt="Screen Shot 2023-03-19 at 8 16 38 PM" src="https://user-images.githubusercontent.com/107048020/226226344-2a0cb8c4-1fa5-4d03-813e-0783059f8227.png">
+                                    <h3>Child Dashboard<br/>
+<img width="300" alt="Screen Shot 2023-03-19 at 8 24 58 PM" src="https://user-images.githubusercontent.com/107048020/226226357-156ce007-6e8c-4bad-ae7b-f1d86b737a48.png">
+<img width="300" alt="Screen Shot 2023-03-19 at 8 25 18 PM" src="https://user-images.githubusercontent.com/107048020/226226362-a385a978-89f8-42d5-a6ef-3a0f46aee66d.png">
+
   </details>
 
 
