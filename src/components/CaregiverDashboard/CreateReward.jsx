@@ -29,7 +29,7 @@ const CreateReward = ({ caregiverId }) => {
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
       console.log(values);
-      const response = await fetch("http://localhost:4000/rewards/create", {
+      const response = await fetch("https://quest-runner.herokuapp.com/rewards/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

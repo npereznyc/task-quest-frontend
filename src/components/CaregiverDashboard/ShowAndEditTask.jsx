@@ -31,7 +31,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
     const fetchTasks = async () => {
       const taskData = await Promise.all(
         taskIds?.map((taskId) =>
-          axios.get(`http://localhost:4000/tasks/${taskId}`)
+          axios.get(`https://quest-runner.herokuapp.com/tasks/${taskId}`)
         )
       );
       const taskList = taskData?.map((task, index) => ({
@@ -51,7 +51,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
 
     const fetchChilds = async () => {
       const childData = await axios.get(
-        `http://localhost:4000/caregiver/${caregiverId}/children`
+        `https://quest-runner.herokuapp.com/caregiver/${caregiverId}/children`
       );
       setListOfChildren(childData.data);
       filterChildren();
@@ -74,7 +74,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
 
   const handleSubmit = (values, taskId) => {
     axios
-      .put(`http://localhost:4000/tasks/${taskId}`, values)
+      .put(`https://quest-runner.herokuapp.com/tasks/${taskId}`, values)
       .then(() => {
         console.log("Task updated successfully");
         navigate("/caregiverdashboard/QuestsAndRewards");
@@ -88,7 +88,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
 
   const assignTaskToChild = (taskId, childId) => {
     axios
-      .post(`http://localhost:4000/tasks/${taskId}/${childId}`)
+      .post(`https://quest-runner.herokuapp.com/tasks/${taskId}/${childId}`)
       .then(() => {
         console.log(`Task ${taskId} assigned to child ${childId} successfully`);
       })
@@ -103,7 +103,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
   };
   const handleDeleteSubmit = (taskId) => {
     const res = axios
-      .delete(`http://localhost:4000/tasks/${taskId}/`)
+      .delete(`https://quest-runner.herokuapp.com/tasks/${taskId}/`)
       .then(() => {
         console.log(`Task ${taskId} has been delete successfully`);
         setNumTasks(numTasks - 1);

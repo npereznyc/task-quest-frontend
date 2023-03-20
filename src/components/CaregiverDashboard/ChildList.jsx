@@ -30,7 +30,7 @@ export default function ChildList(props) {
   async function getChildren() {
     let children;
     try {
-      const response = await axios(URL + `/caregiver/${caregiverId}/children`);
+      const response = await axios(`https://quest-runner.herokuapp.com/caregiver/${caregiverId}/children`);
 
       setChildren(response.data);
     } catch (err) {
