@@ -1,6 +1,7 @@
 # Quest Runner
 
 ## Project Description
+
 Welcome to our project that allows parents to manage their children's tasks and rewards using virtual coins. Our application is built using the MERN stack and includes a user authentication system to ensure secure access to parent and child accounts.
 
 Parents can create their children's accounts and assign tasks that are worth a specified number of coins. Additionally, parents can create rewards that require a certain number of coins to redeem. The application will keep track of each child's completed and incompleted tasks.
@@ -27,14 +28,39 @@ We hope you find our application useful in managing your family's tasks and rewa
             <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white"/>
             <img src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB"/>
 </p>
-<h2> Entity Relationship Diagram<br><br>
+
+<h2>Screenshots</h2>
+<details>
+    <summary>Show Images</summary>
+        <div>
+            <h3>Login<br/>
+<img width="300" alt="Screen Shot 2023-03-19 at 8 15 06 PM" src="https://user-images.githubusercontent.com/107048020/226226334-44f6255e-9fd0-42d6-94b7-75772510f2bd.png">
+<img width="300" alt="Screen Shot 2023-03-19 at 8 15 13 PM" src="https://user-images.githubusercontent.com/107048020/226226336-61cfe324-c8ef-46db-9c51-01fa860142e0.png"><br/>
+                        <h3>Parent Dashboard<br/>
+<img width="300" alt="Screen Shot 2023-03-19 at 8 16 22 PM" src="https://user-images.githubusercontent.com/107048020/226226339-afa00fcd-1b72-4977-9e94-e78fe0d14cb7.png">
+<img width="300" alt="Screen Shot 2023-03-19 at 8 16 38 PM" src="https://user-images.githubusercontent.com/107048020/226226344-2a0cb8c4-1fa5-4d03-813e-0783059f8227.png">
+                                    <h3>Child Dashboard<br/>
+<img width="300" alt="Screen Shot 2023-03-19 at 8 24 58 PM" src="https://user-images.githubusercontent.com/107048020/226226357-156ce007-6e8c-4bad-ae7b-f1d86b737a48.png">
+<img width="300" alt="Screen Shot 2023-03-19 at 8 25 18 PM" src="https://user-images.githubusercontent.com/107048020/226226362-a385a978-89f8-42d5-a6ef-3a0f46aee66d.png">
+
+  </details>
+
+<h2>Entity Relationship Diagram</h2>
+<details>
+            <summary>View ERD</summary>
+            <div>
 <img src="https://user-images.githubusercontent.com/107048020/225798973-1a64a6e4-1742-41ff-ad94-cc98994dd047.png"/>
-     <br>
+            </div>
+<br>
+                                    </details>
             
 <h3> 📍View: <a href="https://www.figma.com/file/mxfodlHwimedeEwuBBb3YD/Hackathon23Group1?node-id=20-787&t=GaF6mdx76EJSkugv-0">Complete Wireframes</a></h3>
+<h3>🔗<a href="https://github.com/sylvialchen/task-quest-backend">Link</a> to BackEnd Reposotory</h3>
 
 ## 👋 Meet the Team
+
 ### Software Developers📱
+
 → <a href="https://github.com/npereznyc">Natalie Perez</a><br>
 → <a href="https://github.com/sylvialchen">Sylvia Chen</a><br>
 → <a href="https://github.com/EmilyJarecki">Emily Jarecki</a><br>
@@ -42,9 +68,15 @@ We hope you find our application useful in managing your family's tasks and rewa
 → <a href="https://github.com/daryacoding">Darya Abdullahzadeh</a>
 
 ### UI/UX Designers🎨
+
 → <a href="https://www.linkedin.com/in/gerell/">Gerell Allen</a><br>
 → <a href="https://www.linkedin.com/in/flannerywilson/">Flannery Wilson</a><br>
 → <a href="https://www.linkedin.com/in/adrienne-kaplowitz/">Adrienne Kaplowitz</a>
-            
-          
 
+## Roadmap
+
+- [ ] Edit/delete a reward
+- [ ] Assign a reward per child
+- [ ] Fix the relationship between Child and Task, where one child per task
+- [ ] Edit/delete Child
+- [ ] Edit parent
