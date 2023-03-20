@@ -43,7 +43,7 @@ export default function ChildList(props) {
   }, [childRender]);
 
   return (
-    <div className="children-list-container">
+    <div className="first-half">
       {children.map(
         ({ _id, caregiverId, childName, rewardsArray, taskArray }) => (
           <Child
@@ -61,98 +61,3 @@ export default function ChildList(props) {
     </div>
   );
 }
-
-// function loaded() {
-//   function findChildrenByCaregiver(caregiver) {
-//     let allChildren = [];
-//     for (let i = 0; i < children.length; i++) {
-//       allChildren.push(children[i]);
-
-//       // if (caregiver === children[i].caregiverId) {
-//       //     allChildren.push(children[i])
-//       // }
-//     }
-//     // console.log(allChildren);
-//     return allChildren;
-//   }
-// }
-
-// const allChildren = findChildrenByCaregiver();
-
-// const allChildren = findChildrenByCaregiver(caregiver._id)
-// const isCaregiver = currentUserID === caregiver._id
-
-// <div className="children-list-container">
-//     {allChildren.length ? <>
-//         {caregiver.caregiverName ? <><p>Children Associated With {caregiver.caregiverName}:</p>
-//             <br /></> : null}
-//         <div className="children-list">{allChildren.map((child) => (
-//             <Link to={`/child/${child._id}`} key={child._id}>
-//                 <div className="child">
-//                     {child.caregiverId ? <p>{child.childName}</p> : null}
-//                     {child.taskArray ? <p className="child-tasks">{child.taskArray}</p> : null}
-//                     {child.rewardsArray ? <p className="child-tasks">{child.rewardsArray}</p> : null}
-//                 </div>
-//             </Link>
-//         ))}</div>
-//     </> : <p className="details">There are no children associated with this caregiver</p>}
-// </div>
-
-{
-  /* {allChildren.length ? (
-          <>
-            <div className="children-list">
-              {allChildren.map((child) => (
-                <div className="child" key={child._id}>
-                  {child.caregiverId ? <p>{child.childName}</p> : null}
-                  {child.taskArray.length}
-
-                  {child?.taskArray?.map((taskId) => {
-                    return (
-                      <div>
-                        <Task taskId={taskId} />
-                      </div>
-                    );
-                  })}
-                </div>
-              ))}
-            </div>
-          </>
-        ) : (
-          <p className="details">
-            There are no children associated with this caregiver
-          </p>
-        )}
-        <div>
-          <Link to="/addChild">
-            <button>AddChild</button>
-          </Link>{" "}
-          <br />
-        </div>
-      </div>
-    ); */
-}
-// function loading() {
-//   return (
-//     <h1>
-//       Loading...&nbsp;
-//       <img
-//         width="200px"
-//         className="spinner"
-//         src="https://freesvg.org/img/1544764567.png"
-//         alt="Loading animation"
-//       />
-//     </h1>
-//   );
-// }
-
-// return (
-//   <section className="Children">
-//     {
-//       // children.length &&
-//       // id === caregiver._id ?
-//       loaded()
-//       // : loading()
-//     }
-//   </section>
-// );

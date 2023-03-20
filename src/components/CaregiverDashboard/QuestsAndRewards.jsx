@@ -38,15 +38,21 @@ export default function QuestsAndRewards() {
   return (
     <div className="caregiverDashboardBody">
       <CaregiverNav />
-      <ShowAndEditTask
-        taskIds={arrayOfAllCaregiverTaskIds}
-        setRenderEffect={setRenderEffect}
-      />
-      <CreateTask caregiverId={caregiverId} setRenderEffect={setRenderEffect} />
-      <ShowAndEditReward caregiverId={caregiverId} />
-      <CreateReward caregiverId={caregiverId} />
-      {/* <RewardsEarned /> */}
-      {/* <Tasks /> */}
+      <div className="first-half">
+        <ShowAndEditTask
+          taskIds={arrayOfAllCaregiverTaskIds}
+          setRenderEffect={setRenderEffect}
+        />
+        <CreateTask
+          caregiverId={caregiverId}
+          setRenderEffect={setRenderEffect}
+        />
+      </div>
+
+      <div className="first-half">
+        <ShowAndEditReward caregiverId={caregiverId} />
+        <CreateReward caregiverId={caregiverId} />
+      </div>
     </div>
   );
 }

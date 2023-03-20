@@ -53,8 +53,10 @@ const AddChild = ({ setChildRender }) => {
     <div className="child-register-section">
       <div className="assign-child-side">
         <div className="add-child">
+        
           <h1 className="add-knight" onClick={toggleAccordion}>
-            Add Knight
+          <div className="addUserAvatar"> </div>
+            <span className="addKnight">Add Knight</span>
           </h1>
         </div>
         <div className="add-knight-form">

@@ -36,7 +36,8 @@ export default function ({ taskIds }) {
               <span>
                 {task?.data?.incompletedTask?.map((task, index) => (
                   <div className="quests">
-                    <p> {task?.taskName}</p>
+                    <div className="questSwordAvatar"></div>
+                    <h2> {task?.taskName}</h2>
                     <p className="quest-coins">{task?.taskPoints} coins</p>
                   </div>
                 ))}
@@ -53,7 +54,8 @@ export default function ({ taskIds }) {
               <span>
                 {task?.data?.completedTask?.map((task) => (
                   <div className="quests">
-                  <p> {task?.taskName}</p>
+                    <div className="questSwordAvatar"></div>
+                  <h2> {task?.taskName}</h2>
                   <p className="quest-coins">{task?.taskPoints} coins</p>
                 </div>
                 ))}

@@ -13,7 +13,6 @@ export default function CaregiverDashboard() {
     <div>
       <CaregiverNav />
       <ChildList />
-      {/* <TaskList /> */}
     </div>
   );
 }

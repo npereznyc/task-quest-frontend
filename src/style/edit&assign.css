@@ -1,0 +1,58 @@
+.change-btns{
+  display: flex;
+  align-items: center;
+}
+
+.edit-task-btn,
+.edit-assign-btn {
+  background-color: #838383;
+  border: transparent;
+  border-radius: 10px;
+  width: 75px;
+  height: 35px;
+  color: white;
+  font-size: 18px;
+  margin: 0 10px;
+}
+.update-task,
+.delete-task, 
+.assign-child {
+  background-color: #0811da;
+  border: transparent;
+  padding: 5px 40px;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+.delete-task {
+  background-color: #d93b18;
+}
+.update-task {
+  margin-left: 35vw;
+}
+.completed-task {
+  display: flex;
+  align-items: center;
+}
+.checkbox {
+  height: 50px;
+  width: 25px;
+  margin-left: 20px;
+  align-items: center;
+}
+.edit-btns {
+  display: flex;
+  flex-direction: row;
+}
+.edit-div {
+  margin-left: 15vw;
+  margin-top: 20px;
+}
+/* ASSIGN TO CHILD */
+.assign-div{
+  margin-left: 15vw;
+}
+.assign-child{
+  margin-left: 50vw;
+}

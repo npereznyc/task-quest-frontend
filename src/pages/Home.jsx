@@ -16,6 +16,8 @@ const Home = () => {
         </Link>
       </nav>
     </div>
+    <br/>
+    <br/>
     </>
   )
 }

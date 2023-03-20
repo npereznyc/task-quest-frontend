@@ -6,6 +6,9 @@ import axios from "axios";
 
 const URL = process.env.REACT_APP_SERVER_URL || "http://localhost:4000";
 const RegisterForm = ({ signUp }) => {
+  const [accountCreated, setAccountCreated] = useState(false);
+  const [caregiver, setCaregiver] = useState();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -20,10 +23,14 @@ const RegisterForm = ({ signUp }) => {
   });
 
   const formRegisterSubmit = async (data) => {
-    console.log(data);
     try {
-      await axios.post(URL + `/caregiver/register`, data);
+      const res = await axios.post(URL + `/caregiver/register`, data);
+      localStorage.setItem("caregiver", JSON.stringify(res.data.caregiver));
+      const currentUser = JSON.parse(localStorage.getItem("caregiver"));
+
       reset();
+      setCaregiver(currentUser);
+      setAccountCreated(true);
     } catch (error) {
       console.log(error);
     }
@@ -33,163 +40,88 @@ const RegisterForm = ({ signUp }) => {
     <div className="register-page">
       <div className="random-box"></div>
       <div className="register-side">
-        <h1 className="register-title">JOIN US</h1>
-        <form
-          className="register-form"
-          onSubmit={handleSubmit((data) => {
-            formRegisterSubmit(data);
-          })}
-        >
-          <label className="reg-first" htmlFor="username">
-            Name:{" "}
-          </label>
-          <input
-            className="auth-input"
-            id="cargiverName"
-            name="cargiverName"
-            type="text"
-            {...register("caregiverName", {
-              required: "Caregiver Name is requried.",
-            })}
-            placeholder={`Enter Caregiver Name`}
-          />
-          <br />
+        {accountCreated ? (
+          <>
+            <div>
+              <h1>
+                You're all signed up{" "}
+                {caregiver.caregiverName.charAt(0).toUpperCase() +
+                  caregiver.caregiverName.slice(1)}
+                !
+              </h1>
+              <h2>Add Knights on your dashboard.</h2>
+            </div>
+            <div className="register-btn">
+              <Link className="already-account" to={"/caregiverdashboard"}>
+                <button className="auth-log">Go to Your Dashboard</button>
+              </Link>{" "}
+            </div>
+          </>
+        ) : (
+          <>
+            <h1 className="register-title">JOIN US</h1>
+            <form
+              className="register-form"
+              onSubmit={handleSubmit((data) => {
+                formRegisterSubmit(data);
+              })}
+            >
+              <label className="reg-first" htmlFor="username">
+                Name:{" "}
+              </label>
+              <input
+                className="auth-input"
+                id="cargiverName"
+                name="cargiverName"
+                type="text"
+                {...register("caregiverName", {
+                  required: "Caregiver Name is requried.",
+                })}
+                placeholder={`Enter Caregiver Name`}
+              />
+              <br />
 
-          <label className="reg-email" htmlFor="username">
-            Email:{" "}
-          </label>
-          <input
-            className="auth-input"
-            id="email"
-            name="email"
-            type="email"
-            {...register("email", {
-              required: "Email is requried.",
-            })}
-            placeholder={`Enter email address `}
-          />
-          <br />
-          <label className="reg-password" htmlFor="password">
-            Password:{" "}
-          </label>
-          <input
-            className="auth-input"
-            id="password"
-            name="password"
-            type="password"
-            {...register("password", {
-              required: "Password is requried.",
-            })}
-            placeholder={`Enter password `}
-          />
-          <br />
-          <div className="register-btn">
-            <input className="auth-log" type="submit" value="Sign Up" />
-          </div>
-        </form>
-        <div className="other-register">
-          <p className="or">OR</p>
-          <nav className="two-other-register">
-            <div className="apple-sign">Apple</div>
-            <div className="google-sign">G</div>
-          </nav>
-        </div>
-        <Link className="already-account" to={"/login"}>
-          Already have an account? Login.
-        </Link>
+              <label className="reg-email" htmlFor="username">
+                Email:{" "}
+              </label>
+              <input
+                className="auth-input"
+                id="email"
+                name="email"
+                type="email"
+                {...register("email", {
+                  required: "Email is requried.",
+                })}
+                placeholder={`Enter email address `}
+              />
+              <br />
+              <label className="reg-password" htmlFor="password">
+                Password:{" "}
+              </label>
+              <input
+                className="auth-input"
+                id="password"
+                name="password"
+                type="password"
+                {...register("password", {
+                  required: "Password is requried.",
+                })}
+                placeholder={`Enter password `}
+              />
+              <br />
+              <div className="register-btn">
+                <input className="auth-log" type="submit" value="Sign Up" />
+              </div>
+            </form>
+            
+            <Link className="already-account" to={"/login"}>
+              Already have an account? Login.
+            </Link>{" "}
+          </>
+        )}
       </div>
     </div>
   );
 };
-
-//   const initialState = { username: "", password: "" };
-//   const [input, setInput] = useState(initialState);
-//   const navigate = useNavigate();
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     const createdUserToken = await signUp(input);
-
-//     if (createdUserToken) {
-//       navigate("/caregiver");
-//     } else {
-//       navigate("/");
-//     }
-//     // FORM EMPTIES OUT
-//     setInput(initialState);
-//   };
-
-//   const handleChange = (e) => {
-//     setInput({ ...input, [e.target.name]: e.target.value });
-//   };
-
-//   return (
-//     <div className="register-page">
-//       <div className="random-box"></div>
-//       <div className="register-side">
-//         <h1 className="register-title">JOIN US</h1>
-//         <form className="register-form" onSubmit={handleSubmit}>
-//           <label className="reg-first" htmlFor="username">
-//             First Name:{" "}
-//           </label>
-//           <input
-//             className="auth-input"
-//             id="username"
-//             name="username"
-//             value={input.username}
-//             onChange={handleChange}
-//           />
-//           <br />
-//           <label className="reg-last" htmlFor="username">
-//             Last Name:{" "}
-//           </label>
-//           <input
-//             className="auth-input"
-//             id="username"
-//             name="username"
-//             value={input.username}
-//             onChange={handleChange}
-//           />
-//           <br />
-//           <label className="reg-email" htmlFor="username">
-//             Email:{" "}
-//           </label>
-//           <input
-//             className="auth-input"
-//             id="username"
-//             name="username"
-//             value={input.username}
-//             onChange={handleChange}
-//           />
-//           <br />
-//           <label className="reg-password" htmlFor="password">
-//             Password:{" "}
-//           </label>
-//           <input
-//             className="auth-input"
-//             id="password"
-//             name="password"
-//             value={input.password}
-//             onChange={handleChange}
-//           />
-//           <br />
-//           <div className="register-btn">
-//             <input className="auth-log" type="submit" value="Sign Up" />
-//           </div>
-//         </form>
-//         <div className="other-register">
-//           <p className="or">OR</p>
-//           <nav className="two-other-register">
-//             <div className="apple-sign">Apple</div>
-//             <div className="google-sign">G</div>
-//           </nav>
-//         </div>
-//         <Link className="already-account" to={"/login"}>
-//           Already have an account? Login.
-//         </Link>
-//       </div>
-//     </div>
-//   );
-// };
 
 export default RegisterForm;

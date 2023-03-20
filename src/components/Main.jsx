@@ -11,26 +11,30 @@ import CaregiverDashboard from "../pages/CaregiverDashboard";
 import "../style/login.css";
 import "../style/editTask.css";
 import "../style/quests&rewards.css";
+import "../style/edit&assign.css";
 import "../App.css";
+import "../style/childDashboard.css";
 import QuestsAndRewards from "./CaregiverDashboard/QuestsAndRewards";
 import ChildDashboard from "../pages/ChildDashboard";
-import AddChild from "./CaregiverDashboard/AddChild";
+import ChildCompleted from "./ChildDashboard/ChildCompleted";
 
 
 const Main = () => {
   return (
     <div>
       <Routes>
-
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<WhoLogsIn />} />
         <Route path="/childlogin" element={<ChildLogin />} />
         <Route path="/childdashboard" element={<ChildDashboard />} />
+        <Route path="/caregiverdashboard/completedquests" element={<ChildCompleted />} />
         <Route path="/caregiverlogin" element={<CaregiverLogin />} />
-        <Route path="register" element={<RegisterForm />} />
+        <Route path="/register" element={<RegisterForm />} />
         <Route path="/caregiverdashboard" element={<CaregiverDashboard />} />
-        <Route path="/caregiverdashboard/QuestsAndRewards" element={<QuestsAndRewards />} />
-        {/* <Route path="/addChild" element={<AddChild />} /> */}
+        <Route
+          path="/caregiverdashboard/QuestsAndRewards"
+          element={<QuestsAndRewards />}
+        />
         <Route path="/tasksrewards" />
       </Routes>
     </div>

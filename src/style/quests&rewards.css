@@ -1,68 +1,278 @@
+.adult-tasks {
+  display: flex;
+  justify-content: center;
+}
+.tasks-header {
+  margin-top: 40px;
+  display: flex;
+  width: 70vw;
+  background-color: rgba(0, 5, 116, 1);
+  border-radius: 10px;
+  justify-content: space-between;
+}
+.icon-word{
+display: flex;
+}
+.tasks-title {
+  text-align: center;
+  font-family: "MedievalSharp", cursive;
+}
+.sword {
+  background-image: url(../assets/Sword.png);
+  background-color: #daa442;
+}
 .qst {
   display: flex;
   justify-content: center;
 }
-.num-adult-tasks {
+.num-adult-tasks, .adult-total-rewards {
   text-align: center;
+  color: white;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  margin-right: 3rem;
+  align-items: center;
+  margin-top: 0;
+}
+.num-num, .number{
+  height: 44px;
+  font-size: 32px;
 }
 .quest-bars {
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 70vw;
+  margin-bottom: 20px;
 }
-.each-quest {
+
+.individual-quest {
   color: white;
   background-color: #000000;
   margin-top: 20px;
   padding: 10px;
-  border-radius: 10px;
 }
+
 .each-quest-detail {
   display: flex;
   justify-content: space-between;
+  margin: 1.25%;
 }
-.assign-quest-section {
+.each-quest{
+    background-color: #000000;
+margin-top: 20px;
+}
+
+/* NEW QUEST */
+.create-quest,
+.create-new {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
 }
-.assign-quest {
-  text-align: center;
+.create-quest{
+  margin-top: -20px;
 }
-.assign-quest-div {
+.new-quest,
+.create-title {
+  width: 70vw;
+  padding: 20px 0;
+  background-color: #0811da;
+  font-family: "MedievalSharp", cursive;
   display: flex;
-  flex-direction: column;
 }
-.assign-quest-per-child {
+.add-task,
+.add-reward {
+  font-family: "MedievalSharp", cursive;
   display: flex;
   align-items: center;
-  flex-direction: column;
-}
-.assign-child-quest {
-  margin-top: 20px;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: #0811da;
-  width: 500px;
   color: white;
 }
-.assign-form {
+.open-form {
+  padding-top: 10px;
   display: flex;
   justify-content: center;
 }
-.create-quest {
+.new-quest-form,
+.reward-form {
+  margin-top: -32px;
+  width: 70vw;
+  background-color: rgba(9, 8, 218, 0.16);
+  border: 1px solid black;
+  margin-bottom: 40px;
+}
+.quest-input {
+  color: white;
+  margin-top: 20px;
+  margin-left: 15vw;
+}
+.quest-input-input {
+  border-radius: 10px;
+  border: transparent;
+  width: 30vw;
+  height: 40px;
+  font-size: 18px;
+}
+textarea {
+  border-radius: 10px;
+  width: 40vw;
+}
+
+.create-btn,
+.reward-submit {
+  margin-left: 50vw;
+  margin-bottom: 40px;
+  margin-top: 20px;
+  background-color: #0811da;
+  border: transparent;
+  padding: 5px 40px;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+}
+/* REWARDS */
+.rewards-header-div {
+  margin-top: 40px;
   display: flex;
   justify-content: center;
 }
-.new-quest {
-    padding: 10px;
-  width: 500px;
-  background-color: red;
+.rewards-header {
+  display: flex;
+  width: 70vw;
+  justify-content: space-between;
+  background-color: rgba(0, 5, 116, 1);
   border-radius: 10px;
 }
-.open-form{
-    display: flex;
-    justify-content: center;
+.rewards-title {
+  text-align: center;
+  color: white;
+  font-family: "MedievalSharp", cursive;
+display: flex;
+align-items: center;
+margin: 0
 }
-.new-quest-form{
-width: 500px
+.adult-total-rewards {
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+.rewards-nm,
+.rewards-pt {
+  font-family: "MedievalSharp", cursive;
+}
+.rewards-pt{
+  color:#daa442;
+  display: flex;
+  align-items: center;
+  margin-right: 3rem;
+  font-size: 24px;
+}
+
+.parent-rewards {
+  display: flex;
+  justify-content: center;
+}
+.adults-task-coins{
+  color: #daa442;
+  display: flex;
+  align-items: center;
+  
+}
+.adults-task-name{
+  display: flex;
+  align-items: center;
+  color: white;
+}
+.rewards-bar, .individual-quest {
+  display: flex;
+  width: 70vw;
+  justify-content: space-between;
+  margin-top: 20px;
+  background-color: black;
+  color: white;
+  height: 76px;
+  padding: 10px 0;
+}
+.coin-word{
+  display: flex;
+}
+/* CREATE REWARDS */
+.reward-form-div {
+  display: flex;
+  justify-content: center;
+}
+.reward-form {
+  color: white;
+  margin-top: -25px;
+  margin-bottom: 80px;
+}
+.first-reward-add {
+  margin-top: 10px;
+}
+.add-reward-input-div {
+  margin-left: 15vw;
+  margin-top: 20px;
+}
+/* ICONS */
+.taskRunner{
+  background-image: url(../assets/TaskRunner.png);
+  background-size: 50px;
+  width: 80px;
+  height: 80px;  
+  margin-left: 10px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.add-Avatar{
+  background-image: url(../assets/Plus.svg);
+  background-size: 40px;
+  width: 50px;
+  height: 50px;  
+  margin-left: 10px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.swordAvatar{
+  background-image: url(../assets/Sword.png);
+  background-size: 60px;
+  width: 60px;
+  height: 60px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin-right: 20px;
+}
+.rewardsIcon{
+  background-image: url(../assets/Rewards.svg);
+    background-size: 80px;
+    width: 80px;
+    height: 80px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.coinIcon{
+  background-image: url(../assets/Coin.svg);
+    background-size: 60px;
+    width: 60px;
+    height: 100%;
+    margin-left: 15px;
+    margin-right: 20px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.ch-rw-br{
+  display: flex;
+}
+.first-half{
+  width: 80%;
+  height: 80%;
+  background-color: #3d3751;
+  border: 2px solid #977a99;
+  border-radius: 5px;
+  opacity: 90%;
+  margin: 30px;
+  transform: translateX(10%);
+  margin-bottom: 5rem;
 }

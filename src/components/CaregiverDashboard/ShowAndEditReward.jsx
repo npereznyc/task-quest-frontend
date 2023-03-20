@@ -42,16 +42,33 @@ const ShowAndEditReward = ({ caregiverId }) => {
 
   return (
     <div>
-      <h1 className="rewards-title">Rewards</h1>
+      <div className="rewards-header-div">
+        <div className="rewards-header">
+          <h1 className="rewards-title">
+            {" "}
+            <div className="rewardsIcon"></div>
+            Rewards
+          </h1>
 
-      <h4 className="adult-total-rewards">Total Rewards: {rewards.length}</h4>
-      <div>
-        {rewards.map((reward, index) => (
-          <div className="rewards-bar" key={index}>
-            <h2 className="">{reward.rewardName} </h2>
-            <h3 className="">{reward.rewardPoints} coins</h3>
-          </div>
-        ))}
+          <h4 className="adult-total-rewards">
+            <span className="num-num">{rewards.length}</span>
+            <span>Total Rewards</span>
+          </h4>
+        </div>
+      </div>
+      <div className="parent-rewards">
+        <div className="reward-div">
+          {rewards.map((reward, index) => (
+            <div className="rewards-bar" key={index}>
+              <div className="coin-word">
+                <div className="coinIcon"></div>
+                <h2 className="rewards-nm">{reward.rewardName} </h2>
+              </div>
+
+              <h3 className="rewards-pt">{reward.rewardPoints} coins</h3>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

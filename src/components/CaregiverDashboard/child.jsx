@@ -61,11 +61,13 @@ export default function Child({
     }
     setTotalCompleted(completed);
   };
+  const accordionHeaderClassName = isOpen ? "child-bar-active" : "child-bar";
 
   return (
     <div className="child-bars">
       <div className="child-section">
-        <div className="child-bar" onClick={toggleAccordion}>
+        <div className={accordionHeaderClassName} onClick={toggleAccordion}>
+        <div className="childAvatar"></div>
           <h1 className="child-name"> {childName}</h1>
           <div className="content">
 
