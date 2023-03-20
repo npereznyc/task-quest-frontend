@@ -54,7 +54,49 @@ We hope you find our application useful in managing your family's tasks and rewa
                                     </details>
             
 <h3> 📍View: <a href="https://www.figma.com/file/mxfodlHwimedeEwuBBb3YD/Hackathon23Group1?node-id=20-787&t=GaF6mdx76EJSkugv-0">Complete Wireframes</a></h3>
-<h3>🔗<a href="https://github.com/sylvialchen/task-quest-backend">Link</a> to BackEnd Reposotory</h3>
+
+## Installation Steps: 
+<ol>
+<li>Fork and clone this repository.
+
+
+
+
+
+</li>
+<li>In your terminal, 
+</li>
+
+
+```
+$ cd task-quest-frontend
+$ npm install (to install client-side dependencies)
+$ npm start (to start the client)
+```
+
+
+
+<li>
+In a new terminal, 
+</li>
+
+```
+$ cd task-quest-backend
+$ npm install (to install server-side dependencies)
+$ npm i nodemon
+$ nodemon (to start the server)
+```
+
+
+
+
+</ol>
+
+
+
+
+
+
 
 ## 👋 Meet the Team
 ### Software Developers📱
@@ -75,4 +117,5 @@ We hope you find our application useful in managing your family's tasks and rewa
 - [ ] Fix the relationship between Child and Task, where one child per task
 - [ ] Edit/delete Child
 - [ ] Edit parent
+<h3>🔗<a href="https://github.com/sylvialchen/task-quest-backend">Link</a> to BackEnd Reposotory</h3>
 
