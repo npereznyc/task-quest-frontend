@@ -27,9 +27,24 @@ We hope you find our application useful in managing your family's tasks and rewa
             <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white"/>
             <img src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB"/>
 </p>
-<h2> Entity Relationship Diagram<br><br>
+
+<h2>Screenshots</h2>
+<details>
+    <summary>Show Images</summary>
+        <div>
+           <img width="528" alt="Screen Shot 2023-03-19 at 7 45 12 PM" src="https://user-images.githubusercontent.com/107048020/226221908-d592ae66-102e-4a98-8840-b3b71cc93be5.png" alt="login-page">
+            <img width="530" alt="Screen Shot 2023-03-19 at 7 42 04 PM" src="https://user-images.githubusercontent.com/107048020/226221948-5eef137e-13e3-4b10-9007-73bd60d56b64.png" alt="parent-dashboard">
+            <img width="528" alt="Screen Shot 2023-03-19 at 7 44 30 PM" src="https://user-images.githubusercontent.com/107048020/226221988-bb1d1627-353c-4c46-b9ec-eca5e497d0f4.png" alt="tasks&rewards">
+            <img width="531" alt="Screen Shot 2023-03-19 at 7 47 09 PM" src="https://user-images.githubusercontent.com/107048020/226222012-c19378db-63c5-418c-9fb6-209d9e88146e.png" alt="child-dashboard">
+            <img width="530" alt="Screen Shot 2023-03-19 at 7 47 32 PM" src="https://user-images.githubusercontent.com/107048020/226222015-734eea17-9f7e-4e61-af3c-fa72fb5bdcab.png" alt="children-completed">
+       </div>
+  </details>
+
+
+
+<h2>Entity Relationship Diagram</h2>
 <img src="https://user-images.githubusercontent.com/107048020/225798973-1a64a6e4-1742-41ff-ad94-cc98994dd047.png"/>
-     <br>
+<br>
             
 <h3> 📍View: <a href="https://www.figma.com/file/mxfodlHwimedeEwuBBb3YD/Hackathon23Group1?node-id=20-787&t=GaF6mdx76EJSkugv-0">Complete Wireframes</a></h3>
 <h3>🔗<a href="https://github.com/sylvialchen/task-quest-backend">Link</a> to BackEnd Repo</h3>
@@ -47,5 +62,10 @@ We hope you find our application useful in managing your family's tasks and rewa
 → <a href="https://www.linkedin.com/in/flannerywilson/">Flannery Wilson</a><br>
 → <a href="https://www.linkedin.com/in/adrienne-kaplowitz/">Adrienne Kaplowitz</a>
             
-          
+## Roadmap 
+- [ ] Edit/delete a reward
+- [ ] Assign a reward per child
+- [ ] Fix the relationship between Child and Task, where one child per task
+- [ ] Edit/delete Child
+- [ ] Edit parent
 
