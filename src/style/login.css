@@ -246,4 +246,23 @@ a {
     justify-content: center;
     align-items: center;
   }
+
+  .task-runner{
+    margin-bottom: 50px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+.login-heading{
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+.task-master, .task-runner{
+  width: 200px;
+  font-size: 18px;
+  padding: 0;
+}
+.task-master{
+  margin-bottom: 50px;
+}
 }
