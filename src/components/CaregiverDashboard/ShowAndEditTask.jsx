@@ -103,7 +103,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
   };
   const handleDeleteSubmit = (taskId) => {
     const res = axios
-      .delete(`http://localhost:4000/tasks/${taskId}/`)
+      .delete(`https://quest-runner.herokuapp.com/tasks/${taskId}/`)
       .then(() => {
         console.log(`Task ${taskId} has been delete successfully`);
         setNumTasks(numTasks - 1);
@@ -242,6 +242,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                       </Form>
                     )}
                   </Formik>
+                  
                 </div>
               )}
               {activeAssignId === taskIds[index] && (

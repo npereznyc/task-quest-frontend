@@ -55,7 +55,7 @@
 
 .task-details {
   position: relative;
-  z-index: -100;
+  z-index: 0;
   background-color: #a75cd979;
   border-radius: 0px 0px 15px 15px;
   margin-top: -5px;

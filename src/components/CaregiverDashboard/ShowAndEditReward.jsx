@@ -36,14 +36,16 @@ const ShowAndEditReward = ({ caregiverId, setRenderEffect }) => {
     cashedIn: Yup.number(),
   });
 
-  const handleDeleteSubmit = async (rewardId) => {
-    try {
-      await axios.delete(`https://quest-runner.herokuapp.com/rewards/${rewardId}`);
-      setRenderEffect(Math.random()); //update state to force component to re-render
-      
-    } catch (error) {
-      console.log(error);
-    }
+
+
+  const handleDeleteSubmit = (rewardId) => {
+    const res = axios
+      .delete(`https://quest-runner.herokuapp.com/rewards/${rewardId}`)
+      .then(() => {
+        console.log(`Reward ${rewardId} has been deleted successfully`);
+        setRenderEffect(res);
+      })
+      .catch((error) => console.log(error));
   };
 
   if (!isLoaded) {
@@ -76,7 +78,7 @@ const ShowAndEditReward = ({ caregiverId, setRenderEffect }) => {
               </div>
 
               <h3 className="rewards-pt">{reward.rewardPoints} coins</h3>
-              <button
+              {/* <button
                 className="delete-reward"
                 type="submit"
                 onClick={() => {
@@ -84,7 +86,7 @@ const ShowAndEditReward = ({ caregiverId, setRenderEffect }) => {
                 }}
               >
                 Delete Reward
-              </button>
+              </button> */}
             </div>
           ))}
         </div>
