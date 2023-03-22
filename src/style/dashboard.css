@@ -52,7 +52,7 @@
 .quests-complete {
   width: 70vw;
 }
-.add-knight-form,
+
 .task-details {
   position: relative;
   z-index: -100;
@@ -76,17 +76,16 @@
   width: 70vw;
   margin-bottom: 0px;
 }
-.add-knight-form {
-  color: white;
-  text-align: left;
-}
+
+
+
+
 .child-bar:nth-child() {
   display: flex;
   justify-content: end;
 }
 
 .child-bar-active {
-  background-color: #a65bd9;
   display: flex;
   justify-content: flex-start;
   color: white;
@@ -150,15 +149,41 @@
   display: flex;
   flex-direction: column;
   margin: 20px;
-}
 
+}
+.register-child-form{
+  width: 70vw;
+  margin-left: 3vw;
+  background-color: rgba(9, 8, 218, 0.16);
+  margin-top: -5px;
+  z-index: 0;
+  border: 1px solid black;
+  border-top: transparent;
+
+}
+.reg-first, .reg-email, .reg-password{
+  color: white;
+}
+.name-sec{
+  margin-top: 30px;
+}
+.name-sec, .user-sec, .pass-sec{
+  display: flex;
+  flex-direction: column;
+  transform: translateX(25%);
+}
+.auth-input{
+  width: 30vw;
+}
+.child-register-btn{
+  margin-right: 20vw;
+}
 .register-name {
   margin-top: 20px;
 }
 
 .register-div {
   display: flex;
-  /* justify-content: flex-end; */
 }
 
 .auth-input {
