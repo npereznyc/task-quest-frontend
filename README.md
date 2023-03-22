@@ -118,5 +118,5 @@ $ nodemon (to start the server)
 - [ ] Fix the relationship between Child and Task, where one child per task
 - [ ] Edit/delete Child
 - [ ] Edit parent
-<h3>🔗<a href="https://github.com/sylvialchen/task-quest-backend">Link</a> to BackEnd Reposotory</h3>
+<h3>🔗<a href="https://github.com/sylvialchen/task-quest-backend">Link</a> to BackEnd Repository</h3>
 
