@@ -77,10 +77,10 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
       .put(`https://quest-runner.herokuapp.com/tasks/${taskId}`, values)
       .then(() => {
         console.log("Task updated successfully");
-        navigate("/caregiverdashboard/QuestsAndRewards");
       })
       .catch((err) => console.log(err));
   };
+
 
   if (!isLoaded) {
     return <div>Loading...</div>; // show loading message while API call is in progress
@@ -101,15 +101,15 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
     );
     setListOfChildrenWithoutTask(newList);
   };
-  const handleDeleteSubmit = (rewardId) => {
-    axios
-      .delete(`https://quest-runner.herokuapp.com/rewards/${rewardId}`)
-      .then((response) => {
-        setRenderEffect((prev) => prev + 1); // trigger re-render to update reward list
+  const handleDeleteSubmit = (taskId) => {
+    const res = axios
+      .delete(`http://localhost:4000/tasks/${taskId}/`)
+      .then(() => {
+        console.log(`Task ${taskId} has been delete successfully`);
+        setNumTasks(numTasks - 1);
+        setRenderEffect(res);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((err) => console.log(err));
   };
 
   const handleChildClick = (childId) => {
@@ -175,6 +175,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                   >
                     {({ values, errors, touched }) => (
                       <Form>
+                        
                         <div className="edit-div">
                           <label htmlFor="taskName">Task Name</label>
                           <br />
@@ -200,7 +201,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                         </div>
 
                         <div className="edit-div completed-task">
-                          <label htmlFor="completed">Completed?</label>
+                          <label className="completed-question"htmlFor="completed">Completed?</label>
                           <Field
                             className="checkbox"
                             type="checkbox"

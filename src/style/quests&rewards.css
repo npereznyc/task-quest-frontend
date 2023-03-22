@@ -25,6 +25,9 @@ display: flex;
   display: flex;
   justify-content: center;
 }
+.completed-question{
+  color: white;
+}
 .num-adult-tasks, .adult-total-rewards {
   text-align: center;
   color: white;
