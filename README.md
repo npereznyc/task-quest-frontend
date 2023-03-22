@@ -1,5 +1,5 @@
 # Quest Runner
-<h3>View it <a href="https://quest-runner.netlify.app/">Live</a></h3>
+<h3>💫View it <a href="https://quest-runner.netlify.app/">Live</a></h3>
 <h2> Project Description</h2>
 Welcome to our project that allows parents to manage their children's tasks and rewards using virtual coins. Our application is built using the MERN stack and includes a user authentication system to ensure secure access to parent and child accounts.
 </p>
