@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 const URL = process.env.REACT_APP_SERVER_URL || "http://localhost:4000";
-const AddChild = () => {
+const AddChild = ({ setChildRender }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleAccordion = () => {
     setIsOpen(!isOpen);
@@ -34,12 +34,13 @@ const AddChild = () => {
       password,
     };
     try {
-      await axios.post(`https://quest-runner.herokuapp.com/child/create`, payload, {
+      const res = await axios.post(`https://quest-runner.herokuapp.com/child/create`, payload, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       });
+      setChildRender(res.data);
       reset();
     } catch (error) {
       console.log(error);
