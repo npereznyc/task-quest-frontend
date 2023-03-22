@@ -101,15 +101,15 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
     );
     setListOfChildrenWithoutTask(newList);
   };
-  const handleDeleteSubmit = (taskId) => {
-    const res = axios
-      .delete(`https://quest-runner.herokuapp.com/tasks/${taskId}/`)
-      .then(() => {
-        console.log(`Task ${taskId} has been delete successfully`);
-        setNumTasks(numTasks - 1);
-        setRenderEffect(res);
+  const handleDeleteSubmit = (rewardId) => {
+    axios
+      .delete(`https://quest-runner.herokuapp.com/rewards/${rewardId}`)
+      .then((response) => {
+        setRenderEffect((prev) => prev + 1); // trigger re-render to update reward list
       })
-      .catch((err) => console.log(err));
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const handleChildClick = (childId) => {
