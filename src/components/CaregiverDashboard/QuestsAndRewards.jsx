@@ -1,8 +1,5 @@
 import React from "react";
 import CaregiverNav from "./CaregiverNav";
-// import ChildList from '../components/CaregiverDashboard/ChildList'
-// import RewardsEarned from '../components/CaregiverDashboard/RewardsEarned'
-// import Tasks from '../components/CaregiverDashboard/Tasks'
 import CreateReward from "./CreateReward";
 import CreateTask from "./CreateTask";
 import ShowAndEditReward from "./ShowAndEditReward";
@@ -50,8 +47,14 @@ export default function QuestsAndRewards() {
       </div>
 
       <div className="first-half">
-        <ShowAndEditReward caregiverId={caregiverId} />
-        <CreateReward caregiverId={caregiverId} />
+        <ShowAndEditReward
+          caregiverId={caregiverId}
+          setRenderEffect={setRenderEffect}
+        />
+        <CreateReward
+          caregiverId={caregiverId}
+          setRenderEffect={setRenderEffect}
+        />
       </div>
     </div>
   );

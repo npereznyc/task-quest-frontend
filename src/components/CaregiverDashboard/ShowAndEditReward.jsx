@@ -4,7 +4,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 
-const ShowAndEditReward = ({ caregiverId }) => {
+const ShowAndEditReward = ({ caregiverId, setRenderEffect }) => {
   console.log("caregiver/reward: ", caregiverId);
   const navigate = useNavigate();
   const [rewards, setRewards] = useState([]);
@@ -36,6 +36,18 @@ const ShowAndEditReward = ({ caregiverId }) => {
     cashedIn: Yup.number(),
   });
 
+
+
+  const handleDeleteSubmit = (rewardId) => {
+    const res = axios
+      .delete(`https://quest-runner.herokuapp.com/rewards/${rewardId}`)
+      .then(() => {
+        console.log(`Reward ${rewardId} has been deleted successfully`);
+        setRenderEffect(res);
+      })
+      .catch((error) => console.log(error));
+  };
+
   if (!isLoaded) {
     return <div>Loading...</div>; // show loading message while API call is in progress
   }
@@ -66,6 +78,15 @@ const ShowAndEditReward = ({ caregiverId }) => {
               </div>
 
               <h3 className="rewards-pt">{reward.rewardPoints} coins</h3>
+              {/* <button
+                className="delete-reward"
+                type="submit"
+                onClick={() => {
+                  handleDeleteSubmit(reward._id);
+                }}
+              >
+                Delete Reward
+              </button> */}
             </div>
           ))}
         </div>

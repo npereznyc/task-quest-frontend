@@ -12,7 +12,7 @@ const validationSchema = Yup.object().shape({
   cashedIn: Yup.number(),
 });
 
-const CreateReward = ({ caregiverId }) => {
+const CreateReward = ({ caregiverId, setRenderEffect }) => {
   const initialValues = {
     caregiverId,
     rewardName: "",
@@ -39,6 +39,7 @@ const CreateReward = ({ caregiverId }) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
+      setRenderEffect(response);
       resetForm();
     } catch (error) {
       console.error("There was an error!", error);

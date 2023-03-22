@@ -77,10 +77,10 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
       .put(`https://quest-runner.herokuapp.com/tasks/${taskId}`, values)
       .then(() => {
         console.log("Task updated successfully");
-        navigate("/caregiverdashboard/QuestsAndRewards");
       })
       .catch((err) => console.log(err));
   };
+
 
   if (!isLoaded) {
     return <div>Loading...</div>; // show loading message while API call is in progress
@@ -175,6 +175,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                   >
                     {({ values, errors, touched }) => (
                       <Form>
+                        
                         <div className="edit-div">
                           <label htmlFor="taskName">Task Name</label>
                           <br />
@@ -200,7 +201,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                         </div>
 
                         <div className="edit-div completed-task">
-                          <label htmlFor="completed">Completed?</label>
+                          <label className="completed-question"htmlFor="completed">Completed?</label>
                           <Field
                             className="checkbox"
                             type="checkbox"
@@ -241,6 +242,7 @@ const ShowAndEditTask = ({ taskIds, setRenderEffect }) => {
                       </Form>
                     )}
                   </Formik>
+                  
                 </div>
               )}
               {activeAssignId === taskIds[index] && (
