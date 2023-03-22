@@ -2,9 +2,10 @@
 <h3>View it <a href="https://quest-runner.netlify.app/">Live</a></h3>
 <h2> Project Description</h2>
 Welcome to our project that allows parents to manage their children's tasks and rewards using virtual coins. Our application is built using the MERN stack and includes a user authentication system to ensure secure access to parent and child accounts.
-
+</p>
+<p>
 Parents can create their children's accounts and assign tasks that are worth a specified number of coins. Additionally, parents can create rewards that require a certain number of coins to redeem. The application will keep track of each child's completed and incompleted tasks.
-
+</p>
 Children can view their assigned tasks and mark them as completed. Once they earn enough coins, they can redeem rewards created by their parents. The application has a user-friendly interface to make navigation and interaction easy for children.
 
 We hope you find our application useful in managing your family's tasks and rewards.
